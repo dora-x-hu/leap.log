@@ -34,9 +34,9 @@ const socketManager = require("./server-socket");
 // Server configuration below
 // TODO change connection URL after setting up your team database
 const mongoConnectionURL =
-  "mongodb+srv://ellen660:Chubbyheek2134=@cluster0.oyrax.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
+  "mongodb+srv://ellen660:Chubbyheek2134=@cluster0.oyrax.mongodb.net/Frogs?retryWrites=true&w=majority";
 // TODO change database name to the name you chose
-const databaseName = "FILL ME IN";
+const databaseName = "Frogs";
 
 // connect to mongodb
 mongoose
