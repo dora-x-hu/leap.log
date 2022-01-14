@@ -10,6 +10,7 @@
 const express = require("express");
 
 // import models so we can interact with the database
+//DONE
 const User = require("./models/user");
 const Category = require("./models/category");
 const JounralEntry = require("./models/journalEntry");
@@ -45,6 +46,8 @@ router.post("/initsocket", (req, res) => {
 // |------------------------------|
 // | write your API methods below!|
 // |------------------------------|
+
+router.get("/responses", (req, res));
 
 // anything else falls to this "not found" case
 router.all("*", (req, res) => {
