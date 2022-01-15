@@ -3,6 +3,9 @@ import GoogleLogin, { GoogleLogout } from "react-google-login";
 
 import "../../utilities.css";
 import "./Skeleton.css";
+import Week from "./Week.js";
+import NavBar from "../modules/navbar.js";
+import Login from "../modules/Login.js";
 
 //TODO: REPLACE WITH YOUR OWN CLIENT_ID
 const GOOGLE_CLIENT_ID = "379531489685-7mgu977nsn7s5ei091hilu992i1vnch8.apps.googleusercontent.com";
@@ -10,23 +13,11 @@ const GOOGLE_CLIENT_ID = "379531489685-7mgu977nsn7s5ei091hilu992i1vnch8.apps.goo
 const Skeleton = ({ userId, handleLogin, handleLogout }) => {
   return (
     <>
-      {userId ? (
-        <GoogleLogout
-          clientId={GOOGLE_CLIENT_ID}
-          buttonText="Logout"
-          onLogoutSuccess={handleLogout}
-          onFailure={(err) => console.log(err)}
-        />
-      ) : (
-        <GoogleLogin
-          clientId={GOOGLE_CLIENT_ID}
-          buttonText="Login"
-          onSuccess={handleLogin}
-          onFailure={(err) => console.log(err)}
-        />
-      )}
-      <h1>Good luck on your project :)</h1>
-      <h2> What you need to change in this skeleton</h2>
+      <Login userId={userId} handleLogin={handleLogin} handleLogout={handleLogout} />
+      <h1 className="Skeleton-heading1">
+        Welcome to Leap.Log, an easy to use and aesthetic journal{" "}
+      </h1>
+      <h2> Login to get started, or explore our pages</h2>
       <ul>
         <li>
           Change the Frontend CLIENT_ID (Skeleton.js) to your team's CLIENT_ID (obtain this at

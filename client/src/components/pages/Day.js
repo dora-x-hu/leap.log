@@ -1,9 +1,10 @@
 import React, { Component } from "react";
 
+//day as a state
 const Day = (props) => {
   return (
     <>
-      <div>IDK what's going on</div>
+      <div>IK what's going on</div>
     </>
   );
 };
