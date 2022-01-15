@@ -1,0 +1,41 @@
+.flex {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  flex-grow: 1;
+}
+
+.item {
+  padding: auto;
+}
+
+.nav-item {
+  color: #ffede1;
+  background-color: #1bb091;
+  text-decoration: none;
+  font-size: 20px;
+  padding: 18px 220px;
+  text-align: center;
+}
+
+.nav-item:hover {
+  opacity: 0.8;
+}
+
+.navbar-nav {
+  padding: 20px;
+  margin: 0;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+}
+
+.nav-left {
+  border-top-left-radius: 100px;
+  border-bottom-left-radius: 100px;
+}
+
+.nav-right {
+  border-top-right-radius: 100px;
+  border-bottom-right-radius: 100px;
+}

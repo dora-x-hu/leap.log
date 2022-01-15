@@ -8,6 +8,7 @@ import "../utilities.css";
 import { socket } from "../client-socket.js";
 
 import { get, post } from "../utilities";
+import NavBar from "./modules/navbar.js";
 
 /**
  * Define the "App" component
@@ -40,6 +41,8 @@ const App = () => {
 
   return (
     <>
+      <NavBar />
+
       <Router>
         <Skeleton path="/" handleLogin={handleLogin} handleLogout={handleLogout} userId={userId} />
         <NotFound default />
