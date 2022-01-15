@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 const QuestionSchema = new mongoose.Schema({
-  cateogry_id: String, //which category it is, Category is another schema
+  category_id: String, //which category it is, Category is another schema
   content: String,
   user_id: String,
   isSelected: Boolean,

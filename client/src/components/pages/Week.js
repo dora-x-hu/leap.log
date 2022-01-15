@@ -3,7 +3,7 @@ import React, { Component } from "react";
 const Week = (props) => {
   return (
     <>
-      <div>"Week" more like WEAK</div>
+      <section>Week of [start - end]</section>
     </>
   );
 };

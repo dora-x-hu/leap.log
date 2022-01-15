@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 
+//day as a state
 const Day = (props) => {
   const [state1, setState1] = useState();
 
