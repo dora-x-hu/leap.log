@@ -20,6 +20,11 @@ import { get, post } from "../utilities";
 const App = () => {
   const [userId, setUserId] = useState(undefined);
 
+  // categories as a state
+
+  // questions as a state
+  //const [questions, set]
+
   useEffect(() => {
     get("/api/whoami").then((user) => {
       if (user._id) {
@@ -47,10 +52,10 @@ const App = () => {
     <>
       <Router>
         <Skeleton path="/" handleLogin={handleLogin} handleLogout={handleLogout} userId={userId} />
-        <Day path="/day" />
-        <Week path="/week" />
-        <Month path="/month" />
-        <Ask path="/ask" />
+        <Day path="/day" userId={userId} />
+        <Week path="/week" userId={userId} />
+        <Month path="/month" userId={userId} />
+        <Ask path="/ask" userId={userId} />
         <NotFound default />
       </Router>
     </>

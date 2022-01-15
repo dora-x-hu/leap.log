@@ -1,9 +1,12 @@
 import React, { Component } from "react";
 
 const Day = (props) => {
+  const [state1, setState1] = useState();
+
   return (
     <>
-      <div>IDK what's going on</div>
+      <section>[Date]</section>
+      <section>[response 1]</section>
     </>
   );
 };
