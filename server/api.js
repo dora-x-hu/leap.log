@@ -70,50 +70,50 @@ router.get("/prompts", (req, res) => {
   Question.find({}).then((questions) => {
     res.send(questions);
   });
+});
 
-  //no params
-  //returns array ofcategories
-  router.get("/categories", (req, res) => {
-    Category.find({}).then((categories) => {
-      res.send(categories);
-    });
+//no params
+//returns array ofcategories
+router.get("/categories", (req, res) => {
+  Category.find({}).then((categories) => {
+    res.send(categories);
+  });
+});
+
+//day it belongs to,which question prompted it, updated content
+//adds new response then returns it back to client
+router.post("/response", auth.ensureLoggedIn, (req, res) => {
+  const newJournalEntry = new JournalEntry({
+    question: req.body.question,
+    content: req.body.content,
+    user_id: req.user._id,
+    day: req.body.date,
   });
 
-  //day it belongs to,which question prompted it, updated content
-  //adds new response then returns it back to client
-  router.post("/response", auth.ensureLoggedIn, (req, res) => {
-    const newJournalEntry = new JournalEntry({
-      question: req.body.question,
-      content: req.body.content,
-      user_id: req.user._id,
-      day: req.body.date,
-    });
+  newJournalEntry.save().then((response) => res.send(response));
+});
 
-    newJournalEntry.save().then((response) => res.send(response));
+//no parameters
+//creates a new category and returns it
+router.post("/category", auth.ensureLoggedIn, (req, res) => {
+  const newCategory = new Category({
+    name: req.body.name,
+    user_id: req.user._id,
+    isSelected: req.body.isSelected,
   });
 
-  //no parameters
-  //creates a new category and returns it
-  router.post("/category", auth.ensureLoggedIn, (req, res) => {
-    const newCategory = new Category({
-      name: req.body.name,
-      user_id: req.user._id,
-      isSelected: req.body.isSelected,
-    });
+  newCateogry.save().then((category) => res.send(category));
+});
 
-    newCateogry.save().then((category) => res.send(category));
+router.post("/prompt", auth.ensureLoggedIn, (req, res) => {
+  const newQuestion = new Question({
+    cateogry_id: req.body.cateogry_id, //which category it is, Category is another schema
+    content: req.body.content,
+    user_id: req.user._id,
+    isSelected: req.body.isSelected,
   });
 
-  router.post("/prompt", auth.ensureLoggedIn, (req, res) => {
-    const newQuestion = new Question({
-      cateogry_id: req.body.cateogry_id, //which category it is, Category is another schema
-      content: req.body.content,
-      user_id: req.user._id,
-      isSelected: req.body.isSelected,
-    });
-
-    newQuestion.save().then((question) => res.send(question));
-  });
+  newQuestion.save().then((question) => res.send(question));
 });
 
 // anything else falls to this "not found" case
