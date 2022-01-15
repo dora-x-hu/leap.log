@@ -15,9 +15,9 @@ const Skeleton = ({ userId, handleLogin, handleLogout }) => {
     <>
       <Login userId={userId} handleLogin={handleLogin} handleLogout={handleLogout} />
       <h1 className="Skeleton-heading1">
-        Welcome to Leap.Log, an easy to use and aesthetic journal{" "}
+        welcome to leap.log, an easy to use and aesthetic journal{" "}
       </h1>
-      <h2> Login to get started, or explore our pages</h2>
+      <h2> login to get started, or explore our pages</h2>
       <ul>
         <li>
           Change the Frontend CLIENT_ID (Skeleton.js) to your team's CLIENT_ID (obtain this at
