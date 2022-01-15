@@ -3,6 +3,11 @@ import { Router } from "@reach/router";
 import NotFound from "./pages/NotFound.js";
 import Skeleton from "./pages/Skeleton.js";
 
+import Day from "./pages/Day.js";
+import Week from "./pages/Week.js";
+import Month from "./pages/Month.js";
+import Ask from "./pages/Ask.js";
+
 import "../utilities.css";
 
 import { socket } from "../client-socket.js";
@@ -42,6 +47,10 @@ const App = () => {
     <>
       <Router>
         <Skeleton path="/" handleLogin={handleLogin} handleLogout={handleLogout} userId={userId} />
+        <Day path="/day" />
+        <Week path="/week" />
+        <Month path="/month" />
+        <Ask path="/ask" />
         <NotFound default />
       </Router>
     </>
