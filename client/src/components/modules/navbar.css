@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Dongle:wght@700&display=swap");
+
 .flex {
   display: flex;
   flex-direction: row;
@@ -13,9 +15,10 @@
   color: #ffede1;
   background-color: #1bb091;
   text-decoration: none;
-  font-size: 20px;
-  padding: 18px 220px;
+  font-size: 40px;
+  padding: 3px 220px;
   text-align: center;
+  font-family: "Dongle", sans-serif;
 }
 
 .nav-item:hover {
