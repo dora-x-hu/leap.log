@@ -6,7 +6,9 @@ const JournalEntrySchema = new mongoose.Schema({
   question: String,
   content: String,
   user_id: String,
-  day: Date,
+  day: Number, //in the format Date(year, month, day)
+  month: Number,
+  year: Number,
   //category: String,
   // parameter representing unique ID of this response
 });

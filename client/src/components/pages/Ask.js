@@ -11,7 +11,9 @@ const Ask = (props) => {
       question: "question",
       content: "content",
       user_id: props.user_id,
-      day: new Date(),
+      day: Date.now().getDay(),
+      month: Date.now().getMonth(),
+      year: Date.now().getYear(),
     });
   };
 

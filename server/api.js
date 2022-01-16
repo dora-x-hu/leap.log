@@ -48,17 +48,24 @@ router.post("/initsocket", (req, res) => {
 // |------------------------------|
 
 //parameters: day they belong to
-//return array of journalEntries depending on day
+//return array of journalEntries depending on day, month, year
 router.get("/responses", auth.ensureLoggedIn, (req, res) => {
-  JournalEntry.find({ day: req.query.day }).then((responses) => {
-    res.send(responses);
-  });
+  JournalEntry.find({ day: req.query.day, month: req.query.month, year: req.query.year }).then(
+    (responses) => {
+      res.send(responses);
+    }
+  );
 });
 
-//parameters in req: dayit belongs to and which question it was
+//parameters in req: day/month/year it belongs to and which question it was
 //returns single journalEntry d
 router.get("/response", auth.ensureLoggedIn, (req, res) => {
-  JournalEntry.find({ day: req.query.day, question: req.query.question }).then((response) => {
+  JournalEntry.find({
+    day: req.query.day,
+    month: req.query.month,
+    year: req.query.year,
+    question: req.query.question,
+  }).then((response) => {
     res.send(response);
   });
 });
@@ -88,6 +95,8 @@ router.post("/response", auth.ensureLoggedIn, (req, res) => {
     content: req.body.content,
     user_id: req.user._id,
     day: req.body.day,
+    month: req.body.month,
+    year: req.body.year,
   });
 
   newJournalEntry.save().then((response) => res.send(response));
