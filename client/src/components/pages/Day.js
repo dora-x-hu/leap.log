@@ -19,6 +19,22 @@ const Day = (props) => {
   let entriesList = [];
   const hasEntries = entries.length !== 0;
 
+<<<<<<< HEAD
+=======
+  if (hasEntries) {
+    entriesList = entries.map((responseObj) => (
+      <SingleEntry
+        question={responseObj.question}
+        content={responseObj.content}
+        user_id={props.userId}
+        day={responseObj.day}
+      />
+    ));
+  } else {
+    entriesList = "Start Journalling!";
+  }
+
+>>>>>>> 7d4559b51d243dc46c4ea6798ea93cbea305b6d6
   return (
     <div>
       {Date.now()}
