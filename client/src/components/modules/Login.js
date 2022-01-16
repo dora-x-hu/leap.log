@@ -23,7 +23,8 @@ const Login = ({ userId, handleLogin, handleLogout }) => {
           render={(renderProps) => (
             <button className="Login-button" onClick={renderProps.onClick}>
               {" "}
-              login with google{" "}
+              <div className="Login-icon" />
+              <div>login with google</div>{" "}
             </button>
           )}
           buttonText="Login"
