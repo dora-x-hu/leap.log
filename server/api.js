@@ -68,6 +68,7 @@ router.get("/response", auth.ensureLoggedIn, (req, res) => {
     month: req.query.month,
     year: req.query.year,
     question: req.query.question,
+    user_id: req.query.user_id,
   }).then((response) => {
     res.send(response);
   });

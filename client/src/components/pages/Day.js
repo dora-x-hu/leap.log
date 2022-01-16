@@ -9,7 +9,7 @@ const Day = (props) => {
   //const [date, setDate] = useState();
 
   useEffect(() => {
-    get("/api/responses", { day: 0, month: 0, year: 122 }).then((responsesObj) => {
+    get("/api/responses", { day: 0, month: 0, year: 122, user_id: userId }).then((responsesObj) => {
       setEntries(responsesObj);
     });
     //print(entries);
