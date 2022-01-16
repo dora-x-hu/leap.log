@@ -87,7 +87,7 @@ router.post("/response", auth.ensureLoggedIn, (req, res) => {
     question: req.body.question,
     content: req.body.content,
     user_id: req.user._id,
-    day: req.body.date,
+    day: req.body.day,
   });
 
   newJournalEntry.save().then((response) => res.send(response));

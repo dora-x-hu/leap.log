@@ -1,14 +1,37 @@
-import React, { Component } from "react";
+import React, { Component, useEffect, useState } from "react";
+import journalEntry from "../../../../server/models/journalEntry";
+import SingleEntry from "../modules/SingleEntry.js";
 
-//day as a state
+import { get } from "../../utilities";
+
 const Day = (props) => {
-  const [state1, setState1] = useState();
+  const [entries, setEntries] = useState([]);
+  //const [date, setDate] = useState();
+
+  useEffect(() => {
+    get("/api/responses").then((responsesObj) => {
+      setEntries(responsesObj);
+    });
+  }, []);
+
+  let entriesList = null;
+  const hasEntries = entries.length !== 0;
+  if (hasEntries) {
+    entriesList = entries.map((responseObj) => (
+      <SingleEntry
+        question={responseObj.question}
+        content={responseObj.content}
+        user_id={props.userId}
+        day={responseObj.date}
+      />
+    ));
+  } else {
+    entriesList = <div>Start Journalling!</div>;
+  }
 
   return (
-    <>
-      <section>[Date]</section>
-      <section>[response 1]</section>
-    </>
+    //<section>{date}</section>
+    <section>{entriesList}</section>
   );
 };
 

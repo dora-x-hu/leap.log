@@ -8,5 +8,6 @@ const JournalEntrySchema = new mongoose.Schema({
   user_id: String,
   day: Date,
   //category: String,
+  // parameter representing unique ID of this response
 });
 module.exports = mongoose.model("journalEntry", JournalEntrySchema);
