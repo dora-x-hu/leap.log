@@ -1,38 +1,40 @@
 import React, { Component, useEffect, useState } from "react";
-import journalEntry from "../../../../server/models/journalEntry";
+//import journalEntry from "../../../../server/models/journalEntry";
 import SingleEntry from "../modules/SingleEntry.js";
 
 import { get } from "../../utilities";
+
+//parames: userid
 
 const Day = (props) => {
   const [entries, setEntries] = useState([]);
   //const [date, setDate] = useState();
 
   useEffect(() => {
-    get("/api/responses").then((responsesObj) => {
+    get("/api/responses", { day: Date.now() }).then((responsesObj) => {
       setEntries(responsesObj);
     });
   }, []);
 
-  let entriesList = null;
+  let entriesList = [];
   const hasEntries = entries.length !== 0;
 
-  if (hasEntries) {
-    entriesList = entries.map((responseObj) => (
-      <SingleEntry
-        question={responseObj.question}
-        content={responseObj.content}
-        user_id={props.userId}
-        day={responseObj.day}
-      />
-    ));
-  } else {
-    entriesList = <div>Start Journalling!</div>;
-  }
-
   return (
-    //<section>{date}</section>
-    <section>{entriesList}</section>
+    <div>
+      {Date.now()}
+      <div>
+        {hasEntries
+          ? props.journalEntry.map((response) => {
+              <SingleEntry
+                question={response.question}
+                content={response.content}
+                user_id={props.userId}
+                day={response.day}
+              />;
+            })
+          : entriesList.concat("Start Journaling")}
+      </div>
+    </div>
   );
 };
 
