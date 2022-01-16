@@ -50,11 +50,14 @@ router.post("/initsocket", (req, res) => {
 //parameters: day they belong to
 //return array of journalEntries depending on day, month, year
 router.get("/responses", auth.ensureLoggedIn, (req, res) => {
-  JournalEntry.find({ day: req.query.day, month: req.query.month, year: req.query.year }).then(
-    (responses) => {
-      res.send(responses);
-    }
-  );
+  JournalEntry.find({
+    day: req.query.day,
+    month: req.query.month,
+    year: req.query.year,
+    user_id: req.query.user_id,
+  }).then((responses) => {
+    res.send(responses);
+  });
 });
 
 //parameters in req: day/month/year it belongs to and which question it was
