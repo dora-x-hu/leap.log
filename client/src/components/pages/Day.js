@@ -27,7 +27,7 @@ const Day = (props) => {
       />
     ));
   } else {
-    entriesList = "Start Journalling!";
+    entriesList = "Start Journaling!";
   }
 
   return (

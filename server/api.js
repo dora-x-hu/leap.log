@@ -102,7 +102,7 @@ router.post("/category", auth.ensureLoggedIn, (req, res) => {
     isSelected: req.body.isSelected,
   });
 
-  newCateogry.save().then((category) => res.send(category));
+  newCategory.save().then((category) => res.send(category));
 });
 
 router.post("/prompt", auth.ensureLoggedIn, (req, res) => {
