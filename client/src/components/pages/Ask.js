@@ -10,7 +10,7 @@ const Ask = (props) => {
     post("/api/response", {
       question: "question",
       content: "content",
-      user_id: props.user_id,
+      user_id: props.userId,
       day: Date.now().getDay(),
       month: Date.now().getMonth(),
       year: Date.now().getYear(),
