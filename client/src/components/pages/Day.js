@@ -9,7 +9,7 @@ const Day = (props) => {
   //const [date, setDate] = useState();
 
   useEffect(() => {
-    get("/api/responses", { day: 0, month: 0, year: 122 }).then((responsesObj) => {
+    get("/api/responses", { day: 0, month: 0, year: 122, user_id: userId }).then((responsesObj) => {
       setEntries(responsesObj);
     });
     //print(entries);
@@ -43,42 +43,3 @@ const Day = (props) => {
 };
 
 export default Day;
-
-//   if (hasEntries) {
-//     console.log("usess")
-//     entriesList = entries.map((responseObj) => (
-//       <SingleEntry
-//         question="question" //{responseObj.question}
-//         content="content" //{responseObj.content}
-//         user_id={props.userId}
-//         day="idk" //{responseObj.day}
-//       />
-//     ));
-//   } else {
-//     entriesList = "Start Journalling!";
-//   }
-
-//   return (
-//     //<section>{date}</section>
-//     //<section>{entriesList}</section>
-//     <div>
-//       {("Date: ", new Date())}
-//       <div>
-//         {hasEntries
-//           ? entriesList.concat(
-//               entries.map((response) => {
-//                 <SingleEntry
-//                   question={response.question}
-//                   content={response.content}
-//                   user_id={props.userId}
-//                   day={response.day}
-//                 />;
-//               })
-//             )
-//           : entriesList.concat("Start Journaling")}
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default Day;
