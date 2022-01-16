@@ -29,6 +29,7 @@ const Day = (props) => {
         day={responseObj.day}
         month={responseObj.month}
         year={responseObj.year}
+        userId={props.userId}
       />
     ));
   } else {
