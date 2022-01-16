@@ -1,5 +1,5 @@
 import React, { Component, useEffect, useState } from "react";
-import journalEntry from "../../../../server/models/journalEntry";
+//import journalEntry from "../../../../server/models/journalEntry";
 import SingleEntry from "../modules/SingleEntry.js";
 
 import { get } from "../../utilities";
@@ -27,7 +27,7 @@ const Day = (props) => {
       />
     ));
   } else {
-    entriesList = <div>Start Journalling!</div>;
+    entriesList = "Start Journalling!";
   }
 
   return (
