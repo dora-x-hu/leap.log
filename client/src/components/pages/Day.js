@@ -9,13 +9,16 @@ const Day = (props) => {
   //const [date, setDate] = useState();
 
   useEffect(() => {
-    get("/api/responses").then((responsesObj) => {
+    get("/api/responses" /*date*/).then((responsesObj) => {
       setEntries(responsesObj);
     });
+    //print(entries);
   }, []);
 
   let entriesList = null;
   const hasEntries = entries.length !== 0;
+
+  //let entriesList = ["here", "there", "everywhere"];
 
   if (hasEntries) {
     entriesList = entries.map((responseObj) => (
@@ -26,9 +29,9 @@ const Day = (props) => {
         day={responseObj.day}
       />
     ));
-  } else {
-    entriesList = "Start Journalling!";
-  }
+  } //else {
+  //entriesList = "Start Journalling!";
+  //}
 
   return (
     //<section>{date}</section>
