@@ -23,7 +23,7 @@ const Day = (props) => {
         question={responseObj.question}
         content={responseObj.content}
         user_id={props.userId}
-        day={responseObj.date}
+        day={responseObj.day}
       />
     ));
   } else {
