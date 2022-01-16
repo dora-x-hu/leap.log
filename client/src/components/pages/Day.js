@@ -16,6 +16,7 @@ const Day = (props) => {
 
   let entriesList = null;
   const hasEntries = entries.length !== 0;
+
   if (hasEntries) {
     entriesList = entries.map((responseObj) => (
       <SingleEntry
