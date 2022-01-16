@@ -15,7 +15,7 @@ const Day = (props) => {
   }, []);
 
   let entriesList = null;
-  const hasEntries = true;
+  const hasEntries = entries.length !== 0;
 
   if (hasEntries) {
     entriesList = entries.map((responseObj) => (
@@ -23,7 +23,7 @@ const Day = (props) => {
         question={responseObj.question}
         content={responseObj.content}
         user_id={props.userId}
-        day={responseObj.date}
+        day={responseObj.day}
       />
     ));
   } else {
