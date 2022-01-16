@@ -7,13 +7,14 @@ const Ask = (props) => {
   useEffect(() => {}, []);
 
   const submitStuff = () => {
+    let d = new Date(); //this works with mongo
     post("/api/response", {
-      question: "question",
+      question: "meow",
       content: "content",
-      user_id: props.user_id,
-      day: Date.now().getDay(),
-      month: Date.now().getMonth(),
-      year: Date.now().getYear(),
+      user_id: props.userId,
+      day: d.getDay(),
+      month: d.getMonth(),
+      year: d.getYear(),
     });
   };
 
