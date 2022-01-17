@@ -7,6 +7,7 @@ import Day from "./pages/Day.js";
 import Week from "./pages/Week.js";
 import Month from "./pages/Month.js";
 import Ask from "./pages/Ask.js";
+import Profile from "./pages/Profile.js";
 
 import "../utilities.css";
 
@@ -51,7 +52,7 @@ const App = () => {
 
   return (
     <>
-      <NavBar />
+      <NavBar userId={userId} />
 
       <Router>
         <Skeleton path="/" handleLogin={handleLogin} handleLogout={handleLogout} userId={userId} />
@@ -59,6 +60,7 @@ const App = () => {
         <Week path="/week" userId={userId} />
         <Month path="/month" userId={userId} />
         <Ask path="/ask" userId={userId} />
+        <Profile path="/profile/:userId" />
         <NotFound default />
       </Router>
     </>
