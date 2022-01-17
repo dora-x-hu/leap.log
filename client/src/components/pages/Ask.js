@@ -6,11 +6,11 @@ import { get, post } from "../../utilities";
 const Ask = (props) => {
   useEffect(() => {}, []);
 
-  const submitStuff = () => {
+  const submitStuff = (thisQuestion, thisResponse) => {
     let d = new Date(); //this works with mongo
     post("/api/response", {
-      question: "meow",
-      content: "content",
+      question: thisQuestion,
+      content: thisResponse,
       user_id: props.userId,
       day: d.getDay(),
       month: d.getMonth(),
@@ -25,10 +25,16 @@ const Ask = (props) => {
       </section>
 
       <section>
-        <input type="text"></input>
+        <input type="text" id="askbox"></input>
       </section>
-      <button onClick={submitStuff}>Submit</button>
+      <button
+        onClick={() => submitStuff("new journal prompt", document.getElementById("askbox").value)}
+      >
+        Submit
+      </button>
     </>
+
+    // var askbox = document.getElementById("askbox")
   );
 };
 
