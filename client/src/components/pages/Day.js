@@ -33,6 +33,7 @@ const Day = (props) => {
     }).then((responsesObj) => {
       setEntries(responsesObj);
     });
+    //print(entries);
   }, [d]);
 
   let entriesList = null;
