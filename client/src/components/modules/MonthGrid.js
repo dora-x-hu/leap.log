@@ -10,37 +10,22 @@ import "./MonthGrid.css";
 const MonthGrid = (props) => {
   //const d = new Date();
 
-  const [user_date, setUserDate] = useState(new Date());
+  const [d, setUserDate] = useState(new Date(props.year, props.month, props.day));
 
-  const nextMonth = () => {
-    //setDate(new Date(user_date.getFullYear, (user_date.getMonth + 1) % 12, user_date.getDate));
-    const incrementMonth = () => {
-      const newMonth = new Date();
-      newMonth.setDate(newMonth.getDate() + 1);
-      return newMonth;
-    };
-    incrementMonth().then((ans) => {
-      setUserDate(ans);
-    });
+  const moveRight = () => {
+    let tomorrow = new Date(d.getFullYear(), (d.getMonth() + 1) % 12, d.getDate());
+    //return d.getDate() + 1;
+    setUserDate(tomorrow);
+    //d.setDate(d.getDate() + 1);
+    //console.log(d);
   };
 
-  const prevMonth = () => {
-    // setDate(
-    //   new Date(
-    //     user_date.getFullYear,
-    //     (((user_date.getMonth - 1) % 12) + 12) % 12,
-    //     user_date.getDate
-    //   )
-    // );
-    const incrementMonth = () => {
-      const newMonth = new Date();
-      newMonth.setDate(newMonth.getDate() + 1);
-      return newMonth;
-    };
-    incrementMonth().then((ans) => {
-      setUserDate(ans);
-    });
-    //setDate(user_date.getDate - 30);
+  const moveLeft = () => {
+    let tomorrow = new Date(d.getFullYear(), (d.getMonth() + 11) % 12, d.getDate());
+    //return d.getDate() + 1;
+    setUserDate(tomorrow);
+    //d.setDate(d.getDate() + 1);
+    //console.log(d);
   };
 
   const getMonth = (integer) => {
@@ -73,18 +58,14 @@ const MonthGrid = (props) => {
     return yeet;
   };
 
-  // const moveRight = () => {
-  //   setDate(d.getDate() + 1);
-  //   console.log(d);
-  // };
   return (
     <>
       <div className="month">
         <ul>
-          <button className="prev" onClick={prevMonth}>
+          <button className="prev" onClick={moveLeft}>
             &#10094;
           </button>
-          <li className="next" onClick={nextMonth}>
+          <li className="next" onClick={moveRight}>
             &#10095;
           </li>
           <li className="title">
@@ -137,7 +118,8 @@ const MonthGrid = (props) => {
         <li>27</li>
         <li>28</li>
         <li>29</li>
-        {/* {if (JSON.stringify(getMonth(props.month))!==JSON.stringify("february") 
+        {JSON.stringify(getMonth(props.month) !== "february") && <li>30</li>}
+        {/* /* {if (JSON.stringify(getMonth(props.month))!==JSON.stringify("february") 
         {(<li>30</li>)})} */}
         <li>31</li>
       </ul>
@@ -146,41 +128,3 @@ const MonthGrid = (props) => {
 };
 
 export default MonthGrid;
-
-{
-  /* <section>
-        <h2>Idk how to set date </h2>
-        <p>Content</p>
-      </section>
-
-      <section>
-        <h2>Day {(props.day, props.month)}</h2>
-        <p>Content</p>
-      </section>
-
-      <section>
-        <h2>Day 3</h2>
-        <p>Content</p>
-      </section>
-
-      <section>
-        <h2>Day 4</h2>
-        <p>Content</p>
-      </section>
-
-      <section>
-        <h2>Day 5</h2>
-        <p>Content</p>
-      </section>
-
-      <section>
-        <h2>Day 6</h2>
-        <p>Content</p>
-      </section>
-
-      <section>
-        <h2>Day 7</h2>
-        <p>Content</p>
-      </section>
-    </> */
-}
