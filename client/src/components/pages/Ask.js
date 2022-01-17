@@ -12,9 +12,9 @@ const Ask = (props) => {
       question: thisQuestion,
       content: thisResponse,
       user_id: props.userId,
-      day: d.getDay(),
+      day: d.getDate(),
       month: d.getMonth(),
-      year: d.getYear(),
+      year: d.getFullYear(),
     });
   };
 
