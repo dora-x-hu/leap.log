@@ -25,14 +25,6 @@ const Day = (props) => {
   };
 
   useEffect(() => {
-<<<<<<< HEAD
-    get("/api/responses", { day: 0, month: 0, year: 122, user_id: props.userId }).then(
-      (responsesObj) => {
-        setEntries(responsesObj);
-      }
-    );
-    //print(entries);
-=======
     get("/api/responses", {
       day: d.getDate(),
       month: d.getMonth(),
@@ -41,7 +33,6 @@ const Day = (props) => {
     }).then((responsesObj) => {
       setEntries(responsesObj);
     });
->>>>>>> 512c8f96d07e833291be8c6b509cc0269ff0fe33
   }, [d]);
 
   let entriesList = null;
