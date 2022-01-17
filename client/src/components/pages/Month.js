@@ -1,5 +1,6 @@
 import React, { Component, useEffect, useState } from "react";
 import MonthGrid from "../modules/MonthGrid";
+// import Date from "core-js/core/date";
 //proptypes:
 //idk yet
 
@@ -10,24 +11,47 @@ import MonthGrid from "../modules/MonthGrid";
 //use effect reload
 
 const Month = (props) => {
-  const [user_date, setDate] = useState(new Date());
+  const [user_date, setUserDate] = useState(new Date());
 
-  const moveRight = () => {
-    setDate(user_date.getDate() + 30);
+  const nextMonth = () => {
+    //setDate(new Date(user_date.getFullYear, (user_date.getMonth + 1) % 12, user_date.getDate));
+    const incrementMonth = () => {
+      const newMonth = new Date();
+      newMonth.setDate(newMonth.getDate() + 1);
+      return newMonth;
+    };
+    incrementMonth().then((ans) => {
+      setUserDate(ans);
+    });
   };
 
-  const moveLeft = () => {
-    setDate(user_date.getDate() - 30);
+  const prevMonth = () => {
+    // setDate(
+    //   new Date(
+    //     user_date.getFullYear,
+    //     (((user_date.getMonth - 1) % 12) + 12) % 12,
+    //     user_date.getDate
+    //   )
+    // );
+    const incrementMonth = () => {
+      const newMonth = new Date();
+      newMonth.setDate(newMonth.getDate() + 1);
+      return newMonth;
+    };
+    incrementMonth().then((ans) => {
+      setUserDate(ans);
+    });
+    //setDate(user_date.getDate - 30);
   };
 
-  useEffect(() => {
-    <MonthGrid
-      day={user_date.getDay()}
-      month={user_date.getMonth()}
-      year={user_date.getFullYear()}
-      userId={props.userId}
-    />;
-  }, [user_date]);
+  // useEffect(() => {
+  //   <MonthGrid
+  //     day={user_date.getDay()}
+  //     month={user_date.getMonth()}
+  //     year={user_date.getFullYear()}
+  //     userId={props.userId}
+  //   />;
+  // }, [user_date]);
 
   //})
   //states
@@ -37,13 +61,13 @@ const Month = (props) => {
   return (
     <>
       <div>
-        <button onClick={moveRight}>Next Month</button>
-        <button onClick={moveLeft}>Last Month</button>
+        <button onClick={nextMonth}>Next Month</button>
+        <button onClick={prevMonth}>Last Month</button>
       </div>
       <div>
         {" "}
         <MonthGrid
-          day={user_date.getDay()}
+          day={user_date.getDate()}
           month={user_date.getMonth()}
           year={user_date.getFullYear()}
           userId={props.userId}
