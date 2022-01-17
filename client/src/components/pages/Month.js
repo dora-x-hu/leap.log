@@ -11,7 +11,23 @@ import MonthGrid from "../modules/MonthGrid";
 //use effect reload
 
 const Month = (props) => {
-  const [user_date, setUserDate] = useState(new Date());
+  const [d, setUserDate] = useState(new Date());
+
+  const moveRight = () => {
+    let tomorrow = new Date(d.getFullYear(), (d.getMonth() + 1) % 12, d.getDate());
+    //return d.getDate() + 1;
+    setUserDate(tomorrow);
+    //d.setDate(d.getDate() + 1);
+    //console.log(d);
+  };
+
+  const moveLeft = () => {
+    let tomorrow = new Date(d.getFullYear(), (d.getMonth() + 11) % 12, d.getDate());
+    //return d.getDate() + 1;
+    setUserDate(tomorrow);
+    //d.setDate(d.getDate() + 1);
+    //console.log(d);
+  };
 
   const nextMonth = () => {
     //setDate(new Date(user_date.getFullYear, (user_date.getMonth + 1) % 12, user_date.getDate));
@@ -61,15 +77,18 @@ const Month = (props) => {
   return (
     <>
       <div>
-        <button onClick={nextMonth}>Next Month</button>
-        <button onClick={prevMonth}>Last Month</button>
+        <button onClick={moveRight}>
+          Next Month:
+          {/* {String(d.getDate()) + "/" + String(d.getMonth()) + "/" + String(d.getFullYear())} */}
+        </button>
+        <button onClick={moveLeft}>Last Month</button>
       </div>
       <div>
         {" "}
         <MonthGrid
-          day={user_date.getDate()}
-          month={user_date.getMonth()}
-          year={user_date.getFullYear()}
+          day={d.getDate()}
+          month={d.getMonth()}
+          year={d.getFullYear()}
           userId={props.userId}
         />
       </div>
