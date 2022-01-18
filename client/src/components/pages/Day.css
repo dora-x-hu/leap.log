@@ -4,3 +4,10 @@
   font-family: "Dongle", sans-serif;
   font-size: 100px;
 }
+
+.Day-paragraph {
+  color: black;
+  font-family: "Dongle", sans-serif;
+  font-size: 50px;
+  text-align: center;
+}

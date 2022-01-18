@@ -14,3 +14,10 @@
 .wrapper div:hover {
   opacity: 0.8;
 }
+
+ul {
+  list-style-type: none;
+}
+body {
+  font-family: "Dongle", sans-serif;
+}

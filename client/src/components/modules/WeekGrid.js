@@ -42,15 +42,19 @@ const WeekGrid = (props) => {
     // const week = getWeekDetails(props.week).week;
 
     for (let i = 0; i < 7; i++) {
+      let d = new Date(ans.date.getFullYear(), ans.date.getDate() + i, ans.date.getMonth() + 1);
       grid.push(
         <div>
-          {ans.week[i]}
-          {" " +
-            String(ans.date.getMonth() + 1) +
-            "/" +
-            String(ans.date.getDate() + i) +
-            "/" +
-            String(ans.date.getFullYear())}
+          {" "}
+          <Link to={`/day/${d}`}>
+            {ans.week[i]}
+            {" " +
+              String(ans.date.getMonth() + 1) +
+              "/" +
+              String(ans.date.getDate() + i) +
+              "/" +
+              String(ans.date.getFullYear())}
+          </Link>
         </div>
       );
     }
