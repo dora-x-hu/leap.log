@@ -129,6 +129,19 @@ const Day = (props) => {
       return (
         <>
           {" "}
+          <section className="Day-paragraph">
+            {String(d.getDate()) + "/" + String(d.getMonth() + 1) + "/" + String(d.getFullYear())}
+          </section>
+          <div className="Day-paragraph">
+            <button className="Day-button" onClick={() => moveLeft()}>
+              Previous Day
+            </button>
+            <button className="Day-button" onClick={() => moveRight()}>
+              Next Day
+            </button>
+
+            <section>{entriesList}</section>
+          </div>
           <div>
             {" "}
             <button>
