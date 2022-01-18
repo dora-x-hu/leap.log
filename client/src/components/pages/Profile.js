@@ -89,6 +89,8 @@ const Profile = (props) => {
   return (
     <>
       <div className="Profile-section">
+        <Login userId={userId} handleLogin={handleLogin} handleLogout={handleLogout} />
+
         <h1 className="Profile-heading1">My Profile</h1>
         <ul className="Profile-prompt">{promptsList}</ul>
         <ul>{categoriesList}</ul>
