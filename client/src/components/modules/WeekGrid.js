@@ -9,71 +9,60 @@ import "./WeekGrid.css";
 //buttons
 
 const WeekGrid = (props) => {
-  const [d, setUserDate] = useState(new Date(props.year, props.month, props.day));
+  // const [d, setUserDate] = useState(new Date(props.year, props.month, props.day));
 
-  const getWeekDetails = () => {
-    switch (d.getDay()) {
-      case 0:
-        return {
-          name: "mo",
+  //this function sets the  date of monday, where getDay = 0
 
-          date: new Date(d.getDate()),
-        };
-      case 1:
-        return {
-          name: "tu",
-          date: new Date(d.getDate()),
-        };
-      case 2:
-        return {
-          name: "we",
-          date: new Date(d.getDate()),
-        };
-      case 3:
-        return {
-          name: "th",
-          date: new Date(d.getDate()),
-        };
-      case 4:
-        return {
-          name: "fr",
-          date: new Date(d.getDate()),
-        };
-      case 5:
-        return {
-          name: "sa",
-          date: new Date(d.getDate()),
-        };
-      case 6:
-        return {
-          name: "su",
-          date: new Date(d.getDate()),
-        };
+  const getWeekDetails = (day) => {
+    let mo;
+    if (day === 0) {
+      mo = new Date(props.year, props.month, props.day);
+      // console.log("here?");
+    } else if (day === 1) {
+      mo = new Date(props.year, props.month, props.day - 1);
+    } else if (day === 2) {
+      mo = new Date(props.year, props.month, props.day - 2);
+      console.log("here?");
+    } else if (day === 3) {
+      mo = new Date(props.year, props.month, props.day - 3);
+    } else if (day === 4) {
+      mo = new Date(props.year, props.month, props.day - 4);
+    } else if (day === 5) {
+      mo = new Date(props.year, props.month, props.day - 5);
+    } else if (day === 6) {
+      mo = new Date(props.year, props.month, props.day - 6);
     }
+    return { date: mo, week: ["mo", "tu", "we", "th", "fr", "sa", "su"] };
   };
 
-  const getWeek = () => {
-    // const [d, setUserDate] = useState(new Date(props.year, props.month, props.day));
-    const week = [];
-    const details = getWeekDetails();
-    for (weekday in details.name) {
-      week.push(
-        <div key={weekday}>
-          {weekday}
-          {String(d.getDate()) + "/" + String(d.getMonth()) + "/" + String(d.getFullYear())}
+  //creates the week div
+  const createWeek = () => {
+    const grid = [];
+    const ans = getWeekDetails(props.week);
+    // const week = getWeekDetails(props.week).week;
+
+    for (let i = 0; i < 7; i++) {
+      grid.push(
+        <div>
+          {ans.week[i]}
+          {" " +
+            String((ans.date.getDate() + i) % 31) +
+            "/" +
+            String(ans.date.getMonth()) +
+            "/" +
+            String(ans.date.getFullYear())}
         </div>
       );
-      // {
-      //   /* {String(d.getDate()) + "/" + String(d.getMonth()) + "/" + String(d.getFullYear())} */
-      // }
     }
-    return week;
+    return grid;
   };
-
   return (
     <>
-      {/* <section>Week of [start - end]</section> */}
+      {/* {console.log(d)} */}
+
       <div className="wrapper">
+        {/* {console.log(d)} */}
+
         {/* <div>Mo {props.day}</div>
         <div>Tu</div>
         <div>We</div>
@@ -81,9 +70,8 @@ const WeekGrid = (props) => {
         <div>Fr</div>
         <div>Sa</div>
         <div>Su</div> */}
-        {getWeek()}
+        {createWeek()}
       </div>
-      {console.log(d)}
     </>
   );
 };
