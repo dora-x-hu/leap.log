@@ -127,11 +127,35 @@ const Day = (props) => {
   }*/ else {
     if (entriesList === "") {
       return (
+<<<<<<< HEAD
         <div>
           <button className="Day-button">
             <a href="/ask">Start Journalling!</a>
           </button>
         </div>
+=======
+<<<<<<< HEAD
+        <>
+          <section>
+            {String(d.getDate()) + "/" + String(d.getMonth() + 1) + "/" + String(d.getFullYear())}
+          </section>
+          <button>
+            <a href="/ask">Start Journalling!</a>
+          </button>
+
+          <div>
+            <button onClick={() => moveRight()}>Next Day</button>
+            <button onClick={() => moveLeft()}>Previous Day</button>
+          </div>
+        </>
+=======
+        <button>
+          <a className="Day-paragraph" href="/ask">
+            Start Journalling!
+          </a>
+        </button>
+>>>>>>> 8817f772a043f86a61b954c7f5c771eb3d350b75
+>>>>>>> 0e5ba89c50e8def83a28d6cb4b8afb67291c0f05
       );
     } else {
       return (
