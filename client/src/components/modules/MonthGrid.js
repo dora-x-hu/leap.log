@@ -127,13 +127,14 @@ const MonthGrid = (props) => {
       </div> */}
 
       <ul className="weekdays">
+        <li>Su</li>
+
         <li>Mo</li>
         <li>Tu</li>
         <li>We</li>
         <li>Th</li>
         <li>Fr</li>
         <li>Sa</li>
-        <li>Su</li>
       </ul>
 
       <ul className="days">
