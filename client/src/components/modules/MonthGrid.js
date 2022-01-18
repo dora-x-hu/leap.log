@@ -6,7 +6,7 @@ import "./MonthGrid.css";
 //props: date as a state that depends on the month.js
 
 //TO DO:
-//buttons, month situations, (28, 30, 31 days)
+//buttons
 
 const MonthGrid = (props) => {
   //const d = new Date();
@@ -114,7 +114,7 @@ const MonthGrid = (props) => {
 
   return (
     <>
-      <div className="month">
+      {/* <div className="month">
         <ul>
           <li className="prev">&#10094;</li>
           <li className="next">&#10095;</li>
@@ -124,7 +124,7 @@ const MonthGrid = (props) => {
             <span>{props.year}</span>
           </li>
         </ul>
-      </div>
+      </div> */}
 
       <ul className="weekdays">
         <li>Mo</li>
