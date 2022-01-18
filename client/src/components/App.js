@@ -62,7 +62,7 @@ const App = () => {
         <Week path="/week" userId={userId} />
         <Month path="/month" userId={userId} />
         <Ask path="/ask" userId={userId} />
-        <Profile path="/profile/:userId" />
+        <Profile path="/profile/:userId" userId={userId} />
         <NotFound default />
       </Router>
     </>

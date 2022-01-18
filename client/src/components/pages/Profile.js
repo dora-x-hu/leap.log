@@ -1,5 +1,5 @@
 import React, { Component, useState, useEffect } from "react";
-import { get } from "../../utilities";
+import { get, post } from "../../utilities";
 import SinglePrompt from "../modules/SinglePrompt.js";
 
 import "../../utilities.css";
@@ -11,17 +11,34 @@ const Profile = (props) => {
   const [categories, setCategories] = useState([]);
   //const [user, setUser] = useState();
 
+  const submitStuff = (thisCategory) => {
+    console.log(thisCategory);
+    post("/api/category", {
+      name: thisCategory,
+      user_id: props.userId,
+      isSelected: true,
+    });
+  };
+
   useEffect(() => {
     document.title = "Profile Page";
     get("/api/prompts").then((responseObj) => {
       setPrompts(responseObj);
     });
+<<<<<<< HEAD
     get("/api/categories").then((responseObj) => {
       setCategories(responseObj);
     });
     //get("/api/user", { userid: props.userId }).then((userObj) => setUser(userObj));
   }, []);
   //TO DO: filter based on param isSelected?Not really
+=======
+    //get("/api/categories").then((responseObj) => {
+    //setCategories(responseObj);
+    //});
+  });
+  //TO DO: filter based on param isSelected
+>>>>>>> 24d144b6943267f9474b58ca29db18b9ad57e194
 
   // //   get(`/api/user`, { userid: props.userId }).then((userObj) => setUser(userObj));
 
@@ -53,8 +70,20 @@ const Profile = (props) => {
         <ul className="Profile-prompt">{promptsList}</ul>
         <ul>{categoriesList}</ul>
       </div>
+
+      <input type="text" Placeholder="new category..." id="newCategory"></input>
+      <button
+        onClick={() => {
+          submitStuff(document.getElementById("newCategory").value);
+        }}
+      >
+        Submit
+      </button>
     </>
   );
+
+  // -------------
+  //
 };
 
 // if (!user) {
