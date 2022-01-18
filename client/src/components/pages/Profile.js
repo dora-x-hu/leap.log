@@ -1,6 +1,7 @@
 import React, { Component, useState, useEffect } from "react";
 import { get, post } from "../../utilities";
 import SinglePrompt from "../modules/SinglePrompt.js";
+import Login from "../modules/Login.js";
 
 import "../../utilities.css";
 import "./Profile.css";
@@ -89,8 +90,6 @@ const Profile = (props) => {
   return (
     <>
       <div className="Profile-section">
-        <Login userId={userId} handleLogin={handleLogin} handleLogout={handleLogout} />
-
         <h1 className="Profile-heading1">My Profile</h1>
         <ul className="Profile-prompt">{promptsList}</ul>
         <ul>{categoriesList}</ul>
