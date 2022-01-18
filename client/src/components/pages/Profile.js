@@ -9,11 +9,13 @@ const Profile = (props) => {
   // const [user, setUser] = useState();
 
   // TODO: create initial list of prompts and categories
+  //let defaultPrompts = ["how do you do", "did you sleep 8 hrs"];
+
   const [prompts, setPrompts] = useState([]);
   const [categories, setCategories] = useState([]);
   //const [user, setUser] = useState();
 
-  const submitStuff = (thisCategory) => {
+  const submitCategory = (thisCategory) => {
     console.log(thisCategory);
     post("/api/category", {
       name: thisCategory,
@@ -22,15 +24,25 @@ const Profile = (props) => {
     });
   };
 
+  const submitPrompt = (thisPrompt) => {
+    console.log(thisPrompt);
+    post("/api/prompt", {
+      category_id: "dummy category",
+      content: thisPrompt,
+      user_id: props.userId,
+      isSelected: true,
+    });
+  };
+
   useEffect(() => {
     document.title = "Profile Page";
-    get("/api/prompts").then((responseObj) => {
-      setPrompts(responseObj);
+    get("/api/prompts").then((promptlistObj) => {
+      setPrompts(promptlistObj);
     });
-    get("/api/categories").then((responseObj) => {
-      setCategories(responseObj);
+    get("/api/categories").then((categorylistObj) => {
+      setCategories(categorylistObj);
     });
-  });
+  }, []);
   //TO DO: filter based on param isSelected
 
   // //   get(`/api/user`, { userid: props.userId }).then((userObj) => setUser(userObj));
@@ -43,6 +55,7 @@ const Profile = (props) => {
   if (hasPrompts) {
     promptsList = prompts.map((responseObj) => {
       <SinglePrompt content={responseObj.content} category_id={responseObj.category_id} />;
+      //promptsList = prompts;
     });
   } else {
     promptsList = "No Prompts Yet";
@@ -64,10 +77,21 @@ const Profile = (props) => {
         <ul>{categoriesList}</ul>
       </div>
 
-      <input type="text" Placeholder="new category..." id="newCategory"></input>
+      <div>
+        <input type="text" Placeholder="new category..." id="newCategory"></input>
+        <button
+          onClick={() => {
+            submitCategory(document.getElementById("newCategory").value);
+          }}
+        >
+          Submit
+        </button>
+      </div>
+
+      <input type="text" Placeholder="new prompt..." id="newPrompt"></input>
       <button
         onClick={() => {
-          submitStuff(document.getElementById("newCategory").value);
+          submitPrompt(document.getElementById("newPrompt").value);
         }}
       >
         Submit

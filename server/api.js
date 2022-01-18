@@ -86,7 +86,7 @@ router.get("/response", auth.ensureLoggedIn, (req, res) => {
 //returns all questions
 //returns array of questions
 router.get("/prompts", (req, res) => {
-  Question.find({}).then((questions) => {
+  Question.find({ user_id: req.user._id }).then((questions) => {
     res.send(questions);
   });
 });
@@ -128,7 +128,7 @@ router.post("/category", auth.ensureLoggedIn, (req, res) => {
 
 router.post("/prompt", auth.ensureLoggedIn, (req, res) => {
   const newQuestion = new Question({
-    cateogry_id: req.body.cateogry_id, //which category it is, Category is another schema
+    category_id: req.body.category_id, //which category it is, Category is another schema
     content: req.body.content,
     user_id: req.user._id,
     isSelected: req.body.isSelected,
