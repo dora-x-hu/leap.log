@@ -14,25 +14,25 @@ const WeekGrid = (props) => {
   //this function sets the  date of monday, where getDay = 0
 
   const getWeekDetails = (day) => {
-    let mo;
+    let su;
     if (day === 0) {
-      mo = new Date(props.year, props.month, props.day);
+      su = new Date(props.year, props.month, props.day);
       // console.log("here?");
     } else if (day === 1) {
-      mo = new Date(props.year, props.month, props.day - 1);
+      su = new Date(props.year, props.month, props.day - 1);
     } else if (day === 2) {
-      mo = new Date(props.year, props.month, props.day - 2);
+      su = new Date(props.year, props.month, props.day - 2);
       console.log("here?");
     } else if (day === 3) {
-      mo = new Date(props.year, props.month, props.day - 3);
+      su = new Date(props.year, props.month, props.day - 3);
     } else if (day === 4) {
-      mo = new Date(props.year, props.month, props.day - 4);
+      su = new Date(props.year, props.month, props.day - 4);
     } else if (day === 5) {
-      mo = new Date(props.year, props.month, props.day - 5);
+      su = new Date(props.year, props.month, props.day - 5);
     } else if (day === 6) {
-      mo = new Date(props.year, props.month, props.day - 6);
+      su = new Date(props.year, props.month, props.day - 6);
     }
-    return { date: mo, week: ["mo", "tu", "we", "th", "fr", "sa", "su"] };
+    return { date: su, week: ["su", "mo", "tu", "we", "th", "fr", "sa"] };
   };
 
   //creates the week div
