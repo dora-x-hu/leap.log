@@ -7,11 +7,16 @@ import "./Profile.css";
 
 const Profile = (props) => {
   // const [user, setUser] = useState();
+
+  // TODO: create initial list of prompts and categories
+  //let defaultPrompts = ["how do you do", "did you sleep 8 hrs"];
+
   const [prompts, setPrompts] = useState([]);
+  const [promptsList, setPromptsList] = useState([]);
   const [categories, setCategories] = useState([]);
   //const [user, setUser] = useState();
 
-  const submitStuff = (thisCategory) => {
+  const submitCategory = (thisCategory) => {
     console.log(thisCategory);
     post("/api/category", {
       name: thisCategory,
@@ -20,31 +25,58 @@ const Profile = (props) => {
     });
   };
 
-  useEffect(() => {
-    document.title = "Profile Page";
-    get("/api/prompts").then((responseObj) => {
-      setPrompts(responseObj);
+  const submitPrompt = (thisPrompt) => {
+    console.log(thisPrompt);
+    post("/api/prompt", {
+      category_id: "dummy category",
+      content: thisPrompt,
+      user_id: props.userId,
+      isSelected: true,
     });
-    //get("/api/categories").then((responseObj) => {
-    //setCategories(responseObj);
-    //});
-  });
+    setPrompts(prompts.concat(thisPrompt));
+  };
+
+  useEffect(() => {
+    console.log("hello", props.userId);
+    document.title = "Profile Page";
+    get("/api/prompts", { user_id: props.userId }).then((promptlistObj) => {
+      console.log("sup", promptlistObj);
+      setPrompts(promptlistObj);
+    });
+    get("/api/categories").then((categorylistObj) => {
+      setCategories(categorylistObj);
+    });
+  }, [props.userId]);
+
+  useEffect(() => {
+    let tempPrompts;
+    console.log(prompts);
+    if (prompts.length > 0) {
+      console.log("hello");
+      tempPrompts = prompts.map((responseObj) => {
+        // console.log(responseObj);
+        return <SinglePrompt content={responseObj.content} category_id={responseObj.category_id} />;
+        //promptsList = prompts;
+      });
+    } else {
+      tempPrompts = "No Prompts Yet";
+    }
+    setPromptsList(tempPrompts);
+    console.log(tempPrompts);
+  }, [prompts]);
+
+  //const addNewPrompt = (promptObj) => {
+  //setStories([promptObj].concat(stories));
+  //};
+
   //TO DO: filter based on param isSelected
 
   // //   get(`/api/user`, { userid: props.userId }).then((userObj) => setUser(userObj));
 
-  let promptsList = null;
+  // let promptsList = null;
   let categoriesList = null;
   const hasPrompts = prompts.length !== 0;
   const hasCategories = categories.length !== 0;
-
-  if (hasPrompts) {
-    promptsList = prompts.map((responseObj) => {
-      <SinglePrompt content={responseObj.content} category_id={responseObj.category_id} />;
-    });
-  } else {
-    promptsList = "No Prompts Yet";
-  }
 
   if (hasCategories) {
     categoriesList = categories.map((responseObj) => {
@@ -64,10 +96,21 @@ const Profile = (props) => {
         <ul>{categoriesList}</ul>
       </div>
 
-      <input type="text" Placeholder="new category..." id="newCategory"></input>
+      <div>
+        <input type="text" Placeholder="new category..." id="newCategory"></input>
+        <button
+          onClick={() => {
+            submitCategory(document.getElementById("newCategory").value);
+          }}
+        >
+          Submit
+        </button>
+      </div>
+
+      <input type="text" Placeholder="new prompt..." id="newPrompt"></input>
       <button
         onClick={() => {
-          submitStuff(document.getElementById("newCategory").value);
+          submitPrompt(document.getElementById("newPrompt").value);
         }}
       >
         Submit
