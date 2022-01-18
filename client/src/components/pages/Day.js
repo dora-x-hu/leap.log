@@ -57,7 +57,7 @@ const Day = (props) => {
     entriesList = "Start Journalling!";
   }
 
-  if (props.userId === null) {
+  if (!props.userId) {
     return (
       <>
         <div>Log in before using journal</div>
@@ -67,7 +67,7 @@ const Day = (props) => {
     return (
       <>
         <section>
-          {String(d.getDate()) + "/" + String(d.getMonth()) + "/" + String(d.getFullYear())}
+          {String(d.getDate()) + "/" + String(d.getMonth() + 1) + "/" + String(d.getFullYear())}
         </section>
         <div>
           <button onClick={() => moveRight()}>Next Day</button>

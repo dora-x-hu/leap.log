@@ -1,23 +1,33 @@
 import React, { useState, useEffect } from "react";
 // import CatHappiness from "../modules/CatHappiness.js";
-import { get } from "../../utilities";
+import { get, post } from "../../utilities";
 
 import "../../utilities.css";
 // import "./Profile.css";
 
 const Profile = (props) => {
-  // const [user, setUser] = useState();
+  useEffect(() => {}, []);
 
-  // // useEffect(() => {
-  // //   document.title = "Profile Page";
-  // //   get(`/api/user`, { userid: props.userId }).then((userObj) => setUser(userObj));
-  // // }, []);
+  const submitStuff = (thisCategory) => {
+    post("/api/category", {
+      name: thisCategory,
+      user_id: props.userId,
+      isSelected: true,
+    });
+  };
 
-  // if (!user) {
-  //   return (<div> Loading! </div>);
-  // }
   return (
-    <>Hallo</>
+    <>
+      <div>
+        <h2>Categories</h2>
+        <input type="text" Placeholder="new category..." id="newCategory"></input>
+        <button onClick={() => submitStuff(document.getElementById("newCategory").value)}>
+          Submit
+        </button>
+        <section></section>
+      </div>
+      <div>Questions</div>
+    </>
     // <>
 
     //   <div
