@@ -25,11 +25,22 @@ const Week = (props) => {
   return (
     <>
       <div>
-        <div className="flex">
+        <div className="month">
+          <ul>
+            <li className="prev" onClick={moveLeft}>
+              &#10094;
+            </li>
+            <li className="next" onClick={moveRight}>
+              &#10095;
+            </li>
+            <li className="title">Week</li>
+          </ul>
+        </div>
+        {/* <div className="flex">
           <button onClick={moveLeft}>Last Week {console.log(d)}</button>
 
           <button onClick={moveRight}>Next Week{console.log(d)}</button>
-        </div>
+        </div> */}
         <div>
           {" "}
           <WeekGrid

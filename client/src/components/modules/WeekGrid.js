@@ -46,9 +46,9 @@ const WeekGrid = (props) => {
         <div>
           {ans.week[i]}
           {" " +
-            String((ans.date.getDate() + i) % 31) +
+            String(ans.date.getMonth() + 1) +
             "/" +
-            String(ans.date.getMonth()) +
+            String(ans.date.getDate() + i) +
             "/" +
             String(ans.date.getFullYear())}
         </div>
