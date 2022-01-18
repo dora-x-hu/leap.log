@@ -127,9 +127,19 @@ const Day = (props) => {
   }*/ else {
     if (entriesList === "") {
       return (
-        <button>
-          <a href="/ask">Start Journalling!</a>
-        </button>
+        <>
+          <section>
+            {String(d.getDate()) + "/" + String(d.getMonth() + 1) + "/" + String(d.getFullYear())}
+          </section>
+          <button>
+            <a href="/ask">Start Journalling!</a>
+          </button>
+
+          <div>
+            <button onClick={() => moveRight()}>Next Day</button>
+            <button onClick={() => moveLeft()}>Previous Day</button>
+          </div>
+        </>
       );
     } else {
       return (

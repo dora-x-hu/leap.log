@@ -8,6 +8,7 @@ const Ask = (props) => {
 
   const [promptList, setPromptList] = useState([]);
   const [currentPromptIndex, setPrompt] = useState(0);
+  //const [currentDate, setDate] =
 
   const submitStuff = (thisQuestion, thisResponse) => {
     let d = new Date(); //this works with mongo
