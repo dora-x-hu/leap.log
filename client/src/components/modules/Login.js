@@ -24,9 +24,8 @@ const Login = ({ userId, handleLogin, handleLogout }) => {
             <button className="Login-button" onClick={renderProps.onClick}>
               {" "}
               <img
-                src="https://www.designbust.com/download/1016/png/google_logo_png_transparent512.png"
-                width="30px"
-                height="30px"
+                src="https://www.designbust.com/download/1016/png/google_logo_png_transparent512.png" 
+                style="width:30px; height=30px; padding-top:25px"
               ></img>{" "}
               login with google{" "}
             </button>

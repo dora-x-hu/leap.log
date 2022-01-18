@@ -21,11 +21,15 @@
   opacity: 0.8;
 }
 
-.img {
-  position: absolute;
+/* .google-logo { */
+
+/* position: absolute;
   margin-top: 130px;
   width: 30px;
   height: 30px;
-}
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  display: flex; */
 
-/* #ffede1 */
+/* #ffede1 light beige */
