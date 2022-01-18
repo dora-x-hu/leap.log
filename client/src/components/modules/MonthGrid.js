@@ -1,3 +1,4 @@
+import { Link } from "@reach/router";
 import React, { Component, useEffect, useState } from "react";
 import "./MonthGrid.css";
 
@@ -12,58 +13,113 @@ const MonthGrid = (props) => {
 
   const [d, setUserDate] = useState(new Date(props.year, props.month, props.day));
 
-  const moveRight = () => {
-    let tomorrow = new Date(d.getFullYear(), (d.getMonth() + 1) % 12, d.getDate());
-    setUserDate(tomorrow);
-  };
+  // const moveRight = () => {
+  //   let tomorrow = new Date(d.getFullYear(), (d.getMonth() + 1) % 12, d.getDate());
+  //   setUserDate(tomorrow);
+  // };
 
-  const moveLeft = () => {
-    let tomorrow = new Date(d.getFullYear(), (d.getMonth() + 11) % 12, d.getDate());
-    setUserDate(tomorrow);
-  };
+  // const moveLeft = () => {
+  //   let tomorrow = new Date(d.getFullYear(), (d.getMonth() + 11) % 12, d.getDate());
+  //   setUserDate(tomorrow);
+  // };
 
-  const getMonth = (integer) => {
-    let yeet = "";
-    if (integer === 0) {
-      yeet = "january";
-    } else if (integer === 1) {
-      yeet = "february";
-    } else if (integer === 2) {
-      yeet = "march";
-    } else if (integer === 3) {
-      yeet = "april";
-    } else if (integer === 4) {
-      yeet = "may";
-    } else if (integer === 5) {
-      yeet = "june";
-    } else if (integer === 6) {
-      yeet = "july";
-    } else if (integer === 7) {
-      yeet = "august";
-    } else if (integer === 8) {
-      yeet = "september";
-    } else if (integer === 9) {
-      yeet = "october";
-    } else if (integer === 10) {
-      yeet = "november";
-    } else {
-      yeet = "december";
+  const isLeapYear = () => {
+    // TODO: check if props.year is leap year or not
+    if (props.year % 4 === 0) {
+      return true;
     }
-    return yeet;
+    return false;
+  };
+
+  const getMonthDetails = () => {
+    switch (props.month) {
+      case 0:
+        return {
+          name: "january",
+          days: 31,
+        };
+      case 1:
+        return {
+          name: "february",
+          days: isLeapYear() ? 29 : 28,
+        };
+      case 2:
+        return {
+          name: "march",
+          days: 31,
+        };
+      case 3:
+        return {
+          name: "april",
+          days: 30,
+        };
+      case 4:
+        return {
+          name: "may",
+          days: 31,
+        };
+      case 5:
+        return {
+          name: "june",
+          days: 30,
+        };
+      case 6:
+        return {
+          name: "july",
+          days: 31,
+        };
+      case 7:
+        return {
+          name: "august",
+          days: 31,
+        };
+      case 8:
+        return {
+          name: "septembe",
+          days: 30,
+        };
+      case 9:
+        return {
+          name: "october",
+          days: 31,
+        };
+      case 10:
+        return {
+          name: "november",
+          days: 30,
+        };
+      case 11:
+        return {
+          name: "december",
+          days: 31,
+        };
+    }
+  };
+
+  // want to know if a year is a leap year
+  // the first day of every month
+
+  const getDays = () => {
+    const details = getMonthDetails();
+    const days = [];
+    for (let i = 0; i < details.days; i++) {
+      days.push(
+        <li key={i}>
+          <Link to={"/day/${new Date(props.year, props.month, props.day)}"}>{i + 1}</Link>
+        </li>
+      );
+    }
+    return days;
   };
 
   return (
     <>
       <div className="month">
         <ul>
-          <button className="prev" onClick={moveLeft}>
-            &#10094;
-          </button>
-          <li className="next" onClick={moveRight}>
-            &#10095;
-          </li>
+          <li className="prev">&#10094;</li>
+          <li className="next">&#10095;</li>
           <li className="title">
-            {getMonth(props.month)}
+            {getMonthDetails().name}
             <br></br>
             <span>{props.year}</span>
           </li>
@@ -82,40 +138,10 @@ const MonthGrid = (props) => {
 
       <ul className="days">
         <li> </li>
-        <li>1</li>
-        <li>2</li>
-        <li>3</li>
-        <li>4</li>
-        <li>5</li>
-        <li>6</li>
-        <li>7</li>
-        <li>8</li>
-        <li>9</li>
-        {/* <li><span class="active">10</span></li> */}
-        <li>10</li>
-        <li>11</li>
-        <li>12</li>
-        <li>13</li>
-        <li>14</li>
-        <li>15</li>
-        <li>16</li>
-        <li>17</li>
-        <li>18</li>
-        <li>19</li>
-        <li>20</li>
-        <li>21</li>
-        <li>22</li>
-        <li>23</li>
-        <li>24</li>
-        <li>25</li>
-        <li>26</li>
-        <li>27</li>
-        <li>28</li>
-        <li>29</li>
-        {JSON.stringify(getMonth(props.month) !== "february") && <li>30</li>}
-        {/* /* {if (JSON.stringify(getMonth(props.month))!==JSON.stringify("february") 
-        {(<li>30</li>)})} */}
-        <li>31</li>
+        {/* /* <Link to={`/profile/${props.creator_id}`} className="u-link u-bold">
+{props.creator_name}
+</Link> */}
+        {getDays()}
       </ul>
     </>
   );
