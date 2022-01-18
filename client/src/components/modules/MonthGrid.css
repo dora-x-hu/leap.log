@@ -8,7 +8,7 @@ body {
 /* Month header */
 .month {
   padding: 50px 50px;
-  width: 100%;
+  width: auto;
   background: #1bb091;
   text-align: center;
 }
