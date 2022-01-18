@@ -3,7 +3,7 @@ import { get } from "../../utilities";
 import SinglePrompt from "../modules/SinglePrompt.js";
 
 import "../../utilities.css";
-// import "./Profile.css";
+import "./Profile.css";
 
 const Profile = (props) => {
   // const [user, setUser] = useState();
@@ -21,17 +21,12 @@ const Profile = (props) => {
   });
   //TO DO: filter based on param isSelected
 
-  // // useEffect(() => {
-  // //   document.title = "Profile Page";
   // //   get(`/api/user`, { userid: props.userId }).then((userObj) => setUser(userObj));
-  // // }, []);
 
   let promptsList = null;
   let categoriesList = null;
   const hasPrompts = prompts.length !== 0;
   const hasCategories = categories.length !== 0;
-
-  //let entriesList = ["here", "there", "everywhere"];
 
   if (hasPrompts) {
     promptsList = prompts.map((responseObj) => {
@@ -41,20 +36,20 @@ const Profile = (props) => {
     promptsList = "No Prompts Yet";
   }
 
-  // if (hasCategories) {
-  //   categoriesList = categories.map((responseObj) => {
-  //     <SinglePrompt content={responseObj.content} category_id={responseObj.category_id} />;
-  //   });
-  // } else {
-  //   categoriesList = "No Categories Yet";
-  // }
+  if (hasCategories) {
+    categoriesList = categories.map((responseObj) => {
+      <SinglePrompt content={responseObj.content} category_id={responseObj.category_id} />;
+    });
+  } else {
+    categoriesList = "No Categories Yet";
+  }
 
   return (
     <>
-      <div>
+      <div className="Profile-section">
         <h1 className="Profile-heading1">My Profile</h1>
-        <ul>{promptsList}</ul>
-        {/* <ul>{categoriesList}</ul> */}
+        <ul className="Profile-prompt">{promptsList}</ul>
+        <ul>{categoriesList}</ul>
       </div>
     </>
   );
