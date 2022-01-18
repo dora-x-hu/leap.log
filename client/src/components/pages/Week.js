@@ -13,12 +13,12 @@ const Week = (props) => {
   });
 
   const moveRight = () => {
-    let tomorrow = new Date(d.getDate() + 7);
+    let tomorrow = new Date(d.getFullYear(), d.getMonth(), d.getDate() + 7);
     setUserDate(tomorrow);
   };
 
   const moveLeft = () => {
-    let tomorrow = new Date(d.getDate() + 7);
+    let tomorrow = new Date(d.getFullYear(), d.getMonth(), d.getDate() - 7);
     setUserDate(tomorrow);
   };
 
@@ -26,9 +26,9 @@ const Week = (props) => {
     <>
       <div>
         <div className="flex">
-          <button onClick={moveLeft}>Last Week</button>
+          <button onClick={moveLeft}>Last Week {console.log(d)}</button>
 
-          <button onClick={moveRight}>Next Week</button>
+          <button onClick={moveRight}>Next Week{console.log(d)}</button>
         </div>
         <div>
           {" "}
@@ -36,6 +36,7 @@ const Week = (props) => {
             day={d.getDate()}
             month={d.getMonth()}
             year={d.getFullYear()}
+            week={d.getDay()}
             userId={props.userId}
           />
         </div>
