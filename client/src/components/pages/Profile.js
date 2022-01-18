@@ -7,6 +7,8 @@ import "./Profile.css";
 
 const Profile = (props) => {
   // const [user, setUser] = useState();
+
+  // TODO: create initial list of prompts and categories
   const [prompts, setPrompts] = useState([]);
   const [categories, setCategories] = useState([]);
 
