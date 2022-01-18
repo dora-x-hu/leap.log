@@ -56,6 +56,8 @@ router.get("/responses", auth.ensureLoggedIn, (req, res) => {
     year: req.query.year,
     user_id: req.query.user_id,
   }).then((responses) => {
+    console.log(req.query);
+    console.log(responses);
     res.send(responses);
   });
 });
@@ -109,13 +111,14 @@ router.post("/response", auth.ensureLoggedIn, (req, res) => {
 //no parameters
 //creates a new category and returns it
 router.post("/category", auth.ensureLoggedIn, (req, res) => {
+  console.log(req.body);
   const newCategory = new Category({
     name: req.body.name,
-    user_id: req.user._id,
+    user_id: req.body.user_id,
     isSelected: req.body.isSelected,
   });
 
-  newCateogry.save().then((category) => res.send(category));
+  newCategory.save().then((category) => res.send(category));
 });
 
 router.post("/prompt", auth.ensureLoggedIn, (req, res) => {

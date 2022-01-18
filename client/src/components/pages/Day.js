@@ -7,6 +7,7 @@ import { get } from "../../utilities";
 const Day = (props) => {
   const [entries, setEntries] = useState([]);
   const [d, setDate] = useState(new Date());
+  const [entriesList, setEntriesList] = useState(null);
 
   const moveRight = () => {
     let tomorrow = new Date(d.getFullYear(), d.getMonth(), d.getDate() + 1);
@@ -34,28 +35,37 @@ const Day = (props) => {
       setEntries(responsesObj);
     });
     //print(entries);
-  }, [d]);
-
-  let entriesList = null;
-  const hasEntries = entries.length !== 0;
+  }, [d, props.userId]);
 
   //let entriesList = ["here", "there", "everywhere"];
 
-  if (hasEntries) {
-    entriesList = entries.map((responseObj) => (
-      <SingleEntry
-        question={responseObj.question}
-        content={responseObj.content}
-        user_id={props.userId}
-        day={responseObj.day}
-        month={responseObj.month}
-        year={responseObj.year}
-        userId={props.userId}
-      />
-    ));
-  } else {
-    entriesList = "Start Journalling!";
-  }
+  // add useEffect() statement for this
+  useEffect(() => {
+    console.log(entries.length);
+    const hasEntries = entries.length !== 0;
+
+    if (hasEntries) {
+      setEntriesList(
+        entries.map((responseObj) => (
+          <SingleEntry
+            question={responseObj.question}
+            content={responseObj.content}
+            user_id={props.userId}
+            day={responseObj.day}
+            month={responseObj.month}
+            year={responseObj.year}
+            userId={props.userId}
+          />
+        ))
+      );
+    } else {
+      setEntriesList("Start Journalling!");
+    }
+  }, [entries]);
+
+  useEffect(() => {
+    console.log(entriesList);
+  }, [entriesList]);
 
   if (!props.userId) {
     return (
