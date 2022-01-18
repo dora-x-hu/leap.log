@@ -55,22 +55,8 @@ const Month = (props) => {
   };
 
   useEffect(() => {
-    document.title = "Month";
+    document.title = "Monthly";
   });
-
-  // useEffect(() => {
-  //   <MonthGrid
-  //     day={user_date.getDay()}
-  //     month={user_date.getMonth()}
-  //     year={user_date.getFullYear()}
-  //     userId={props.userId}
-  //   />;
-  // }, [user_date]);
-
-  //})
-  //states
-
-  //useEFfects
 
   const isLeapYear = () => {
     // TODO: check if props.year is leap year or not
@@ -183,9 +169,4 @@ const Month = (props) => {
   );
 };
 
-{
-  /* <Link to={`/profile/${props.creator_id}`} className="u-link u-bold">
-{props.creator_name}
-</Link> */
-}
 export default Month;

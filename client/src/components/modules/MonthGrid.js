@@ -9,19 +9,7 @@ import "./MonthGrid.css";
 //buttons
 
 const MonthGrid = (props) => {
-  //const d = new Date();
-
   const [d, setUserDate] = useState(new Date(props.year, props.month, props.day));
-
-  // const moveRight = () => {
-  //   let tomorrow = new Date(d.getFullYear(), (d.getMonth() + 1) % 12, d.getDate());
-  //   setUserDate(tomorrow);
-  // };
-
-  // const moveLeft = () => {
-  //   let tomorrow = new Date(d.getFullYear(), (d.getMonth() + 11) % 12, d.getDate());
-  //   setUserDate(tomorrow);
-  // };
 
   const isLeapYear = () => {
     // TODO: check if props.year is leap year or not
@@ -96,6 +84,17 @@ const MonthGrid = (props) => {
     }
   };
 
+  const dayofWeek = () => {
+    const firstDay = new Date(props.year, props.month, 1);
+    const emptyDays = [];
+    let weekday = firstDay.getDay();
+    console.log(weekday);
+    for (let i = 0; i < weekday; i++) {
+      emptyDays.push(<li></li>);
+    }
+    return emptyDays;
+  };
+
   // want to know if a year is a leap year
   // the first day of every month
 
@@ -137,7 +136,7 @@ const MonthGrid = (props) => {
       </ul>
 
       <ul className="days">
-        <li> </li>
+        {dayofWeek()}
         {/* /* <Link to={`/profile/${props.creator_id}`} className="u-link u-bold">
 {props.creator_name}
 </Link> */}
