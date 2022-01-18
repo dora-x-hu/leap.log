@@ -14,18 +14,12 @@ const MonthGrid = (props) => {
 
   const moveRight = () => {
     let tomorrow = new Date(d.getFullYear(), (d.getMonth() + 1) % 12, d.getDate());
-    //return d.getDate() + 1;
     setUserDate(tomorrow);
-    //d.setDate(d.getDate() + 1);
-    //console.log(d);
   };
 
   const moveLeft = () => {
     let tomorrow = new Date(d.getFullYear(), (d.getMonth() + 11) % 12, d.getDate());
-    //return d.getDate() + 1;
     setUserDate(tomorrow);
-    //d.setDate(d.getDate() + 1);
-    //console.log(d);
   };
 
   const getMonth = (integer) => {

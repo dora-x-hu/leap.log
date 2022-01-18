@@ -9,6 +9,7 @@ const Profile = (props) => {
   // const [user, setUser] = useState();
   const [prompts, setPrompts] = useState([]);
   const [categories, setCategories] = useState([]);
+  //const [user, setUser] = useState();
 
   useEffect(() => {
     document.title = "Profile Page";
@@ -18,8 +19,9 @@ const Profile = (props) => {
     get("/api/categories").then((responseObj) => {
       setCategories(responseObj);
     });
-  });
-  //TO DO: filter based on param isSelected
+    //get("/api/user", { userid: props.userId }).then((userObj) => setUser(userObj));
+  }, []);
+  //TO DO: filter based on param isSelected?Not really
 
   // //   get(`/api/user`, { userid: props.userId }).then((userObj) => setUser(userObj));
 
