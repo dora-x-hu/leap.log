@@ -1,12 +1,13 @@
 import React, { Component, useEffect, useState } from "react";
 //import journalEntry from "../../../../server/models/journalEntry";
 import SingleEntry from "../modules/SingleEntry.js";
-
+import "./Day.css";
 import { get } from "../../utilities";
 
 const Day = (props) => {
   const [entries, setEntries] = useState([]);
   const [d, setDate] = useState(new Date());
+  const [entriesList, setEntriesList] = useState(null);
 
   const moveRight = () => {
     let tomorrow = new Date(d.getFullYear(), d.getMonth(), d.getDate() + 1);
@@ -25,6 +26,7 @@ const Day = (props) => {
   };
 
   useEffect(() => {
+    document.title = "Daily";
     get("/api/responses", {
       day: d.getDate(),
       month: d.getMonth(),
@@ -34,13 +36,11 @@ const Day = (props) => {
       setEntries(responsesObj);
     });
     //print(entries);
-  }, [d]);
-
-  let entriesList = null;
-  const hasEntries = entries.length !== 0;
+  }, [d, props.userId]);
 
   //let entriesList = ["here", "there", "everywhere"];
 
+<<<<<<< HEAD
   if (hasEntries) {
     entriesList = entries.map((responseObj) => (
       <SingleEntry
@@ -56,18 +56,47 @@ const Day = (props) => {
   } else {
     entriesList = "Start Journaling!";
   }
+=======
+  // add useEffect() statement for this
+  useEffect(() => {
+    console.log(entries.length);
+    const hasEntries = entries.length !== 0;
 
-  if (props.userId === null) {
+    if (hasEntries) {
+      setEntriesList(
+        entries.map((responseObj) => (
+          <SingleEntry
+            question={responseObj.question}
+            content={responseObj.content}
+            user_id={props.userId}
+            day={responseObj.day}
+            month={responseObj.month}
+            year={responseObj.year}
+            userId={props.userId}
+          />
+        ))
+      );
+    } else {
+      setEntriesList("Start Journalling!");
+    }
+  }, [entries]);
+
+  useEffect(() => {
+    console.log(entriesList);
+  }, [entriesList]);
+>>>>>>> 592b9e7ab55efbc4133fed7e106c0b2a9eb96184
+
+  if (!props.userId) {
     return (
       <>
-        <div>Log in before using journal</div>
+        <div className="Day-heading1">Log in before using journal</div>
       </>
     );
   } else
     return (
       <>
         <section>
-          {String(d.getDate()) + "/" + String(d.getMonth()) + "/" + String(d.getFullYear())}
+          {String(d.getDate()) + "/" + String(d.getMonth() + 1) + "/" + String(d.getFullYear())}
         </section>
         <div>
           <button onClick={() => moveRight()}>Next Day</button>

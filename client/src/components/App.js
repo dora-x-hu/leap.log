@@ -15,6 +15,7 @@ import { socket } from "../client-socket.js";
 
 import { get, post } from "../utilities";
 import NavBar from "./modules/navbar.js";
+import HomeButton from "./modules/HomeButton.js";
 
 /**
  * Define the "App" component
@@ -30,6 +31,7 @@ const App = () => {
   useEffect(() => {
     get("/api/whoami").then((user) => {
       if (user._id) {
+        console.log(user._id);
         // they are registed in the database, and currently logged in.
         setUserId(user._id);
       }
@@ -52,6 +54,7 @@ const App = () => {
 
   return (
     <>
+      <HomeButton />
       <NavBar userId={userId} />
 
       <Router>
@@ -60,7 +63,7 @@ const App = () => {
         <Week path="/week" userId={userId} />
         <Month path="/month" userId={userId} />
         <Ask path="/ask" userId={userId} />
-        <Profile path="/profile/:userId" />
+        <Profile path="/profile/:userId" userId={userId} />
         <NotFound default />
       </Router>
     </>

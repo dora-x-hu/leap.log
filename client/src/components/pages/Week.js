@@ -1,9 +1,45 @@
-import React, { Component } from "react";
+import React, { Component, useEffect, useState } from "react";
+import "./Week.css";
+import WeekGrid from "../modules/WeekGrid";
+import Login from "../modules/Login.js";
+
+//proptypes: userid
 
 const Week = (props) => {
+  const [d, setUserDate] = useState(new Date());
+
+  useEffect(() => {
+    document.title = "Weekly";
+  });
+
+  const moveRight = () => {
+    let tomorrow = new Date(d.getDate() + 7);
+    setUserDate(tomorrow);
+  };
+
+  const moveLeft = () => {
+    let tomorrow = new Date(d.getDate() + 7);
+    setUserDate(tomorrow);
+  };
+
   return (
     <>
-      <section>Week of [start - end]</section>
+      <div>
+        <div className="flex">
+          <button onClick={moveLeft}>Last Week</button>
+
+          <button onClick={moveRight}>Next Week</button>
+        </div>
+        <div>
+          {" "}
+          <WeekGrid
+            day={d.getDate()}
+            month={d.getMonth()}
+            year={d.getFullYear()}
+            userId={props.userId}
+          />
+        </div>
+      </div>
     </>
   );
 };

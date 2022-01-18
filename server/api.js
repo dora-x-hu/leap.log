@@ -43,6 +43,12 @@ router.post("/initsocket", (req, res) => {
   res.send({});
 });
 
+router.get("/user", (req, res) => {
+  User.findById(req.query.userid).then((user) => {
+    res.send(user);
+  });
+});
+
 // |------------------------------|
 // | write your API methods below!|
 // |------------------------------|
@@ -56,6 +62,8 @@ router.get("/responses", auth.ensureLoggedIn, (req, res) => {
     year: req.query.year,
     user_id: req.query.user_id,
   }).then((responses) => {
+    console.log(req.query);
+    console.log(responses);
     res.send(responses);
   });
 });
@@ -78,7 +86,9 @@ router.get("/response", auth.ensureLoggedIn, (req, res) => {
 //returns all questions
 //returns array of questions
 router.get("/prompts", (req, res) => {
-  Question.find({}).then((questions) => {
+  console.log(req.query.user_id);
+  Question.find({ user_id: req.query.user_id }).then((questions) => {
+    console.log(questions);
     res.send(questions);
   });
 });
@@ -106,12 +116,12 @@ router.post("/response", auth.ensureLoggedIn, (req, res) => {
   newJournalEntry.save().then((response) => res.send(response));
 });
 
-//no parameters
 //creates a new category and returns it
 router.post("/category", auth.ensureLoggedIn, (req, res) => {
+  console.log(req.body);
   const newCategory = new Category({
     name: req.body.name,
-    user_id: req.user._id,
+    user_id: req.body.user_id,
     isSelected: req.body.isSelected,
   });
 
@@ -120,7 +130,7 @@ router.post("/category", auth.ensureLoggedIn, (req, res) => {
 
 router.post("/prompt", auth.ensureLoggedIn, (req, res) => {
   const newQuestion = new Question({
-    cateogry_id: req.body.cateogry_id, //which category it is, Category is another schema
+    category_id: req.body.category_id, //which category it is, Category is another schema
     content: req.body.content,
     user_id: req.user._id,
     isSelected: req.body.isSelected,

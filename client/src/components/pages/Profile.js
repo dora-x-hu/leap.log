@@ -1,63 +1,125 @@
 import React, { Component, useState, useEffect } from "react";
-import { get } from "../../utilities";
+import { get, post } from "../../utilities";
 import SinglePrompt from "../modules/SinglePrompt.js";
 
 import "../../utilities.css";
-// import "./Profile.css";
+import "./Profile.css";
 
 const Profile = (props) => {
   // const [user, setUser] = useState();
+
+  // TODO: create initial list of prompts and categories
+  //let defaultPrompts = ["how do you do", "did you sleep 8 hrs"];
+
   const [prompts, setPrompts] = useState([]);
+  const [promptsList, setPromptsList] = useState([]);
   const [categories, setCategories] = useState([]);
+  //const [user, setUser] = useState();
+
+  const submitCategory = (thisCategory) => {
+    console.log(thisCategory);
+    post("/api/category", {
+      name: thisCategory,
+      user_id: props.userId,
+      isSelected: true,
+    });
+  };
+
+  const submitPrompt = (thisPrompt) => {
+    console.log(thisPrompt);
+    post("/api/prompt", {
+      category_id: "dummy category",
+      content: thisPrompt,
+      user_id: props.userId,
+      isSelected: true,
+    });
+    setPrompts(prompts.concat(thisPrompt));
+  };
 
   useEffect(() => {
+    console.log("hello", props.userId);
     document.title = "Profile Page";
-    get("/api/prompts").then((responseObj) => {
-      setPrompts(responseObj);
+    get("/api/prompts", { user_id: props.userId }).then((promptlistObj) => {
+      console.log("sup", promptlistObj);
+      setPrompts(promptlistObj);
     });
-    get("/api/categories").then((responseObj) => {
-      setCategories(responseObj);
+    get("/api/categories").then((categorylistObj) => {
+      setCategories(categorylistObj);
     });
-  });
+  }, [props.userId]);
+
+  useEffect(() => {
+    let tempPrompts;
+    console.log(prompts);
+    if (prompts.length > 0) {
+      console.log("hello");
+      tempPrompts = prompts.map((responseObj) => {
+        // console.log(responseObj);
+        return <SinglePrompt content={responseObj.content} category_id={responseObj.category_id} />;
+        //promptsList = prompts;
+      });
+    } else {
+      tempPrompts = "No Prompts Yet";
+    }
+    setPromptsList(tempPrompts);
+    console.log(tempPrompts);
+  }, [prompts]);
+
+  //const addNewPrompt = (promptObj) => {
+  //setStories([promptObj].concat(stories));
+  //};
+
   //TO DO: filter based on param isSelected
 
-  // // useEffect(() => {
-  // //   document.title = "Profile Page";
   // //   get(`/api/user`, { userid: props.userId }).then((userObj) => setUser(userObj));
-  // // }, []);
 
-  let promptsList = null;
+  // let promptsList = null;
   let categoriesList = null;
   const hasPrompts = prompts.length !== 0;
   const hasCategories = categories.length !== 0;
 
-  //let entriesList = ["here", "there", "everywhere"];
-
-  if (hasPrompts) {
-    promptsList = prompts.map((responseObj) => {
+  if (hasCategories) {
+    categoriesList = categories.map((responseObj) => {
       <SinglePrompt content={responseObj.content} category_id={responseObj.category_id} />;
     });
   } else {
-    promptsList = "No Prompts Yet";
+    categoriesList = "No Categories Yet";
   }
-
-  // if (hasCategories) {
-  //   categoriesList = categories.map((responseObj) => {
-  //     <SinglePrompt content={responseObj.content} category_id={responseObj.category_id} />;
-  //   });
-  // } else {
-  //   categoriesList = "No Categories Yet";
-  // }
 
   return (
     <>
-      <div>
+      <div className="Profile-section">
+        <Login userId={userId} handleLogin={handleLogin} handleLogout={handleLogout} />
+
         <h1 className="Profile-heading1">My Profile</h1>
-        <ul>{promptsList}</ul>
-        {/* <ul>{categoriesList}</ul> */}
+        <ul className="Profile-prompt">{promptsList}</ul>
+        <ul>{categoriesList}</ul>
       </div>
+
+      <div>
+        <input type="text" Placeholder="new category..." id="newCategory"></input>
+        <button
+          onClick={() => {
+            submitCategory(document.getElementById("newCategory").value);
+          }}
+        >
+          Submit
+        </button>
+      </div>
+
+      <input type="text" Placeholder="new prompt..." id="newPrompt"></input>
+      <button
+        onClick={() => {
+          submitPrompt(document.getElementById("newPrompt").value);
+        }}
+      >
+        Submit
+      </button>
     </>
   );
+
+  // -------------
+  //
 };
 
 // if (!user) {
