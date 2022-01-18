@@ -127,11 +127,11 @@ const Day = (props) => {
   }*/ else {
     if (entriesList === "") {
       return (
-        <button>
-          <a className="Day-paragraph" href="/ask">
-            Start Journalling!
-          </a>
-        </button>
+        <div>
+          <button className="Day-button">
+            <a href="/ask">Start Journalling!</a>
+          </button>
+        </div>
       );
     } else {
       return (
@@ -140,8 +140,13 @@ const Day = (props) => {
             {String(d.getDate()) + "/" + String(d.getMonth() + 1) + "/" + String(d.getFullYear())}
           </section>
           <div className="Day-paragraph">
-            <button onClick={() => moveRight()}>Next Day</button>
-            <button onClick={() => moveLeft()}>Previous Day</button>
+            <button className="Day-button" onClick={() => moveLeft()}>
+              Previous Day
+            </button>
+            <button className="Day-button" onClick={() => moveRight()}>
+              Next Day
+            </button>
+
             <section>{entriesList}</section>
           </div>
         </>

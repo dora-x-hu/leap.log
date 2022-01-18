@@ -2,6 +2,7 @@ import React, { Component, useEffect, useState } from "react";
 import { Router } from "@reach/router";
 
 import { get, post } from "../../utilities";
+import "./Ask.css";
 
 const Ask = (props) => {
   useEffect(() => {}, []);
@@ -48,24 +49,29 @@ const Ask = (props) => {
 
   return (
     <>
-      <section>
+      <section className="Ask-paragraph">
         <label>{String(questionList[currentPromptIndex])}</label>
       </section>
 
-      <section>
+      <section className="Ask-paragraph">
         <input type="text" id="askbox"></input>
+        <button
+          className="Ask-button"
+          onClick={() => submitStuff("new journal prompt", document.getElementById("askbox").value)}
+        >
+          Submit
+        </button>
       </section>
-      <button
-        onClick={() => submitStuff("new journal prompt", document.getElementById("askbox").value)}
-      >
-        Submit
-      </button>
 
-      <section>
-        <button onClick={() => moveLeft()}>Previous</button>
+      <section className="Ask-paragraph">
+        <button className="Ask-button" onClick={() => moveLeft()}>
+          Previous
+        </button>
       </section>
-      <section>
-        <button onClick={() => moveRight()}>Next</button>
+      <section className="Ask-paragraph">
+        <button className="Ask-button" onClick={() => moveRight()}>
+          Next
+        </button>
       </section>
     </>
 
