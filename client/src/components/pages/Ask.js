@@ -7,7 +7,7 @@ const Ask = (props) => {
   useEffect(() => {}, []);
 
   const [promptList, setPromptList] = useState([]);
-  const [currentPrompt, setPrompt] = useState(promptList[0]);
+  const [currentPromptIndex, setPrompt] = useState(0);
 
   const submitStuff = (thisQuestion, thisResponse) => {
     let d = new Date(); //this works with mongo
@@ -21,6 +21,13 @@ const Ask = (props) => {
     });
   };
 
+  const moveRight = () => {
+    setPrompt(currentPromptIndex + 1);
+  };
+  const moveLeft = () => {
+    setPrompt(currentPromptIndex - 1);
+  };
+
   let questionList = [];
 
   useEffect(() => {
@@ -32,17 +39,17 @@ const Ask = (props) => {
     });
   }, [props.userId]);
 
-  useEffect(() => {
-    questionList = promptList.map((promptObj) => {
-      promptObj.content;
-    });
-    console.log(questionList[0]);
-  }, [props.userId, promptList]);
+  //useEffect(() => {
+  questionList = promptList.map((promptObj) => {
+    return promptObj.content;
+  });
+  //console.log(questionList[0] + "teehee");
+  //}, [props.userId, promptList]);
 
   return (
     <>
       <section>
-        <label>{String(questionList[0])}</label>
+        <label>{String(questionList[currentPromptIndex])}</label>
       </section>
 
       <section>
@@ -53,6 +60,13 @@ const Ask = (props) => {
       >
         Submit
       </button>
+
+      <section>
+        <button onClick={() => moveLeft()}>Previous</button>
+      </section>
+      <section>
+        <button onClick={() => moveRight()}>Next</button>
+      </section>
     </>
 
     // var askbox = document.getElementById("askbox")
