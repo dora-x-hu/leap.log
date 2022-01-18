@@ -26,6 +26,7 @@ const Day = (props) => {
   };
 
   useEffect(() => {
+    document.title = "Profile Page";
     get("/api/responses", {
       day: d.getDate(),
       month: d.getMonth(),

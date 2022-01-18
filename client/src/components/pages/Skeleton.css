@@ -1,4 +1,21 @@
 /* Fill me in :) */
 .Skeleton-heading1 {
   color: #1bb091;
+  font-family: "Dongle", sans-serif;
+  font-size: 100px;
+  text-align: center;
+}
+
+.Skeleton-paragraph {
+  color: black;
+  font-family: "Dongle", sans-serif;
+  font-size: 50px;
+  text-align: center;
+}
+
+.flex {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  flex-grow: 1;
 }

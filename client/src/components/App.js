@@ -15,6 +15,7 @@ import { socket } from "../client-socket.js";
 
 import { get, post } from "../utilities";
 import NavBar from "./modules/navbar.js";
+import HomeButton from "./modules/HomeButton.js";
 
 /**
  * Define the "App" component
@@ -52,6 +53,7 @@ const App = () => {
 
   return (
     <>
+      <HomeButton />
       <NavBar userId={userId} />
 
       <Router>

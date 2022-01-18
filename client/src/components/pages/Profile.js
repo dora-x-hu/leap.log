@@ -11,6 +11,7 @@ const Profile = (props) => {
   // TODO: create initial list of prompts and categories
   const [prompts, setPrompts] = useState([]);
   const [categories, setCategories] = useState([]);
+  //const [user, setUser] = useState();
 
   const submitStuff = (thisCategory) => {
     console.log(thisCategory);
@@ -26,11 +27,20 @@ const Profile = (props) => {
     get("/api/prompts").then((responseObj) => {
       setPrompts(responseObj);
     });
+<<<<<<< HEAD
+    get("/api/categories").then((responseObj) => {
+      setCategories(responseObj);
+    });
+    //get("/api/user", { userid: props.userId }).then((userObj) => setUser(userObj));
+  }, []);
+  //TO DO: filter based on param isSelected?Not really
+=======
     //get("/api/categories").then((responseObj) => {
     //setCategories(responseObj);
     //});
   });
   //TO DO: filter based on param isSelected
+>>>>>>> 24d144b6943267f9474b58ca29db18b9ad57e194
 
   // //   get(`/api/user`, { userid: props.userId }).then((userObj) => setUser(userObj));
 
