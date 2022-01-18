@@ -5,7 +5,7 @@ import "../../utilities.css";
 import "../modules/Login.css";
 
 //TODO: REPLACE WITH YOUR OWN CLIENT_ID
-const GOOGLE_CLIENT_ID = "379531489685-7mgu977nsn7s5ei091hilu992i1vnch8.apps.googleusercontent.com";
+const GOOGLE_CLIENT_ID = "263794871408-k368sbopfaiba3upkelsidv23nh1a5bf.apps.googleusercontent.com";
 
 const Login = ({ userId, handleLogin, handleLogout }) => {
   return (
@@ -24,9 +24,9 @@ const Login = ({ userId, handleLogin, handleLogout }) => {
             <button className="Login-button" onClick={renderProps.onClick}>
               {" "}
               <img
-                src="https://www.designbust.com/download/1016/png/google_logo_png_transparent512.png" 
+                src="https://www.designbust.com/download/1016/png/google_logo_png_transparent512.png"
                 width="30px"
-                height="30px" 
+                height="30px"
               ></img>{" "}
               login with google{" "}
             </button>

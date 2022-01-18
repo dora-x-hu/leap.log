@@ -4,7 +4,7 @@ const socketManager = require("./server-socket");
 
 // create a new OAuth client used to verify google sign-in
 //    TODO: replace with your own CLIENT_ID
-const CLIENT_ID = "379531489685-7mgu977nsn7s5ei091hilu992i1vnch8.apps.googleusercontent.com";
+const CLIENT_ID = "263794871408-k368sbopfaiba3upkelsidv23nh1a5bf.apps.googleusercontent.com";
 const client = new OAuth2Client(CLIENT_ID);
 
 // accepts a login token from the frontend, and verifies that it's legit
@@ -27,6 +27,9 @@ function getOrCreateUser(user) {
       name: user.name,
       googleid: user.sub,
     });
+
+    // adds new default prompts
+    //post()
 
     return newUser.save();
   });
