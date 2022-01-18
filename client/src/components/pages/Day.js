@@ -40,23 +40,6 @@ const Day = (props) => {
 
   //let entriesList = ["here", "there", "everywhere"];
 
-<<<<<<< HEAD
-  if (hasEntries) {
-    entriesList = entries.map((responseObj) => (
-      <SingleEntry
-        question={responseObj.question}
-        content={responseObj.content}
-        user_id={props.userId}
-        day={responseObj.day}
-        month={responseObj.month}
-        year={responseObj.year}
-        userId={props.userId}
-      />
-    ));
-  } else {
-    entriesList = "Start Journaling!";
-  }
-=======
   // add useEffect() statement for this
   useEffect(() => {
     console.log(entries.length);
@@ -84,7 +67,6 @@ const Day = (props) => {
   useEffect(() => {
     console.log(entriesList);
   }, [entriesList]);
->>>>>>> 592b9e7ab55efbc4133fed7e106c0b2a9eb96184
 
   if (!props.userId) {
     return (
