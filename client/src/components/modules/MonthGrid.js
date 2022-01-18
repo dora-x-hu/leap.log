@@ -102,9 +102,10 @@ const MonthGrid = (props) => {
     const details = getMonthDetails();
     const days = [];
     for (let i = 0; i < details.days; i++) {
+      let d = new Date(props.year, props.month, i + 1);
       days.push(
         <li key={i}>
-          <Link to={"/day/${new Date(props.year, props.month, props.day)}"}>{i + 1}</Link>
+          <Link to={`/day/${d}`}>{i + 1}</Link>
         </li>
       );
     }
