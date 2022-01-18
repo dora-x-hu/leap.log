@@ -86,7 +86,9 @@ router.get("/response", auth.ensureLoggedIn, (req, res) => {
 //returns all questions
 //returns array of questions
 router.get("/prompts", (req, res) => {
-  Question.find({ user_id: req.user._id }).then((questions) => {
+  console.log(req.query.user_id);
+  Question.find({ user_id: req.query.user_id }).then((questions) => {
+    console.log(questions);
     res.send(questions);
   });
 });

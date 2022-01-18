@@ -12,6 +12,7 @@ const Profile = (props) => {
   //let defaultPrompts = ["how do you do", "did you sleep 8 hrs"];
 
   const [prompts, setPrompts] = useState([]);
+  const [promptsList, setPromptsList] = useState([]);
   const [categories, setCategories] = useState([]);
   //const [user, setUser] = useState();
 
@@ -32,34 +33,50 @@ const Profile = (props) => {
       user_id: props.userId,
       isSelected: true,
     });
+    setPrompts(prompts.concat(thisPrompt));
   };
 
   useEffect(() => {
+    console.log("hello", props.userId);
     document.title = "Profile Page";
-    get("/api/prompts").then((promptlistObj) => {
+    get("/api/prompts", { user_id: props.userId }).then((promptlistObj) => {
+      console.log("sup", promptlistObj);
       setPrompts(promptlistObj);
     });
     get("/api/categories").then((categorylistObj) => {
       setCategories(categorylistObj);
     });
-  }, []);
+  }, [props.userId]);
+
+  useEffect(() => {
+    let tempPrompts;
+    console.log(prompts);
+    if (prompts.length > 0) {
+      console.log("hello");
+      tempPrompts = prompts.map((responseObj) => {
+        // console.log(responseObj);
+        return <SinglePrompt content={responseObj.content} category_id={responseObj.category_id} />;
+        //promptsList = prompts;
+      });
+    } else {
+      tempPrompts = "No Prompts Yet";
+    }
+    setPromptsList(tempPrompts);
+    console.log(tempPrompts);
+  }, [prompts]);
+
+  //const addNewPrompt = (promptObj) => {
+  //setStories([promptObj].concat(stories));
+  //};
+
   //TO DO: filter based on param isSelected
 
   // //   get(`/api/user`, { userid: props.userId }).then((userObj) => setUser(userObj));
 
-  let promptsList = null;
+  // let promptsList = null;
   let categoriesList = null;
   const hasPrompts = prompts.length !== 0;
   const hasCategories = categories.length !== 0;
-
-  if (hasPrompts) {
-    promptsList = prompts.map((responseObj) => {
-      <SinglePrompt content={responseObj.content} category_id={responseObj.category_id} />;
-      //promptsList = prompts;
-    });
-  } else {
-    promptsList = "No Prompts Yet";
-  }
 
   if (hasCategories) {
     categoriesList = categories.map((responseObj) => {
