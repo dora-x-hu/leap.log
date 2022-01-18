@@ -75,9 +75,13 @@ body {
   color: #777;
 }
 
-/* Highlight the "current" day */
+.days li:hover {
+  opacity: 0.8;
+}
+
+/* Highlight the "current" day  */
 /* .days li .active {
   padding: 5px;
   background: #1abc9c;
-  color: white !important
+  color: white !important;
 } */

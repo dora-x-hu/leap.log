@@ -60,6 +60,10 @@ const Month = (props) => {
     //setDate(user_date.getDate - 30);
   };
 
+  useEffect(() => {
+    document.title = "Month";
+  });
+
   // useEffect(() => {
   //   <MonthGrid
   //     day={user_date.getDay()}
@@ -77,11 +81,12 @@ const Month = (props) => {
   return (
     <>
       <div>
+        <button onClick={moveLeft}>Last Month</button>
+
         <button onClick={moveRight}>
-          Next Month:
+          Next Month
           {/* {String(d.getDate()) + "/" + String(d.getMonth()) + "/" + String(d.getFullYear())} */}
         </button>
-        <button onClick={moveLeft}>Last Month</button>
       </div>
       <div>
         {" "}
@@ -96,4 +101,9 @@ const Month = (props) => {
   );
 };
 
+{
+  /* <Link to={`/profile/${props.creator_id}`} className="u-link u-bold">
+{props.creator_name}
+</Link> */
+}
 export default Month;
