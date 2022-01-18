@@ -1,7 +1,7 @@
 import React, { Component, useEffect, useState } from "react";
 //import journalEntry from "../../../../server/models/journalEntry";
 import SingleEntry from "../modules/SingleEntry.js";
-
+import "./Day.css";
 import { get } from "../../utilities";
 
 const Day = (props) => {
@@ -26,7 +26,7 @@ const Day = (props) => {
   };
 
   useEffect(() => {
-    document.title = "Profile Page";
+    document.title = "Daily";
     get("/api/responses", {
       day: d.getDate(),
       month: d.getMonth(),
@@ -71,7 +71,7 @@ const Day = (props) => {
   if (!props.userId) {
     return (
       <>
-        <div>Log in before using journal</div>
+        <div className="Day-heading1">Log in before using journal</div>
       </>
     );
   } else
