@@ -130,7 +130,7 @@ const Day = (props) => {
         <>
           {" "}
           <section className="Day-paragraph">
-            {String(d.getDate()) + "/" + String(d.getMonth() + 1) + "/" + String(d.getFullYear())}
+            {String(String(d.getMonth() + 1) + "/" + d.getDate()) + "/" + String(d.getFullYear())}
           </section>
           <div className="Day-paragraph">
             <button className="Day-button" onClick={() => moveLeft()}>
@@ -156,7 +156,7 @@ const Day = (props) => {
       return (
         <>
           <section className="Day-paragraph">
-            {String(d.getDate()) + "/" + String(d.getMonth() + 1) + "/" + String(d.getFullYear())}
+            {String(String(d.getMonth() + 1) + "/" + d.getDate()) + "/" + String(d.getFullYear())}
           </section>
           <div className="Day-paragraph">
             <button className="Day-button" onClick={() => moveLeft()}>
