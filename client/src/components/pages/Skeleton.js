@@ -8,7 +8,7 @@ import Week from "./Week.js";
 import Login from "../modules/Login.js";
 
 //TODO: REPLACE WITH YOUR OWN CLIENT_ID
-const GOOGLE_CLIENT_ID = "263794871408-k368sbopfaiba3upkelsidv23nh1a5bf.apps.googleusercontent.com";
+const GOOGLE_CLIENT_ID = "379531489685-7mgu977nsn7s5ei091hilu992i1vnch8.apps.googleusercontent.com";
 
 const Skeleton = ({ userId, handleLogin, handleLogout }) => {
   return (
