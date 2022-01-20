@@ -5,7 +5,7 @@
   font-family: "Dongle", sans-serif;
   padding: 8px;
   text-align: center;
-  text-decoration: none;
+  text-decoration: none !important;
   display: inline-block;
   font-size: 40px;
   margin: 4px 2px;

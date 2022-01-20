@@ -63,7 +63,7 @@ body {
   background: #ffede1;
   margin: 0;
   font-size: 40px;
-  text-decoration: none;
+  text-decoration: none !important;
 }
 
 .days li {
@@ -74,15 +74,18 @@ body {
   margin-bottom: 5px;
   font-size: 40px;
   color: #777;
-  text-decoration: none;
+  text-decoration: none !important;
 }
 
 .days li:hover {
   opacity: 0.8;
   /* padding: 6.8%; */
   /* background: #1abc9c; */
-  color: white !important;
+}
+
+a {
   text-decoration: none;
+  color: inherit;
 }
 
 /* Highlight the "current" day  */
