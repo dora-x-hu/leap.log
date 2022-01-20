@@ -45,7 +45,9 @@ function getOrCreateUser(user) {
       isSelected: true,
     });
 
+    newPrompt.save();
     return newUser.save();
+    // newUser.save() is what actually saves the user to the database
   });
 }
 

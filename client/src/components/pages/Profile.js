@@ -33,9 +33,17 @@ const Profile = (props) => {
       content: thisPrompt,
       user_id: props.userId,
       isSelected: true,
+    }).then((result) => {
+      setPrompts(prompts.concat(result));
     });
-    setPrompts(prompts.concat(thisPrompt));
+    //setPrompts(prompts.concat(thisPrompt));
   };
+
+  // useEffect(() => {
+  //   submitPrompt(promptParameter).then(() => {
+  //     f;
+  //   });
+  // });
 
   useEffect(() => {
     console.log("hello", props.userId);
