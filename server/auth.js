@@ -1,5 +1,7 @@
 const { OAuth2Client } = require("google-auth-library");
 const User = require("./models/user");
+// i added
+const Question = require("./models/question");
 const socketManager = require("./server-socket");
 
 // create a new OAuth client used to verify google sign-in
@@ -35,6 +37,13 @@ function getOrCreateUser(user) {
       user_id: newUser.googleid,
       isSelected: true,
     });*/
+
+    const newPrompt = new Question({
+      category_id: "default",
+      content: "default prompt",
+      user_id: newUser.googleid,
+      isSelected: true,
+    });
 
     return newUser.save();
   });
