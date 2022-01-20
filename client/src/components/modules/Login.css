@@ -15,6 +15,7 @@
   border-top-right-radius: 16px;
   border-bottom-right-radius: 16px;
   position: relative;
+  text-decoration: none;
 }
 
 .Login-button:hover {

@@ -110,7 +110,7 @@ const Month = (props) => {
         };
       case 8:
         return {
-          name: "septembe",
+          name: "september",
           days: 30,
         };
       case 9:
