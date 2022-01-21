@@ -105,7 +105,7 @@ const Profile = (props) => {
   return (
     <>
       <div className="Profile-section">
-        <h1 className="Profile-heading1">My Profile</h1>
+        <h1 className="Profile-heading1">my profile</h1>
         <ul className="Profile-prompt">{promptsList}</ul>
         <ul>{categoriesList}</ul>
       </div>
