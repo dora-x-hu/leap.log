@@ -129,18 +129,6 @@ const MonthGrid = (props) => {
 
   return (
     <>
-      {/* <div className="month">
-        <ul>
-          <li className="prev">&#10094;</li>
-          <li className="next">&#10095;</li>
-          <li className="title">
-            {getMonthDetails().name}
-            <br></br>
-            <span>{props.year}</span>
-          </li>
-        </ul>
-      </div> */}
-
       <ul className="weekdays">
         <li>Su</li>
 

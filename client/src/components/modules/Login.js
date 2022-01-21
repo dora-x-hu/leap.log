@@ -13,6 +13,17 @@ const Login = ({ userId, handleLogin, handleLogout }) => {
       {userId ? (
         <GoogleLogout
           clientId={GOOGLE_CLIENT_ID}
+          render={(renderProps) => (
+            <button className="Login-button" onClick={renderProps.onClick}>
+              {" "}
+              <img
+                src="https://www.designbust.com/download/1016/png/google_logo_png_transparent512.png"
+                width="30px"
+                height="30px"
+              ></img>{" "}
+              logout{" "}
+            </button>
+          )}
           buttonText="Logout"
           onLogoutSuccess={handleLogout}
           onFailure={(err) => console.log(err)}
