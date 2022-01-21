@@ -122,22 +122,21 @@ const WeekGrid = (props) => {
 
     for (let i = 0; i < 7; i++) {
       let d = new Date(ans.date.getFullYear(), ans.date.getMonth(), ans.date.getDate() + i);
+      console.log(d.getFullYear() + "/" + d.getMonth() + "/" + d.getDate());
       let maxDays = getMonthDetails(d).days;
-      console.log("max days: " + String(maxDays));
-      console.log(String(ans.date.getDate() + i) + "/");
-      console.log(d.getDate());
-      if (ans.date.getDate() + i > maxDays) {
+      //console.log("max days: " + String(maxDays));
+      //console.log(String(ans.date.getDate() + i) + "/");
+      //console.log(d.getDate());
+      /*if (ans.date.getDate() + i > maxDays) {
         let d = new Date(ans.date.getFullYear(), ans.date.getMonth() + 1 + 1, 1);
         console.log(d.getDate() + "teehee");
-      }
+      }*/
 
       grid.push(
         <div>
           {" "}
           <Link
-            to={`/day/${props.userId}/${ans.date.getDate() + i}/${
-              ans.date.getMonth() + 1
-            }/${ans.date.getFullYear()}`}
+            to={`/day/${props.userId}/${d.getDate()}/${d.getMonth() + 1}/${ans.date.getFullYear()}`}
           >
             {ans.week[i]}
             {" " +
