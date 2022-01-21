@@ -185,7 +185,10 @@ const Day = (props) => {
           <div className="Day-paragraph">
             {" "}
             <button>
-              <a href="/ask">start journaling!</a>
+              <Link to={`/ask/${props.userId}/${props.day}/${props.month}/${props.year}`}>
+                {/* <a href={`/ask/${props.userId}/${props.day}/${props.month}/${props.year}`} /> */}
+                start journaling!
+              </Link>
             </button>
           </div>
         </>
