@@ -7,8 +7,14 @@ import DayGrid from "../modules/DayGrid";
 import { Link } from "@reach/router";
 
 const Day = (props) => {
+  console.log(props.currentYear);
+  console.log(props.currentMonth);
+  console.log(props.currentDate);
+
   const [entries, setEntries] = useState([]);
-  const [d, setDate] = useState(new Date());
+  const [d, setDate] = useState(
+    new Date(props.currentYear, props.currentMonth - 1, props.currentDate)
+  );
   const [entriesList, setEntriesList] = useState(null);
   const [promptsList, setPromptsList] = useState([]);
   const current = new Date();
@@ -94,7 +100,7 @@ const Day = (props) => {
   if (!props.userId) {
     return (
       <>
-        <div className="Day-heading1">Log in before using journal</div>
+        <div className="Day-heading1">log in before using journal</div>
       </>
     );
   } /*else if (entries.length !== 0) {
@@ -158,6 +164,7 @@ const Day = (props) => {
           </section>
           <div className="Day-paragraph">
             <button className="Day-button" onClick={() => moveLeft()}>
+<<<<<<< HEAD
               <Link
                 to={`/day/${props.userId}/${parseInt(props.day) - 1}/${props.month}/${props.year}`}
               >
@@ -196,6 +203,12 @@ const Day = (props) => {
               >
                 next day
               </Link>
+=======
+              previous day
+            </button>
+            <button className="Day-button" onClick={() => moveRight()}>
+              next day
+>>>>>>> 6a266ad931cf5666309f0238c42d6d47d1ae7eb8
             </button>
 
             <section>{entriesList}</section>
@@ -204,7 +217,7 @@ const Day = (props) => {
             {" "}
             <button>
               <a className="Day-paragraph" href="/ask">
-                Start Journalling!
+                start journaling!
               </a>
             </button>
           </div>
@@ -221,6 +234,7 @@ const Day = (props) => {
           </section>
           <div className="Day-paragraph">
             <button className="Day-button" onClick={() => moveLeft()}>
+<<<<<<< HEAD
               <Link
                 to={`/day/${props.userId}/${parseInt(props.day) - 1}/${props.month}/${props.year}`}
               >
@@ -233,6 +247,12 @@ const Day = (props) => {
               >
                 next day
               </Link>
+=======
+              previous day
+            </button>
+            <button className="Day-button" onClick={() => moveRight()}>
+              next day
+>>>>>>> 6a266ad931cf5666309f0238c42d6d47d1ae7eb8
             </button>
 
             <section>{entriesList}</section>

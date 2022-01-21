@@ -11,6 +11,11 @@ body {
   width: auto;
   background: #1bb091;
   text-align: center;
+  border-top-left-radius: 50px;
+  border-top-right-radius: 50px;
+  margin-top: 20px;
+  margin-left: 40px;
+  margin-right: 40px;
 }
 
 .month .title {
@@ -33,13 +38,25 @@ body {
 /*Previous button inside month header*/
 .month .prev {
   float: left;
-  padding-top: 8px;
+  padding-top: 40px;
+  /* border-radius: 50%;
+  background-color: transparent; */
+}
+
+.month .prev:hover {
+  opacity: 0.8;
+  cursor: pointer;
 }
 
 /* Next button */
 .month .next {
   float: right;
-  padding-top: 8px;
+  padding-top: 40px;
+}
+
+.month .next:hover {
+  opacity: 0.8;
+  cursor: pointer;
 }
 
 /* Weekdays (Mon-Sun) */
@@ -48,6 +65,8 @@ body {
   padding: 10px 0;
   background-color: #ffede1;
   font-size: 50px;
+  margin-left: 40px;
+  margin-right: 40px;
 }
 
 .weekdays li {
@@ -63,6 +82,12 @@ body {
   background: #ffede1;
   margin: 0;
   font-size: 40px;
+  text-decoration: none !important;
+  border-bottom-left-radius: 50px;
+  border-bottom-right-radius: 50px;
+  margin-bottom: 20px;
+  margin-left: 40px;
+  margin-right: 40px;
 }
 
 .days li {
@@ -73,13 +98,18 @@ body {
   margin-bottom: 5px;
   font-size: 40px;
   color: #777;
+  text-decoration: none !important;
 }
 
 .days li:hover {
   opacity: 0.8;
   /* padding: 6.8%; */
   /* background: #1abc9c; */
-  color: white !important;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
 }
 
 /* Highlight the "current" day  */

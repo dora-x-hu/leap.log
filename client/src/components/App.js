@@ -28,6 +28,19 @@ const App = () => {
   // const month = currentDate.getMonth() + 1;
   // const year = currentDate.getFullYear();
 
+  // TODO: have states for app to make unique Day URLs work
+  let thisDate = new Date();
+
+  const [currentDate, setDate] = useState(thisDate.getDate());
+  const [currentMonth, setMonth] = useState(thisDate.getMonth());
+  const [currentYear, setYear] = useState(thisDate.getFullYear());
+
+  const changeDate = (date, month, year) => {
+    setDate(date);
+    setMonth(month);
+    setYear(year);
+  };
+
   // categories as a state
 
   // questions as a state
@@ -65,14 +78,29 @@ const App = () => {
       <Router>
         <Skeleton path="/" handleLogin={handleLogin} handleLogout={handleLogout} userId={userId} />
         <Day
+<<<<<<< HEAD
           path="/day/:userId/:day/:month/:year"
           userId={userId}
           // day={day}
           // month={month}
           // year={year}
+=======
+          path="/day/:userId/:currentDate/:currentMonth/:currentYear"
+          userId={userId}
+          changeDate={changeDate}
+          date={currentDate}
+          month={currentMonth}
+          year={currentYear}
+>>>>>>> 6a266ad931cf5666309f0238c42d6d47d1ae7eb8
         />
         <Week path="/week" userId={userId} />
-        <Month path="/month" userId={userId} />
+        <Month
+          path="/month"
+          userId={userId}
+          date={currentDate}
+          month={currentMonth}
+          year={currentYear}
+        />
         <Ask path="/ask" userId={userId} />
         <Profile path="/profile/:userId" userId={userId} />
         <Upday path="/test" userId={userId} />

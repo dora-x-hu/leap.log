@@ -25,7 +25,7 @@ const Week = (props) => {
   return (
     <>
       <div>
-        <div className="month">
+        <div className="week">
           <ul>
             <li className="prev" onClick={moveLeft}>
               &#10094;

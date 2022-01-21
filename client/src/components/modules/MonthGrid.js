@@ -9,7 +9,7 @@ import "./MonthGrid.css";
 //buttons
 
 const MonthGrid = (props) => {
-  const [d, setUserDate] = useState(new Date(props.year, props.month, props.day));
+  const [d, setUserDate] = useState(new Date(props.year, props.month, props.date));
 
   const isLeapYear = () => {
     // TODO: check if props.year is leap year or not
@@ -102,13 +102,32 @@ const MonthGrid = (props) => {
     const details = getMonthDetails();
     const days = [];
     for (let i = 0; i < details.days; i++) {
-      let d = new Date(props.year, props.month, i + 1);
+      let da = new Date(props.year, props.month, i + 1);
+      console.log(da);
       days.push(
         <li key={i}>
+<<<<<<< HEAD
           <Link to={`/day`}>{i + 1}</Link>
+=======
+          <Link
+            to={
+              `/day/${props.userId}/${da.getDate()}/${da.getMonth() + 1}/${da.getFullYear()}` /*{
+              pathname: `/day/${d}` /*,
+              state: {
+                date: adate.getDate(),
+                month: adate.getMonth(),
+                year: adate.getFullYear(),
+              } day={d.getDay()} month={d.getMonth()} year={d.getFullYear()},
+            }*/
+            }
+          >
+            {i + 1}
+          </Link>
+>>>>>>> 6a266ad931cf5666309f0238c42d6d47d1ae7eb8
         </li>
       );
     }
+    console.log(days);
     return days;
   };
 

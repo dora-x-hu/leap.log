@@ -33,9 +33,24 @@ const Profile = (props) => {
       content: thisPrompt,
       user_id: props.userId,
       isSelected: true,
+    }).then((result) => {
+      setPrompts(prompts.concat(result));
     });
-    setPrompts(prompts.concat(thisPrompt));
+    //setPrompts(prompts.concat(thisPrompt));
   };
+
+  // useEffect(() => {
+  //   submitPrompt(promptParameter).then(() => {
+  //     f;
+  //   });
+  // });
+
+  // MAKE PROFILE SHOW DEFAULT PROMPTS
+  /*useEffect(() => {
+    get("/api/prompts", { user_id: props.userId }).then((promptlistObj) => {
+      setPrompts(promptlistObj);
+    });
+  }, []);*/
 
   useEffect(() => {
     console.log("hello", props.userId);
@@ -90,7 +105,7 @@ const Profile = (props) => {
   return (
     <>
       <div className="Profile-section">
-        <h1 className="Profile-heading1">My Profile</h1>
+        <h1 className="Profile-heading1">my profile</h1>
         <ul className="Profile-prompt">{promptsList}</ul>
         <ul>{categoriesList}</ul>
       </div>
