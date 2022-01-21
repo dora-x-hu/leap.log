@@ -91,7 +91,7 @@ const App = () => {
           month={currentMonth}
           year={currentYear}
         />
-        <Ask path="/ask" userId={userId} />
+        <Ask path="/ask/:day/:month/:year" userId={userId} />
         <Profile path="/profile/:userId" userId={userId} />
 
         <NotFound default />

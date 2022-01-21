@@ -11,21 +11,21 @@ const CLIENT_ID = "379531489685-7mgu977nsn7s5ei091hilu992i1vnch8.apps.googleuser
 const client = new OAuth2Client(CLIENT_ID);
 
 /*function defaultPrompts(newUser) {
-  const newCategory = new Category({
+  const newCategory = new category({
     name: "emotions",
     user_id: newUser._id,
     isSelected: true,
   });
   newCategory.save();
 
-  const newCategory = new Category({
+  const newCategory = new category({
     name: "food",
     user_id: newUser._id,
     isSelected: true,
   });
   newCategory.save();
 
-  const newCategory = new Category({
+  const newCategory = new category({
     name: "sleep",
     user_id: newUser._id,
     isSelected: true,
@@ -69,8 +69,29 @@ function getOrCreateUser(user) {
         user_id: newUser._id,
         isSelected: true,
       });
-
       newPrompt.save();
+      //defaultPrompts(newUser);
+
+      const newCategory = new category({
+        name: "emotions",
+        user_id: newUser._id,
+        isSelected: true,
+      });
+      newCategory.save();
+
+      const newCat = new category({
+        name: "food",
+        user_id: newUser._id,
+        isSelected: true,
+      });
+      newCat.save();
+
+      const neCategory = new category({
+        name: "sleep",
+        user_id: newUser._id,
+        isSelected: true,
+      });
+      neCategory.save();
     });
 
     return newUser;
