@@ -22,6 +22,11 @@
   opacity: 0.8;
 }
 
+.imgContainer {
+  position: relative;
+  top: 7px;
+}
+
 /* .google-logo { */
 
 /* position: absolute;

@@ -167,7 +167,7 @@ const Day = (props) => {
                   yesterday.getMonth() + 1
                 }/${yesterday.getFullYear()}`}
               >
-                previous day
+                previos day
               </Link>
             </button>
             <button className="Day-button">
@@ -206,7 +206,7 @@ const Day = (props) => {
                   yesterday.getMonth() + 1
                 }/${yesterday.getFullYear()}`}
               >
-                previous day
+                prev day
               </Link>
             </button>
             <button className="Day-button">
