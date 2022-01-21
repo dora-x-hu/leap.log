@@ -38,15 +38,18 @@ function getOrCreateUser(user) {
       isSelected: true,
     });*/
 
-    const newPrompt = new Question({
-      category_id: "default",
-      content: "default prompt",
-      user_id: newUser.googleid,
-      isSelected: true,
+    newUser.save().then((newUser) => {
+      const newPrompt = new Question({
+        category_id: "default",
+        content: "default prompt",
+        user_id: newUser._id,
+        isSelected: true,
+      });
+
+      newPrompt.save();
     });
 
-    newPrompt.save();
-    return newUser.save();
+    return newUser;
     // newUser.save() is what actually saves the user to the database
   });
 }

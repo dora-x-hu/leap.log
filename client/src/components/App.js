@@ -23,6 +23,19 @@ import HomeButton from "./modules/HomeButton.js";
 const App = () => {
   const [userId, setUserId] = useState(undefined);
 
+  // TODO: have states for app to make unique Day URLs work
+  const [currentDay, setDay] = useState();
+  const [currentMonth, setMonth] = useState();
+  const [currentYear, setYear] = useState();
+
+  const changeDate = (day, month, year) => {
+    setDay(day);
+    setMonth(month);
+    setYear(year);
+  };
+
+  let thisDate = new Date();
+
   // categories as a state
 
   // questions as a state
@@ -59,7 +72,14 @@ const App = () => {
 
       <Router>
         <Skeleton path="/" handleLogin={handleLogin} handleLogout={handleLogout} userId={userId} />
-        <Day path="/day" userId={userId} />
+        <Day
+          path="/day/:currentDay"
+          userId={userId}
+          changeDate={changeDate}
+          day={currentDay}
+          month={currentMonth}
+          year={currentYear}
+        />
         <Week path="/week" userId={userId} />
         <Month path="/month" userId={userId} />
         <Ask path="/ask" userId={userId} />

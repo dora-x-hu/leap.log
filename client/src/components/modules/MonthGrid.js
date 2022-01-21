@@ -103,12 +103,16 @@ const MonthGrid = (props) => {
     const days = [];
     for (let i = 0; i < details.days; i++) {
       let d = new Date(props.year, props.month, i + 1);
+      console.log(d);
       days.push(
         <li key={i}>
-          <Link to={`/day/${d}`}>{i + 1}</Link>
+          <Link to={`/day/${d}` /*day={d.getDay()} month={d.getMonth()} year={d.getFullYear()}*/}>
+            {i + 1}
+          </Link>
         </li>
       );
     }
+    console.log(days);
     return days;
   };
 

@@ -6,7 +6,7 @@ import { get } from "../../utilities";
 
 const Day = (props) => {
   const [entries, setEntries] = useState([]);
-  const [d, setDate] = useState(new Date());
+  const [d, setDate] = useState(new Date(props.year, props.month, props.day));
   const [entriesList, setEntriesList] = useState(null);
   const [promptsList, setPromptsList] = useState([]);
 

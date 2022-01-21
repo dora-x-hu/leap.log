@@ -45,6 +45,13 @@ const Profile = (props) => {
   //   });
   // });
 
+  // MAKE PROFILE SHOW DEFAULT PROMPTS
+  /*useEffect(() => {
+    get("/api/prompts", { user_id: props.userId }).then((promptlistObj) => {
+      setPrompts(promptlistObj);
+    });
+  }, []);*/
+
   useEffect(() => {
     console.log("hello", props.userId);
     document.title = "Profile Page";
