@@ -15,11 +15,17 @@ const Month = (props) => {
 
   const moveRight = () => {
     let tomorrow = new Date(d.getFullYear(), (d.getMonth() + 1) % 12, d.getDate());
+    if (tomorrow.getMonth() === 0) {
+      tomorrow = new Date(d.getFullYear() + 1, (d.getMonth() + 1) % 12, d.getDate());
+    }
     setUserDate(tomorrow);
   };
 
   const moveLeft = () => {
     let tomorrow = new Date(d.getFullYear(), (d.getMonth() + 11) % 12, d.getDate());
+    if (tomorrow.getMonth() === 11) {
+      tomorrow = new Date(d.getFullYear() - 1, (d.getMonth() + 11) % 12, d.getDate());
+    }
     setUserDate(tomorrow);
   };
 

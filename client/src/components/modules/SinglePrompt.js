@@ -6,7 +6,6 @@ const SinglePrompt = (props) => {
   return (
     <>
       <div>
-        <h1>{props.category_id}</h1>
         <p>{props.content}</p>
       </div>
     </>
