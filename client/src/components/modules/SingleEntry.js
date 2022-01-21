@@ -1,3 +1,4 @@
+import { Link } from "@reach/router";
 import React, { Component, useEffect, useState } from "react";
 
 import { get } from "../../utilities";
@@ -10,7 +11,11 @@ const SingleEntry = (props) => {
     <>
       <div className="SingleEntry-question">{props.question}</div>
 
-      <div className="SingleEntry-response">{props.content}</div>
+      <div className="SingleEntry-response">
+        <Link to={`/ask/${props.user_id}/${props.day}/${props.month}/${props.year}`}>
+          {props.content}
+        </Link>
+      </div>
     </>
   );
 };

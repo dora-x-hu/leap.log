@@ -78,7 +78,7 @@ const Day = (props) => {
             content={responseObj.content}
             user_id={props.userId}
             day={responseObj.day}
-            month={responseObj.month}
+            month={responseObj.month + 1}
             year={responseObj.year}
             userId={props.userId}
           />
