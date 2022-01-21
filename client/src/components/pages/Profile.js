@@ -107,7 +107,7 @@ const Profile = (props) => {
       <div className="Profile-section">
         <h1 className="Profile-heading1">my profile</h1>
         <ul className="Profile-prompt">{promptsList}</ul>
-        <ul>{categoriesList}</ul>
+        <ul className="categories-prompts">{categoriesList}</ul>
       </div>
 
       <div>
@@ -119,7 +119,7 @@ const Profile = (props) => {
         >
           Submit
         </button>
-      </div>
+     
 
       <input type="text" Placeholder="new prompt..." id="newPrompt"></input>
       <button
@@ -129,6 +129,7 @@ const Profile = (props) => {
       >
         Submit
       </button>
+      </div>
     </>
   );
 
