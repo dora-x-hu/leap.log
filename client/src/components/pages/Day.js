@@ -114,8 +114,11 @@ const Day = (props) => {
     const selectedDay = new Date(props.year, props.month - 1, props.day);
     const tomorrow = new Date(selectedDay);
     tomorrow.setDate(selectedDay.getDate() + 1);
-    const yesterday = new Date();
+    const yesterday = new Date(selectedDay);
     yesterday.setDate(selectedDay.getDate() - 1);
+    console.log(selectedDay);
+    console.log(tomorrow);
+    console.log(yesterday);
 
     if (current < new Date(props.year, props.month - 1, props.day)) {
       return (
@@ -167,7 +170,7 @@ const Day = (props) => {
                   yesterday.getMonth() + 1
                 }/${yesterday.getFullYear()}`}
               >
-                previos day
+                prev day
               </Link>
             </button>
             <button className="Day-button">
