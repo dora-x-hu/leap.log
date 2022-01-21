@@ -111,6 +111,12 @@ const Day = (props) => {
       </>
     );
   } else {
+    const selectedDay = new Date(props.year, props.month - 1, props.day);
+    const tomorrow = new Date(selectedDay);
+    tomorrow.setDate(selectedDay.getDate() + 1);
+    const yesterday = new Date();
+    yesterday.setDate(selectedDay.getDate() - 1);
+
     if (current < new Date(props.year, props.month - 1, props.day)) {
       return (
         <div>
@@ -120,14 +126,18 @@ const Day = (props) => {
           <div className="Day-paragraph">
             <button className="Day-button">
               <Link
-                to={`/day/${props.userId}/${parseInt(props.day) - 1}/${props.month}/${props.year}`}
+                to={`/day/${props.userId}/${yesterday.getDate()}/${
+                  yesterday.getMonth() + 1
+                }/${yesterday.getFullYear()}`}
               >
                 previous day
               </Link>
             </button>
             <button className="Day-button">
               <Link
-                to={`/day/${props.userId}/${parseInt(props.day) + 1}/${props.month}/${props.year}`}
+                to={`/day/${props.userId}/${tomorrow.getDate()}/${
+                  tomorrow.getMonth() + 1
+                }/${tomorrow.getFullYear()}`}
               >
                 next day
               </Link>
@@ -153,14 +163,18 @@ const Day = (props) => {
           <div className="Day-paragraph">
             <button className="Day-button">
               <Link
-                to={`/day/${props.userId}/${parseInt(props.day) - 1}/${props.month}/${props.year}`}
+                to={`/day/${props.userId}/${yesterday.getDate()}/${
+                  yesterday.getMonth() + 1
+                }/${yesterday.getFullYear()}`}
               >
                 previous day
               </Link>
             </button>
             <button className="Day-button">
               <Link
-                to={`/day/${props.userId}/${parseInt(props.day) + 1}/${props.month}/${props.year}`}
+                to={`/day/${props.userId}/${tomorrow.getDate()}/${
+                  tomorrow.getMonth() + 1
+                }/${tomorrow.getFullYear()}`}
               >
                 next day
               </Link>
@@ -185,14 +199,18 @@ const Day = (props) => {
           <div className="Day-paragraph">
             <button className="Day-button">
               <Link
-                to={`/day/${props.userId}/${parseInt(props.day) - 1}/${props.month}/${props.year}`}
+                to={`/day/${props.userId}/${yesterday.getDate()}/${
+                  yesterday.getMonth() + 1
+                }/${yesterday.getFullYear()}`}
               >
                 previous day
               </Link>
             </button>
             <button className="Day-button">
               <Link
-                to={`/day/${props.userId}/${parseInt(props.day) + 1}/${props.month}/${props.year}`}
+                to={`/day/${props.userId}/${tomorrow.getDate()}/${
+                  tomorrow.getMonth() + 1
+                }/${tomorrow.getFullYear()}`}
               >
                 next day
               </Link>
