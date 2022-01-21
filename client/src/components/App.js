@@ -8,7 +8,6 @@ import Week from "./pages/Week.js";
 import Month from "./pages/Month.js";
 import Ask from "./pages/Ask.js";
 import Profile from "./pages/Profile.js";
-import Upday from "./pages/upDay.js";
 
 import "../utilities.css";
 
@@ -78,20 +77,11 @@ const App = () => {
       <Router>
         <Skeleton path="/" handleLogin={handleLogin} handleLogout={handleLogout} userId={userId} />
         <Day
-<<<<<<< HEAD
           path="/day/:userId/:day/:month/:year"
           userId={userId}
           // day={day}
           // month={month}
           // year={year}
-=======
-          path="/day/:userId/:currentDate/:currentMonth/:currentYear"
-          userId={userId}
-          changeDate={changeDate}
-          date={currentDate}
-          month={currentMonth}
-          year={currentYear}
->>>>>>> 6a266ad931cf5666309f0238c42d6d47d1ae7eb8
         />
         <Week path="/week" userId={userId} />
         <Month
@@ -103,7 +93,6 @@ const App = () => {
         />
         <Ask path="/ask" userId={userId} />
         <Profile path="/profile/:userId" userId={userId} />
-        <Upday path="/test" userId={userId} />
 
         <NotFound default />
         {/* {props.userId && (

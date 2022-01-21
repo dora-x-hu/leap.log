@@ -106,9 +106,6 @@ const MonthGrid = (props) => {
       console.log(da);
       days.push(
         <li key={i}>
-<<<<<<< HEAD
-          <Link to={`/day`}>{i + 1}</Link>
-=======
           <Link
             to={
               `/day/${props.userId}/${da.getDate()}/${da.getMonth() + 1}/${da.getFullYear()}` /*{
@@ -123,7 +120,6 @@ const MonthGrid = (props) => {
           >
             {i + 1}
           </Link>
->>>>>>> 6a266ad931cf5666309f0238c42d6d47d1ae7eb8
         </li>
       );
     }

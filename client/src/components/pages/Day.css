@@ -12,14 +12,10 @@
   text-align: center;
 }
 
-<<<<<<< HEAD
-.Day-button {
-=======
 /* previous and next buttons */
 .Day-paragraph button {
   font-family: "Dongle", sans-serif;
   font-size: 75%;
->>>>>>> 6a266ad931cf5666309f0238c42d6d47d1ae7eb8
   background-color: pink;
   border: 8px;
   color: #fff7f7;

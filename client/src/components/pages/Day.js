@@ -3,7 +3,6 @@ import React, { Component, useEffect, useState } from "react";
 import SingleEntry from "../modules/SingleEntry.js";
 import "./Day.css";
 import { get } from "../../utilities";
-import DayGrid from "../modules/DayGrid";
 import { Link } from "@reach/router";
 
 const Day = (props) => {
@@ -164,7 +163,6 @@ const Day = (props) => {
           </section>
           <div className="Day-paragraph">
             <button className="Day-button" onClick={() => moveLeft()}>
-<<<<<<< HEAD
               <Link
                 to={`/day/${props.userId}/${parseInt(props.day) - 1}/${props.month}/${props.year}`}
               >
@@ -203,12 +201,6 @@ const Day = (props) => {
               >
                 next day
               </Link>
-=======
-              previous day
-            </button>
-            <button className="Day-button" onClick={() => moveRight()}>
-              next day
->>>>>>> 6a266ad931cf5666309f0238c42d6d47d1ae7eb8
             </button>
 
             <section>{entriesList}</section>
@@ -234,7 +226,6 @@ const Day = (props) => {
           </section>
           <div className="Day-paragraph">
             <button className="Day-button" onClick={() => moveLeft()}>
-<<<<<<< HEAD
               <Link
                 to={`/day/${props.userId}/${parseInt(props.day) - 1}/${props.month}/${props.year}`}
               >
@@ -247,12 +238,6 @@ const Day = (props) => {
               >
                 next day
               </Link>
-=======
-              previous day
-            </button>
-            <button className="Day-button" onClick={() => moveRight()}>
-              next day
->>>>>>> 6a266ad931cf5666309f0238c42d6d47d1ae7eb8
             </button>
 
             <section>{entriesList}</section>
