@@ -32,7 +32,7 @@ const WeekGrid = (props) => {
     } else if (day === 6) {
       su = new Date(props.year, props.month, props.day - 6);
     }
-    return { date: su, week: ["su", "mo", "tu", "we", "th", "fr", "sa"] };
+    return { date: su, week: ["Su", "Mo", "Tu", "We", "Th", "Fr", "Sa"] };
   };
 
   const isLeapYear = (date) => {

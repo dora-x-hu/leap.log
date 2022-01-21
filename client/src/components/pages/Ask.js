@@ -18,9 +18,9 @@ const Ask = (props) => {
       question: thisQuestion,
       content: thisResponse,
       user_id: props.userId,
-      day: d.getDate(),
-      month: d.getMonth(),
-      year: d.getFullYear(),
+      day: props.day,
+      month: props.month - 1,
+      year: props.year,
     });
   };
 

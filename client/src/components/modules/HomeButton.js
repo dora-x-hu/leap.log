@@ -5,9 +5,11 @@ import "../modules/HomeButton.css";
 
 const HomeButton = () => {
   return (
-    <button className="Home-button">
-      <Link to="/">Home</Link>
-    </button>
+    <div>
+      <button className="Home-button">
+        <Link to="/">Home</Link>
+      </button>
+    </div>
   );
 };
 

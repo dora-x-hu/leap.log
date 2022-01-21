@@ -111,53 +111,70 @@ const Day = (props) => {
       </>
     );
   } else {
+    const selectedDay = new Date(props.year, props.month - 1, props.day);
+    const tomorrow = new Date(selectedDay);
+    tomorrow.setDate(selectedDay.getDate() + 1);
+    const yesterday = new Date();
+    yesterday.setDate(selectedDay.getDate() - 1);
+
     if (current < new Date(props.year, props.month - 1, props.day)) {
       return (
-        <div className="Day-heading1">
-          {console.log(current)}
-          {console.log(new Date(props.year, props.month - 1, props.day))}
-          {/* {console.log(d)} */}
-          Not this date yet!
+        <div>
           <section className="Day-paragraph">
             {String(String(props.month) + "/" + props.day + "/" + String(props.year))}
           </section>
           <div className="Day-paragraph">
             <button className="Day-button">
               <Link
-                to={`/day/${props.userId}/${parseInt(props.day) - 1}/${props.month}/${props.year}`}
+                to={`/day/${props.userId}/${yesterday.getDate()}/${
+                  yesterday.getMonth() + 1
+                }/${yesterday.getFullYear()}`}
               >
                 previous day
               </Link>
             </button>
             <button className="Day-button">
               <Link
-                to={`/day/${props.userId}/${parseInt(props.day) + 1}/${props.month}/${props.year}`}
+                to={`/day/${props.userId}/${tomorrow.getDate()}/${
+                  tomorrow.getMonth() + 1
+                }/${tomorrow.getFullYear()}`}
               >
                 next day
               </Link>
             </button>
           </div>
+          <div className="Day-heading1">
+            {" "}
+            <div>not this date yet!</div>
+            <img
+              src="https://image.spreadshirtmedia.com/image-server/v1/mp/products/T1459A839PA3861PT28D1039811028FS2105/views/1,width=378,height=378,appearanceId=839,backgroundColor=F2F2F2/kawaii-happy-green-frog-smiling-sticker.jpg"
+              width="300px"
+              height="300px"
+            ></img>
+          </div>
         </div>
       );
     } else if (entriesList === "") {
       return (
-        <div>
-          {console.log(current)}
-          {console.log(new Date(props.year, props.month - 1, props.day))}
+        <>
           <section className="Day-paragraph">
             {String(String(props.month) + "/" + props.day + "/" + String(props.year))}
           </section>
           <div className="Day-paragraph">
             <button className="Day-button">
               <Link
-                to={`/day/${props.userId}/${parseInt(props.day) - 1}/${props.month}/${props.year}`}
+                to={`/day/${props.userId}/${yesterday.getDate()}/${
+                  yesterday.getMonth() + 1
+                }/${yesterday.getFullYear()}`}
               >
-                prev day
+                previos day
               </Link>
             </button>
             <button className="Day-button">
               <Link
-                to={`/day/${props.userId}/${parseInt(props.day) + 1}/${props.month}/${props.year}`}
+                to={`/day/${props.userId}/${tomorrow.getDate()}/${
+                  tomorrow.getMonth() + 1
+                }/${tomorrow.getFullYear()}`}
               >
                 next day
               </Link>
@@ -165,40 +182,38 @@ const Day = (props) => {
 
             <section>{entriesList}</section>
           </div>
-
-          <Link to="/ask" className="container">
-            <div className="start-journaling"> start journaling!</div>
-          </Link>
-          {/* <div className="start-journaling">
+          <div className="Day-paragraph">
             {" "}
             <button>
-              <a className="start-journaling" href="/ask">
+              <Link to={`/ask/${props.userId}/${props.day}/${props.month}/${props.year}`}>
+                {/* <a href={`/ask/${props.userId}/${props.day}/${props.month}/${props.year}`} /> */}
                 start journaling!
-              </a>
+              </Link>
             </button>
-          </div> */}
-        </div>
+          </div>
+        </>
       );
     } else {
       return (
         <>
-          {console.log(current)}
-          {console.log(new Date(props.year, props.month - 1, props.day))}
-
           <section className="Day-paragraph">
             {String(String(props.month) + "/" + props.day + "/" + String(props.year))}
           </section>
           <div className="Day-paragraph">
             <button className="Day-button">
               <Link
-                to={`/day/${props.userId}/${parseInt(props.day) - 1}/${props.month}/${props.year}`}
+                to={`/day/${props.userId}/${yesterday.getDate()}/${
+                  yesterday.getMonth() + 1
+                }/${yesterday.getFullYear()}`}
               >
                 prev day
               </Link>
             </button>
             <button className="Day-button">
               <Link
-                to={`/day/${props.userId}/${parseInt(props.day) + 1}/${props.month}/${props.year}`}
+                to={`/day/${props.userId}/${tomorrow.getDate()}/${
+                  tomorrow.getMonth() + 1
+                }/${tomorrow.getFullYear()}`}
               >
                 next day
               </Link>

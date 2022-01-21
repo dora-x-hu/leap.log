@@ -23,6 +23,8 @@ const Profile = (props) => {
       name: thisCategory,
       user_id: props.userId,
       isSelected: true,
+    }).then((result) => {
+      setCategories(categories.concat(result));
     });
   };
 
@@ -81,6 +83,23 @@ const Profile = (props) => {
     console.log(tempPrompts);
   }, [prompts]);
 
+  // useEffect(() => {
+  //   let tempCateogry;
+  //   console.log(categories);
+  //   if (categories.length > 0) {
+  //     console.log("hello");
+  //     tempCategory = categories.map((responseObj) => {
+  //       // console.log(responseObj);
+  //       // return <SinglePrompt content={responseObj.content} category_id={responseObj.category_id} />;
+  //       //promptsList = prompts;
+  //     });
+  //   } else {
+  //     tempCateogry = "No Categories Yet";
+  //   }
+  //   setCategories(tempCateogry);
+  //   console.log(tempCateogry);
+  // }, [categories]);
+
   //const addNewPrompt = (promptObj) => {
   //setStories([promptObj].concat(stories));
   //};
@@ -108,6 +127,7 @@ const Profile = (props) => {
         <h1 className="Profile-heading1">my profile</h1>
         <ul className="Profile-prompt">{promptsList}</ul>
         <ul className="categories-prompts">{categoriesList}</ul>
+        {console.log("hi", categoriesList)}
       </div>
 
       <div>
@@ -119,16 +139,15 @@ const Profile = (props) => {
         >
           Submit
         </button>
-     
 
-      <input type="text" Placeholder="new prompt..." id="newPrompt"></input>
-      <button
-        onClick={() => {
-          submitPrompt(document.getElementById("newPrompt").value);
-        }}
-      >
-        Submit
-      </button>
+        <input type="text" Placeholder="new prompt..." id="newPrompt"></input>
+        <button
+          onClick={() => {
+            submitPrompt(document.getElementById("newPrompt").value);
+          }}
+        >
+          Submit
+        </button>
       </div>
     </>
   );
