@@ -5,8 +5,14 @@ import "./Day.css";
 import { get } from "../../utilities";
 
 const Day = (props) => {
+  console.log(props.currentYear);
+  console.log(props.currentMonth);
+  console.log(props.currentDate);
+
   const [entries, setEntries] = useState([]);
-  const [d, setDate] = useState(new Date(props.year, props.month, props.day));
+  const [d, setDate] = useState(
+    new Date(props.currentYear, props.currentMonth - 1, props.currentDate)
+  );
   const [entriesList, setEntriesList] = useState(null);
   const [promptsList, setPromptsList] = useState([]);
 

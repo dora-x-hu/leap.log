@@ -17,7 +17,10 @@ const NavBar = (props) => {
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
       <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div className="navbar-nav flex">
-          <Link to={`/day/${d}`} className="nav-item nav-link item nav-left">
+          <Link
+            to={`/day/${props.userId}/${d.getDate()}/${d.getMonth() + 1}/${d.getFullYear()}`}
+            className="nav-item nav-link item nav-left"
+          >
             daily
           </Link>
           <Link to="/week/" className="nav-item nav-link item">

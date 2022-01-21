@@ -11,7 +11,7 @@ import MonthGrid from "../modules/MonthGrid";
 //use effect reload
 
 const Month = (props) => {
-  const [d, setUserDate] = useState(new Date());
+  const [d, setUserDate] = useState(new Date(props.year, props.month, props.date));
 
   const moveRight = () => {
     let tomorrow = new Date(d.getFullYear(), (d.getMonth() + 1) % 12, d.getDate());
@@ -67,6 +67,7 @@ const Month = (props) => {
   };
 
   const getMonthDetails = () => {
+    console.log(d);
     switch (d.getMonth()) {
       case 0:
         return {
@@ -128,6 +129,11 @@ const Month = (props) => {
           name: "december",
           days: 31,
         };
+      default:
+        return {
+          name: "default",
+          days: 0,
+        };
     }
   };
 
@@ -159,7 +165,7 @@ const Month = (props) => {
       <div>
         {" "}
         <MonthGrid
-          day={d.getDate()}
+          date={d.getDate()}
           month={d.getMonth()}
           year={d.getFullYear()}
           userId={props.userId}
