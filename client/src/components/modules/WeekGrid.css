@@ -4,7 +4,7 @@
   grid-auto-rows: 250px;
   background-color: lightblue;
   margin: 0;
-  padding: 10px 0;
+  padding: 50px 50px;
   font-size: 50px;
   margin-left: 40px;
   margin-right: 40px;
@@ -21,6 +21,53 @@
 
 .wrapper div:hover {
   opacity: 0.8;
+}
+
+.week .title {
+  font-size: 50px;
+}
+
+.week {
+  padding: 50px 50px;
+  width: auto;
+  background: #1bb091;
+  text-align: center;
+  border-top-left-radius: 50px;
+  border-top-right-radius: 50px;
+  margin-top: 20px;
+  margin-left: 40px;
+  margin-right: 40px;
+}
+
+.week ul li {
+  color: #ffede1;
+  font-size: 60px;
+  text-transform: lowercase;
+  letter-spacing: 3px;
+}
+
+/*Previous button inside week header*/
+.week .prev {
+  float: left;
+  padding-top: 20px;
+  /* border-radius: 50%;
+  background-color: transparent; */
+}
+
+.week .prev:hover {
+  opacity: 0.8;
+  cursor: pointer;
+}
+
+/* Next button */
+.week .next {
+  float: right;
+  padding-top: 20px;
+}
+
+.week .next:hover {
+  opacity: 0.8;
+  cursor: pointer;
 }
 
 ul {
