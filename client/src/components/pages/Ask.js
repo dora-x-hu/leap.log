@@ -58,7 +58,9 @@ const Ask = (props) => {
         <input type="text" id="askbox"></input>
         <button
           className="Ask-button"
-          onClick={() => submitStuff("new journal prompt", document.getElementById("askbox").value)}
+          onClick={() =>
+            submitStuff(questionList[currentPromptIndex], document.getElementById("askbox").value)
+          }
         >
           Submit
         </button>
