@@ -12,19 +12,22 @@
   text-align: center;
 }
 
+/* previous and next buttons */
 .Day-paragraph button {
+  font-family: "Dongle", sans-serif;
+  font-size: 75%;
   background-color: pink;
   border: 8px;
-  /* border-color: pink; */
   color: #fff7f7;
   padding: 16px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  margin: 4px 2px;
-  border-top-left-radius: 16px;
-  border-bottom-left-radius: 16px;
-  border-top-right-radius: 16px;
-  border-bottom-right-radius: 16px;
+  margin: 4px 10px;
+  border-radius: 35px;
   position: relative;
+}
+
+.Day-button:hover {
+  opacity: 0.8;
 }

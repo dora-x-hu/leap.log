@@ -49,9 +49,8 @@
 /*Previous button inside week header*/
 .week .prev {
   float: left;
-  padding-top: 20px;
-  /* border-radius: 50%;
-  background-color: transparent; */
+  padding-top: 10px;
+  margin-left: 0;
 }
 
 .week .prev:hover {
@@ -62,7 +61,7 @@
 /* Next button */
 .week .next {
   float: right;
-  padding-top: 20px;
+  padding-top: 10px;
 }
 
 .week .next:hover {

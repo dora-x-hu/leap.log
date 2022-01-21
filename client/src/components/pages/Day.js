@@ -95,7 +95,7 @@ const Day = (props) => {
   if (!props.userId) {
     return (
       <>
-        <div className="Day-heading1">Log in before using journal</div>
+        <div className="Day-heading1">log in before using journal</div>
       </>
     );
   } /*else if (entries.length !== 0) {
@@ -134,10 +134,10 @@ const Day = (props) => {
           </section>
           <div className="Day-paragraph">
             <button className="Day-button" onClick={() => moveLeft()}>
-              Previous Day
+              previous day
             </button>
             <button className="Day-button" onClick={() => moveRight()}>
-              Next Day
+              next day
             </button>
 
             <section>{entriesList}</section>
@@ -146,7 +146,7 @@ const Day = (props) => {
             {" "}
             <button>
               <a className="Day-paragraph" href="/ask">
-                Start Journalling!
+                start journaling!
               </a>
             </button>
           </div>
@@ -160,10 +160,10 @@ const Day = (props) => {
           </section>
           <div className="Day-paragraph">
             <button className="Day-button" onClick={() => moveLeft()}>
-              Previous Day
+              previous day
             </button>
             <button className="Day-button" onClick={() => moveRight()}>
-              Next Day
+              next day
             </button>
 
             <section>{entriesList}</section>
