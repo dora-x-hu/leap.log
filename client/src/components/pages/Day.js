@@ -3,39 +3,37 @@ import React, { Component, useEffect, useState } from "react";
 import SingleEntry from "../modules/SingleEntry.js";
 import "./Day.css";
 import { get } from "../../utilities";
+import DayGrid from "../modules/DayGrid";
+import { Link } from "@reach/router";
 
 const Day = (props) => {
   const [entries, setEntries] = useState([]);
   const [d, setDate] = useState(new Date());
   const [entriesList, setEntriesList] = useState(null);
   const [promptsList, setPromptsList] = useState([]);
+  const current = new Date();
 
   const moveRight = () => {
-    let tomorrow = new Date(d.getFullYear(), d.getMonth(), d.getDate() + 1);
-    //return d.getDate() + 1;
+    let tomorrow = new Date(props.year, props.month - 1, props.day + 1);
     setDate(tomorrow);
-    //d.setDate(d.getDate() + 1);
-    //console.log(d);
   };
 
   const moveLeft = () => {
-    let tomorrow = new Date(d.getFullYear(), d.getMonth(), d.getDate() - 1);
-    //return d.getDate() + 1;
-    setDate(tomorrow);
-    //d.setDate(d.getDate() + 1);
-    //console.log(d);
+    let yesterday = new Date(props.year, props.month - 1, props.day - 1);
+    setDate(yesterday);
   };
 
   //const toAsk = (promptObj) => {
   // TODO: take user to Ask.js
   //};
 
+  //
   useEffect(() => {
     document.title = "Daily";
     get("/api/responses", {
-      day: d.getDate(),
-      month: d.getMonth(),
-      year: d.getFullYear(),
+      day: props.day,
+      month: props.month - 1,
+      year: props.year,
       user_id: props.userId,
     }).then((responsesObj) => {
       setEntries(responsesObj);
@@ -43,6 +41,7 @@ const Day = (props) => {
     //print(entries);
   }, [d, props.userId]);
 
+  //
   useEffect(() => {
     get("/api/prompts", {
       user_id: props.userId,
@@ -74,7 +73,7 @@ const Day = (props) => {
       );
     } else {
       // TODO: put a button hear that leads to Ask; make this button lead to the 1st prompt for "Start Journalling!"
-      /*askButton = 
+      /*askButton =
         <>
           <button
           //onClick={() => {
@@ -88,9 +87,9 @@ const Day = (props) => {
     }
   }, [entries]);
 
-  useEffect(() => {
-    console.log(entriesList);
-  }, [entriesList]);
+  // useEffect(() => {
+  //   console.log(entriesList);
+  // }, [entriesList]);
 
   if (!props.userId) {
     return (
@@ -101,7 +100,7 @@ const Day = (props) => {
   } /*else if (entries.length !== 0) {
     setEntriesList(
       entries.map((responseObj) => (
-        <SingleEntry
+        <SingleEntryc
           question={responseObj.question}
           content={responseObj.content}
           user_id={props.userId}
@@ -125,19 +124,78 @@ const Day = (props) => {
       </>
     );
   }*/ else {
-    if (entriesList === "") {
+    // return (
+    //   <>
+    //     <section className="Day-paragraph">
+    //       {String(String(d.getMonth() + 1) + "/" + d.getDate()) + "/" + String(d.getFullYear())}
+    //     </section>
+    //     <div className="Day-paragraph">
+    //       <button className="Day-button" onClick={() => moveLeft()}>
+    //         Previous Day
+    //       </button>
+    //       <button className="Day-button" onClick={() => moveRight()}>
+    //         Next Day
+    //       </button>
+    //     </div>
+    //     <div>
+    //       <DayGrid
+    //         day={d.getDate()}
+    //         month={d.getMonth()}
+    //         year={d.getFullYear()}
+    //         userId={props.userId}
+    //       />
+    //     </div>
+    //   </>
+    // );
+    if (entriesList === "" && current < new Date(props.year, props.month - 1, props.day)) {
       return (
-        <>
-          {" "}
+        <div className="Day-heading1">
+          {/* {console.log(current)}
+          {console.log(new Date(props.year, props.month - 1, props.day))} */}
+          Not this date yet!
           <section className="Day-paragraph">
-            {String(String(d.getMonth() + 1) + "/" + d.getDate()) + "/" + String(d.getFullYear())}
+            {String(String(props.month) + "/" + props.day + "/" + String(props.year))}
           </section>
           <div className="Day-paragraph">
             <button className="Day-button" onClick={() => moveLeft()}>
-              Previous Day
+              <Link
+                to={`/day/${props.userId}/${parseInt(props.day) - 1}/${props.month}/${props.year}`}
+              >
+                previous day
+              </Link>
             </button>
             <button className="Day-button" onClick={() => moveRight()}>
-              Next Day
+              <Link
+                to={`/day/${props.userId}/${parseInt(props.day) + 1}/${props.month}/${props.year}`}
+              >
+                next day
+              </Link>
+            </button>
+          </div>
+        </div>
+      );
+    } else if (entriesList === "") {
+      return (
+        <>
+          {/* {console.log(current)}
+          {console.log(new Date(props.year, props.month - 1, props.day))}{" "} */}
+          <section className="Day-paragraph">
+            {String(String(props.month) + "/" + props.day + "/" + String(props.year))}
+          </section>
+          <div className="Day-paragraph">
+            <button className="Day-button" onClick={() => moveLeft()}>
+              <Link
+                to={`/day/${props.userId}/${parseInt(props.day) - 1}/${props.month}/${props.year}`}
+              >
+                previous day
+              </Link>
+            </button>
+            <button className="Day-button" onClick={() => moveRight()}>
+              <Link
+                to={`/day/${props.userId}/${parseInt(props.day) + 1}/${props.month}/${props.year}`}
+              >
+                next day
+              </Link>
             </button>
 
             <section>{entriesList}</section>
@@ -155,15 +213,26 @@ const Day = (props) => {
     } else {
       return (
         <>
+          {/* {console.log(current)}
+          {console.log(new Date(props.year, props.month - 1, props.day))} */}
+
           <section className="Day-paragraph">
-            {String(String(d.getMonth() + 1) + "/" + d.getDate()) + "/" + String(d.getFullYear())}
+            {String(String(props.month) + "/" + props.day + "/" + String(props.year))}
           </section>
           <div className="Day-paragraph">
             <button className="Day-button" onClick={() => moveLeft()}>
-              Previous Day
+              <Link
+                to={`/day/${props.userId}/${parseInt(props.day) - 1}/${props.month}/${props.year}`}
+              >
+                previous day
+              </Link>
             </button>
             <button className="Day-button" onClick={() => moveRight()}>
-              Next Day
+              <Link
+                to={`/day/${props.userId}/${parseInt(props.day) + 1}/${props.month}/${props.year}`}
+              >
+                next day
+              </Link>
             </button>
 
             <section>{entriesList}</section>

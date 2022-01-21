@@ -63,7 +63,7 @@ const MonthGrid = (props) => {
         };
       case 8:
         return {
-          name: "septembe",
+          name: "september",
           days: 30,
         };
       case 9:
@@ -105,7 +105,7 @@ const MonthGrid = (props) => {
       let d = new Date(props.year, props.month, i + 1);
       days.push(
         <li key={i}>
-          <Link to={`/day/${d}`}>{i + 1}</Link>
+          <Link to={`/day`}>{i + 1}</Link>
         </li>
       );
     }

@@ -46,7 +46,7 @@ const WeekGrid = (props) => {
       grid.push(
         <div>
           {" "}
-          <Link to={`/day/${d}`}>
+          <Link to={`/day`}>
             {ans.week[i]}
             {" " +
               String(ans.date.getMonth() + 1) +

@@ -11,11 +11,18 @@ const GOOGLE_CLIENT_ID = "379531489685-7mgu977nsn7s5ei091hilu992i1vnch8.apps.goo
  * The navigation bar at the top of all pages. Takes no props.
  */
 const NavBar = (props) => {
+  const currentDate = new Date();
+
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
       <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div className="navbar-nav flex">
-          <Link to="/day/" className="nav-item nav-link item nav-left">
+          <Link
+            to={`/day/${props.userId}/${currentDate.getDate()}/${
+              currentDate.getMonth() + 1
+            }/${currentDate.getFullYear()}`}
+            className="nav-item nav-link item nav-left"
+          >
             daily
           </Link>
           <Link to="/week/" className="nav-item nav-link item">

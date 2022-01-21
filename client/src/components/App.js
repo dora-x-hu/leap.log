@@ -8,6 +8,7 @@ import Week from "./pages/Week.js";
 import Month from "./pages/Month.js";
 import Ask from "./pages/Ask.js";
 import Profile from "./pages/Profile.js";
+import Upday from "./pages/upDay.js";
 
 import "../utilities.css";
 
@@ -22,6 +23,10 @@ import HomeButton from "./modules/HomeButton.js";
  */
 const App = () => {
   const [userId, setUserId] = useState(undefined);
+  // const currentDate = new Date();
+  // const day = currentDate.getDate();
+  // const month = currentDate.getMonth() + 1;
+  // const year = currentDate.getFullYear();
 
   // categories as a state
 
@@ -59,12 +64,26 @@ const App = () => {
 
       <Router>
         <Skeleton path="/" handleLogin={handleLogin} handleLogout={handleLogout} userId={userId} />
-        <Day path="/day" userId={userId} />
+        <Day
+          path="/day/:userId/:day/:month/:year"
+          userId={userId}
+          // day={day}
+          // month={month}
+          // year={year}
+        />
         <Week path="/week" userId={userId} />
         <Month path="/month" userId={userId} />
         <Ask path="/ask" userId={userId} />
         <Profile path="/profile/:userId" userId={userId} />
+        <Upday path="/test" userId={userId} />
+
         <NotFound default />
+        {/* {props.userId && (
+            <Link to={`/day/${props.userId}`} className="nav-item nav-link item">
+              profile
+            </Link>
+          )} I need both userId and day date in that to make a unique link
+            If not logged in, should just be day */}
       </Router>
     </>
   );
