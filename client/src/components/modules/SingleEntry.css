@@ -1,13 +1,17 @@
 .SingleEntry-question {
   color: rgb(29, 28, 28);
-  text-align: center;
+  text-align: left;
   font-family: "Dongle", sans-serif;
   font-size: 50px;
+  max-width: 50%;
+  margin: auto;
 }
 
 .SingleEntry-response {
   color: rgb(71, 69, 69);
   font-family: "Dongle", sans-serif;
   font-size: 30px;
-  text-align: center;
+  text-align: left;
+  max-width: 50%;
+  margin: auto;
 }

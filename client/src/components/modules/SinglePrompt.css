@@ -1,14 +1,18 @@
 /* fill me in */
 .SinglePrompt-heading1 {
   color: rgb(11, 11, 54);
-  text-align: center;
+  text-align: left;
   font-family: "Dongle", sans-serif;
   font-size: 100px;
+  max-width: 50%;
+  margin: auto;
 }
 
 .SinglePrompt-paragraph {
   color: black;
   font-family: "Dongle", sans-serif;
   font-size: 50px;
-  text-align: center;
+  text-align: left;
+  max-width: 50%;
+  margin: auto;
 }
