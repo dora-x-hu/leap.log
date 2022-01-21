@@ -113,11 +113,7 @@ const Day = (props) => {
   } else {
     if (current < new Date(props.year, props.month - 1, props.day)) {
       return (
-        <div className="Day-heading1">
-          {console.log(current)}
-          {console.log(new Date(props.year, props.month - 1, props.day))}
-          {/* {console.log(d)} */}
-          Not this date yet!
+        <div>
           <section className="Day-paragraph">
             {String(String(props.month) + "/" + props.day + "/" + String(props.year))}
           </section>
@@ -137,13 +133,20 @@ const Day = (props) => {
               </Link>
             </button>
           </div>
+          <div className="Day-heading1">
+            {" "}
+            <div>not this date yet!</div>
+            <img
+              src="https://image.spreadshirtmedia.com/image-server/v1/mp/products/T1459A839PA3861PT28D1039811028FS2105/views/1,width=378,height=378,appearanceId=839,backgroundColor=F2F2F2/kawaii-happy-green-frog-smiling-sticker.jpg"
+              width="300px"
+              height="300px"
+            ></img>
+          </div>
         </div>
       );
     } else if (entriesList === "") {
       return (
         <>
-          {console.log(current)}
-          {console.log(new Date(props.year, props.month - 1, props.day))}
           <section className="Day-paragraph">
             {String(String(props.month) + "/" + props.day + "/" + String(props.year))}
           </section>
@@ -165,12 +168,10 @@ const Day = (props) => {
 
             <section>{entriesList}</section>
           </div>
-          <div>
+          <div className="Day-paragraph">
             {" "}
             <button>
-              <a className="Day-paragraph" href="/ask">
-                start journaling!
-              </a>
+              <a href="/ask">start journaling!</a>
             </button>
           </div>
         </>
@@ -178,9 +179,6 @@ const Day = (props) => {
     } else {
       return (
         <>
-          {console.log(current)}
-          {console.log(new Date(props.year, props.month - 1, props.day))}
-
           <section className="Day-paragraph">
             {String(String(props.month) + "/" + props.day + "/" + String(props.year))}
           </section>
