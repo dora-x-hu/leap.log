@@ -93,7 +93,6 @@ const App = () => {
         />
         <Ask path="/ask/:userId/:day/:month/:year" userId={userId} />
         <Profile path="/profile/:userId" userId={userId} />
-
         <NotFound default />
         {/* {props.userId && (
             <Link to={`/day/${props.userId}`} className="nav-item nav-link item">

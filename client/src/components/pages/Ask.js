@@ -1,6 +1,6 @@
 import React, { Component, useEffect, useState } from "react";
 import { Router } from "@reach/router";
-
+import { Link } from "@reach/router";
 import { get, post } from "../../utilities";
 import "./Ask.css";
 
@@ -88,6 +88,14 @@ const Ask = (props) => {
         // nothing
         <section></section>
       )}
+
+      <section className="Ask-paragraph">
+        <button className="Ask-button">
+          <Link to={`/day/${props.userId}/${props.day}/${props.month}/${props.year}`}>
+            back to daily
+          </Link>
+        </button>
+      </section>
     </>
   );
 
