@@ -16,7 +16,7 @@ const Login = ({ userId, handleLogin, handleLogout }) => {
           render={(renderProps) => (
             <button className="Login-button" onClick={renderProps.onClick}>
               {" "}
-              <img
+              <img className="imgContainer"
                 src="https://www.designbust.com/download/1016/png/google_logo_png_transparent512.png"
                 width="30px"
                 height="30px"
@@ -34,7 +34,7 @@ const Login = ({ userId, handleLogin, handleLogout }) => {
           render={(renderProps) => (
             <button className="Login-button" onClick={renderProps.onClick}>
               {" "}
-              <img
+              <img className="imgContainer"
                 src="https://www.designbust.com/download/1016/png/google_logo_png_transparent512.png"
                 width="30px"
                 height="30px"

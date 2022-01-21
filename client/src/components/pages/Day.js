@@ -133,7 +133,7 @@ const Day = (props) => {
       );
     } else if (entriesList === "") {
       return (
-        <>
+        <div>
           {console.log(current)}
           {console.log(new Date(props.year, props.month - 1, props.day))}{" "}
           <section className="Day-paragraph">
@@ -144,7 +144,7 @@ const Day = (props) => {
               <Link
                 to={`/day/${props.userId}/${parseInt(props.day) - 1}/${props.month}/${props.year}`}
               >
-                previous day
+                prev day
               </Link>
             </button>
             <button className="Day-button" onClick={() => moveRight()}>
@@ -157,15 +157,19 @@ const Day = (props) => {
 
             <section>{entriesList}</section>
           </div>
-          <div>
+
+          <Link to="/ask" className="container">
+            <div className="start-journaling"> start journaling!</div>
+          </Link>
+          {/* <div className="start-journaling">
             {" "}
             <button>
-              <a className="Day-paragraph" href="/ask">
+              <a className="start-journaling" href="/ask">
                 start journaling!
               </a>
             </button>
-          </div>
-        </>
+          </div> */}
+        </div>
       );
     } else {
       return (
@@ -181,7 +185,7 @@ const Day = (props) => {
               <Link
                 to={`/day/${props.userId}/${parseInt(props.day) - 1}/${props.month}/${props.year}`}
               >
-                previous day
+                prev day
               </Link>
             </button>
             <button className="Day-button" onClick={() => moveRight()}>

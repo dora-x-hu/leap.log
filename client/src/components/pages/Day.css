@@ -10,6 +10,7 @@
   font-family: "Dongle", sans-serif;
   font-size: 50px;
   text-align: center;
+  border-radius: 35px;
 }
 
 /* previous and next buttons */
@@ -30,4 +31,29 @@
 
 .Day-button:hover {
   opacity: 0.8;
+}
+
+/* start journaling button  */
+.start-journaling {
+  width: 30vw;
+  text-align: center;
+  padding: 20px;
+  border: none;
+  background-color: #1bb091;
+  font-size: xx-large;
+  font-family: "Dongle", sans-serif;
+  border-radius: 50px;
+  color: #ffede1;
+  margin: 30px;
+}
+
+.start-journaling:hover {
+  opacity: 0.8;
+}
+
+.container {
+  display: flex;
+  /* flex-direction: column; */
+  justify-content: center;
+  align-content: center;
 }
