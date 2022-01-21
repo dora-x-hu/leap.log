@@ -4,6 +4,7 @@
   display: flex;
   flex-direction: row;
   width: 100%;
+  margin: auto;
   flex-grow: 1;
 }
 
@@ -28,7 +29,7 @@
 .navbar-nav {
   padding-top: 20px;
   padding-bottom: 20px;
-  margin: 0;
+  margin: auto;
   text-align: center;
   display: flex;
   justify-content: center;

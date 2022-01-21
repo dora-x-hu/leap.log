@@ -1,4 +1,9 @@
 /* Fill me in :) */
+.Skeleton {
+  max-width: 90%;
+  max-height: 95%;
+}
+
 .Skeleton-heading1 {
   color: #1bb091;
   font-family: "Dongle", sans-serif;
@@ -13,12 +18,20 @@
   text-align: center;
 }
 
-.flex {
-  display: flex;
-  flex-direction: row;
-  width: 100%;
-  flex-grow: 1;
+ul {
+  color: black;
+  font-family: "Dongle", sans-serif;
+  font-size: 50px;
+  text-align: center;
 }
+
+/* .flex {
+  display: flex;
+  flex-direction: column;
+  max-height: 95%;
+  max-width: 100%;
+  flex-grow: 1;
+} */
 
 .login-button {
   width: 100%;

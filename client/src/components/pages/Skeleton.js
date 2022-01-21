@@ -13,7 +13,7 @@ const GOOGLE_CLIENT_ID = "379531489685-7mgu977nsn7s5ei091hilu992i1vnch8.apps.goo
 const Skeleton = ({ userId, handleLogin, handleLogout }) => {
   return (
     <>
-      <div className="flex">
+      <div className="Skeleton">
         <div className="login-button">
           <Login userId={userId} handleLogin={handleLogin} handleLogout={handleLogout} />
         </div>
