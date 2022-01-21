@@ -24,3 +24,26 @@
 .categories-prompts {
   background-color: #ccf3ff;
 }
+
+.Prompt-button {
+  background-color: pink;
+  border: 8px;
+  /* border-color: pink; */
+  color: #fff7f7;
+  font-family: "Dongle", sans-serif;
+  padding: 8px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 40px;
+  margin: 4px 2px;
+  border-top-left-radius: 16px;
+  border-bottom-left-radius: 16px;
+  border-top-right-radius: 16px;
+  border-bottom-right-radius: 16px;
+  position: relative;
+}
+
+.Prompt-button:hover {
+  opacity: 0.8;
+}

@@ -109,30 +109,31 @@ const Profile = (props) => {
   // //   get(`/api/user`, { userid: props.userId }).then((userObj) => setUser(userObj));
 
   // let promptsList = null;
-  let categoriesList = null;
-  const hasPrompts = prompts.length !== 0;
-  const hasCategories = categories.length !== 0;
+  // let categoriesList = null;
+  // const hasPrompts = prompts.length !== 0;
+  // const hasCategories = categories.length !== 0;
 
-  if (hasCategories) {
-    categoriesList = categories.map((responseObj) => {
-      <SinglePrompt content={responseObj.content} category_id={responseObj.category_id} />;
-    });
-  } else {
-    categoriesList = "No Categories Yet";
-  }
+  // if (hasCategories) {
+  //   categoriesList = categories.map((responseObj) => {
+  //     <SinglePrompt content={responseObj.content} category_id={responseObj.category_id} />;
+  //   });
+  // } else {
+  //   categoriesList = "No Categories Yet";
+  // }
 
   return (
     <>
       <div className="Profile-section">
         <h1 className="Profile-heading1">my profile</h1>
         <ul className="Profile-prompt">{promptsList}</ul>
-        <ul className="categories-prompts">{categoriesList}</ul>
-        {console.log("hi", categoriesList)}
+        {/* <ul className="categories-prompts">{categoriesList}</ul> */}
+        {/* {console.log("hi", categoriesList)} */}
       </div>
 
       <div>
         <input type="text" Placeholder="new category..." id="newCategory"></input>
         <button
+          className="Prompt-button"
           onClick={() => {
             submitCategory(document.getElementById("newCategory").value);
           }}
@@ -142,6 +143,7 @@ const Profile = (props) => {
 
         <input type="text" Placeholder="new prompt..." id="newPrompt"></input>
         <button
+          className="Prompt-button"
           onClick={() => {
             submitPrompt(document.getElementById("newPrompt").value);
           }}
