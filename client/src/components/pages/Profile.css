@@ -3,14 +3,24 @@
   text-align: center;
   font-family: "Dongle", sans-serif;
   font-size: 100px;
+  padding: 50px 50px;
+  width: auto;
+  background: pink;
+  border-top-left-radius: 50px;
+  border-top-right-radius: 50px;
+  margin-top: 20px;
+  margin-left: 40px;
+  margin-right: 40px;
 }
 
 .Profile-prompt {
   color: rgb(44, 76, 180);
   font-family: "Dongle", sans-serif;
   font-size: 50px;
+  background-color: #ccf3ff;
+  margin: 0;
 }
 
-.Profile-section {
-  background-color: lightblue;
+.categories-prompts {
+  background-color: #ccf3ff;
 }
