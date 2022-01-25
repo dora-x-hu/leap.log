@@ -30,10 +30,10 @@ const Profile = (props) => {
     });
   };
 
-  const submitPrompt = (thisPrompt) => {
+  const submitPrompt = (thisPrompt, category_id) => {
     console.log(thisPrompt);
     post("/api/prompt", {
-      category_id: "dummy category",
+      category_id: category_id,
       content: thisPrompt,
       user_id: props.userId,
       isSelected: true,
@@ -109,7 +109,7 @@ const Profile = (props) => {
               <button
                 className="Prompt-button"
                 onClick={() => {
-                  submitPrompt(document.getElementById("newPrompt").value);
+                  submitPrompt(document.getElementById("newPrompt").value, category_id);
                 }}
               >
                 submit
@@ -179,7 +179,7 @@ const Profile = (props) => {
           submit
         </button>
 
-        <input type="text" Placeholder="new prompt..." id="newPrompt"></input>
+        {/* <input type="text" Placeholder="new prompt..." id="newPrompt"></input>
         <button
           className="Prompt-button"
           onClick={() => {
@@ -187,7 +187,7 @@ const Profile = (props) => {
           }}
         >
           submit
-        </button>
+        </button> */}
       </div>
     </>
   );

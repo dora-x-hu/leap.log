@@ -27,7 +27,6 @@ const SinglePrompt = (props) => {
       <div>
         <section className="SinglePrompt-heading1">{props.category_id}</section>
         <p className="SinglePrompt-paragraph">{content()}</p>
-        <button className="SinglePrompt-button">add prompts</button>
       </div>
     </>
   );

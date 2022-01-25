@@ -139,11 +139,11 @@ const WeekGrid = (props) => {
             to={`/day/${props.userId}/${d.getDate()}/${d.getMonth() + 1}/${ans.date.getFullYear()}`}
           >
             {ans.week[i]}
-            {" " +
+            {"| " +
               String(d.getMonth() + 1) +
-              "/" +
+              "." +
               String(d.getDate()) +
-              "/" +
+              "." +
               String(ans.date.getFullYear())}
           </Link>
         </div>
