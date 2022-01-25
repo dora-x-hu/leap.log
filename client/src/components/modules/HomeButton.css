@@ -1,26 +1,25 @@
 .Home-button {
-  background-color: pink;
+  background-color: transparent;
   border: 8px;
-  color: #fff7f7;
-  font-family: "Dongle", sans-serif;
   padding: 8px;
   text-align: center;
   text-decoration: none !important;
-  display: inline-block;
-  font-size: 40px;
   margin: 0px;
-  border-top-left-radius: 16px;
-  border-top-right-radius: 16px;
-  border-bottom-left-radius: 16px;
-  border-bottom-right-radius: 16px;
-  position: relative;
+  align-items: center;
+  object-fit: contain;
+  max-width: 100%;
+  display: flex;
+  justify-content: center;
 }
 
 .Home-button:hover {
-  opacity: 0.8;
+  opacity: 0.9;
+  cursor: pointer;
 }
 
-.login-button {
+.home {
+  display: flex;
+  justify-content: center;
 }
 
 .Container {
@@ -29,4 +28,12 @@
   justify-content: flex-start;
   max-width: 90%;
   margin: auto;
+}
+
+.login-button {
+  margin: 30px;
+}
+
+img {
+  object-fit: contain;
 }

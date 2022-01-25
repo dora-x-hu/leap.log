@@ -9,7 +9,11 @@ const SingleEntry = (props) => {
 
   return (
     <>
-      <div className="SingleEntry-question">{props.question}</div>
+      <div className="SingleEntry-question">
+        <Link to={`/ask/${props.userId}/${props.day}/${props.month}/${props.year}/${props.index}`}>
+          {props.question}
+        </Link>
+      </div>
 
       <div className="SingleEntry-response">{props.content}</div>
     </>

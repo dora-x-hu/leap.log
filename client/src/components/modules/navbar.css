@@ -48,3 +48,8 @@
   border-bottom-right-radius: 100px;
   /* max-width: 25%; */
 }
+
+/* <div className={props.userId? 
+  “classWhenLoggedIn” : 
+  “classWhenLoggedOut”}>
+  </div>  */

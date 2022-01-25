@@ -4,17 +4,18 @@ import { Router } from "@reach/router";
 import { get, post } from "../../utilities";
 import "./Ask.css";
 
+import { navigate } from "@reach/router";
+
 const Ask = (props) => {
   useEffect(() => {}, []);
 
   const [promptList, setPromptList] = useState([]);
-  const [currentPromptIndex, setPrompt] = useState(0);
+  const [currentPromptIndex, setPrompt] = useState(props.index);
   //const [currentDate, setDate] =
 
   const submitStuff = (thisQuestion, thisResponse) => {
-    // let d = new Date(); //this works with mongo
-    console.log(thisResponse);
-    console.log(props.day);
+    let d = new Date(); //this works with mongo
+
     post("/api/response", {
       question: thisQuestion,
       content: thisResponse,
@@ -22,20 +23,30 @@ const Ask = (props) => {
       day: props.day,
       month: props.month - 1,
       year: props.year,
-    }).then((response) => {
-      console.log("here");
-      console.log(response.day);
     });
-    console.log("in submit");
   };
 
   const moveRight = () => {
-    setPrompt(currentPromptIndex + 1);
-    // document.getElementById("askbox").value = "";
+    //setPrompt(currentPromptIndex + 1);
+    //console.log(currentPromptIndex);
+    let newIndex = currentPromptIndex + 1;
+    //console.log("newIndex: " + newIndex);
+    navigate(`/ask/${props.userId}/${props.day}/${props.month}/${props.year}/${newIndex}`);
+    document.getElementById("askbox").value = "";
   };
   const moveLeft = () => {
-    setPrompt(currentPromptIndex - 1);
-    // document.getElementById("askbox").value = "";
+    //setPrompt(currentPromptIndex - 1);
+    //console.log(currentPromptIndex);
+    //console.log(currentPromptIndex.type);
+    let newIndex = parseInt(currentPromptIndex) - 1;
+    //console.log(parseInt(currentPromptIndex));
+    //console.log(newIndex.type);
+    //console.log(currentPromptIndex - 1);
+    navigate(
+      `/ask/${props.userId}/${props.day}/${props.month}/${props.year}/${currentPromptIndex - 1}`
+    );
+
+    document.getElementById("askbox").value = "";
   };
 
   let questionList = [];
@@ -48,6 +59,10 @@ const Ask = (props) => {
       //console.log(promptList[0].content);
     });
   }, [props.userId]);
+
+  useEffect(() => {
+    setPrompt(props.index);
+  }, [props.index]);
 
   //useEffect(() => {
   questionList = promptList.map((promptObj) => {
@@ -63,7 +78,7 @@ const Ask = (props) => {
       </section>
 
       <section className="Ask-paragraph">
-        <input type="text" id="askbox" name="inputTextBox"></input>
+        <input type="text" id="askbox" value="inputTextBox"></input>
         <button
           className="Ask-button"
           onClick={() => {
@@ -72,9 +87,6 @@ const Ask = (props) => {
                 questionList[currentPromptIndex],
                 document.getElementById("askbox").value
               );
-              {
-                console.log(document.getElementById("askbox").value);
-              }
             }
           }}
         >
@@ -85,7 +97,7 @@ const Ask = (props) => {
       {currentPromptIndex > 0 ? (
         <section className="Ask-paragraph">
           <button className="Ask-button" onClick={() => moveLeft()}>
-            previous
+            Previous
           </button>
         </section>
       ) : (
@@ -96,7 +108,7 @@ const Ask = (props) => {
       {currentPromptIndex < promptList.length - 1 ? (
         <section className="Ask-paragraph">
           <button className="Ask-button" onClick={() => moveRight()}>
-            next
+            Next
           </button>
         </section>
       ) : (
