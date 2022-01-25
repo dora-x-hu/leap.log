@@ -3,6 +3,7 @@
   max-width: 90%;
   max-height: 95%;
   margin: auto;
+  background-color: #ffede1;
 }
 
 .Skeleton-heading1 {
@@ -15,7 +16,7 @@
 }
 
 .Skeleton-paragraph {
-  color: black;
+  color: rgb(3, 73, 114);
   font-family: "Dongle", sans-serif;
   font-size: 70px;
   text-align: center;
@@ -24,7 +25,7 @@
 }
 
 ul {
-  color: black;
+  color: rgb(3, 73, 114);
   font-family: "Dongle", sans-serif;
   font-size: 50px;
   text-align: center;
