@@ -25,6 +25,8 @@
 
 .Container {
   display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
   max-width: 90%;
   margin: auto;
 }

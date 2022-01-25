@@ -17,7 +17,7 @@
   background-color: #1bb091;
   text-decoration: none;
   font-size: 40px;
-  padding: 3px 25%;
+  padding: 8px 33%;
   text-align: center;
   font-family: "Dongle", sans-serif;
   /* max-width: 25%; */
@@ -28,13 +28,13 @@
 }
 
 .navbar-nav {
-  padding-top: 20px;
+  padding-top: 10px;
   padding-bottom: 20px;
   margin: auto;
   text-align: center;
   display: flex;
   justify-content: center;
-  max-width: 25%;
+  max-width: 33%;
 }
 
 .nav-left {

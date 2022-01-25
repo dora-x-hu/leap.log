@@ -8,9 +8,10 @@
   background: pink;
   border-top-left-radius: 50px;
   border-top-right-radius: 50px;
-  margin-top: 20px;
-  margin-left: 40px;
-  margin-right: 40px;
+  margin-top: 10px;
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-bottom: 10px;
 }
 
 .Profile-prompt {
@@ -18,7 +19,10 @@
   font-family: "Dongle", sans-serif;
   font-size: 30px;
   background-color: #ccf3ff;
-  margin: 0;
+  margin: auto;
+  max-width: 80%;
+  border-top-left-radius: 50px;
+  border-top-right-radius: 50px;
 }
 
 .categories-prompts {
@@ -42,6 +46,7 @@
   border-top-right-radius: 16px;
   border-bottom-right-radius: 16px;
   position: relative;
+  max-width: 80%;
 }
 
 .Prompt-button:hover {
