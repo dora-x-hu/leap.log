@@ -82,7 +82,7 @@ router.get("/response", auth.ensureLoggedIn, (req, res) => {
   });
 });
 
-//no parameters
+//param: user_id
 //returns all questions
 //returns array of questions
 router.get("/prompts", (req, res) => {
@@ -93,11 +93,11 @@ router.get("/prompts", (req, res) => {
   });
 });
 
-//no params
 //returns array ofcategories
+//param: user_id
 router.get("/categories", (req, res) => {
   const list = [];
-  Category.find({}).then((categories) => {
+  Category.find({ user_id: req.query.user_id }).then((categories) => {
     for (let i = 0; i < categories.length; i++) {
       if (!list.map((c) => c.name).includes(categories[i].name)) {
         list.push(categories[i]);

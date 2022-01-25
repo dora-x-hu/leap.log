@@ -10,12 +10,9 @@ const SinglePrompt = (props) => {
   //   setPrompts(prompts.concat(props.prompts[i]));
   //   console.log(setPrompts);
   // }
-  console.log("I am called");
   const content = () => {
     const prompts = [];
     if (props.prompts.length === 0) {
-      console.log("i'm in content!");
-
       return <li>no prompts yet!</li>;
     } else {
       for (let i = 0; i < props.prompts.length; i++) {
@@ -30,6 +27,7 @@ const SinglePrompt = (props) => {
       <div>
         <section className="SinglePrompt-heading1">{props.category_id}</section>
         <p className="SinglePrompt-paragraph">{content()}</p>
+        <button className="SinglePrompt-button">add prompts</button>
       </div>
     </>
   );
