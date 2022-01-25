@@ -39,7 +39,12 @@ const Survey = (props) => {
     });
   };
 
-  if (!props.completedSurvey) {
+  let completed;
+  thisUser = User.findOne({ _id: props.userId }).then((thisuser) => {
+    completed = thisuser.hasCompletedSurvey;
+  });
+
+  if (!completed) {
     return (
       <>
         <h1>What Topics Would You Like To Journal About?</h1>
