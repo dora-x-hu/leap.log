@@ -3,7 +3,7 @@
 .flex {
   display: flex;
   flex-direction: row;
-  width: 100%;
+  max-width: 100%;
   margin: auto;
   flex-grow: 1;
 }
@@ -17,9 +17,10 @@
   background-color: #1bb091;
   text-decoration: none;
   font-size: 40px;
-  padding: 3px 200px;
+  padding: 8px 33%;
   text-align: center;
   font-family: "Dongle", sans-serif;
+  /* max-width: 25%; */
 }
 
 .nav-item:hover {
@@ -27,20 +28,23 @@
 }
 
 .navbar-nav {
-  padding-top: 20px;
+  padding-top: 10px;
   padding-bottom: 20px;
   margin: auto;
   text-align: center;
   display: flex;
   justify-content: center;
+  max-width: 33%;
 }
 
 .nav-left {
   border-top-left-radius: 100px;
   border-bottom-left-radius: 100px;
+  /* max-width: 25%; */
 }
 
 .nav-right {
   border-top-right-radius: 100px;
   border-bottom-right-radius: 100px;
+  /* max-width: 25%; */
 }
