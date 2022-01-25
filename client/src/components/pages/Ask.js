@@ -12,8 +12,9 @@ const Ask = (props) => {
   //const [currentDate, setDate] =
 
   const submitStuff = (thisQuestion, thisResponse) => {
-    let d = new Date(); //this works with mongo
-
+    // let d = new Date(); //this works with mongo
+    console.log(thisResponse);
+    console.log(props.day);
     post("/api/response", {
       question: thisQuestion,
       content: thisResponse,
@@ -21,16 +22,20 @@ const Ask = (props) => {
       day: props.day,
       month: props.month - 1,
       year: props.year,
+    }).then((response) => {
+      console.log("here");
+      console.log(response.day);
     });
+    console.log("in submit");
   };
 
   const moveRight = () => {
     setPrompt(currentPromptIndex + 1);
-    document.getElementById("askbox").value = "";
+    // document.getElementById("askbox").value = "";
   };
   const moveLeft = () => {
     setPrompt(currentPromptIndex - 1);
-    document.getElementById("askbox").value = "";
+    // document.getElementById("askbox").value = "";
   };
 
   let questionList = [];
@@ -67,6 +72,9 @@ const Ask = (props) => {
                 questionList[currentPromptIndex],
                 document.getElementById("askbox").value
               );
+              {
+                console.log(document.getElementById("askbox").value);
+              }
             }
           }}
         >
@@ -77,7 +85,7 @@ const Ask = (props) => {
       {currentPromptIndex > 0 ? (
         <section className="Ask-paragraph">
           <button className="Ask-button" onClick={() => moveLeft()}>
-            Previous
+            previous
           </button>
         </section>
       ) : (
@@ -88,7 +96,7 @@ const Ask = (props) => {
       {currentPromptIndex < promptList.length - 1 ? (
         <section className="Ask-paragraph">
           <button className="Ask-button" onClick={() => moveRight()}>
-            Next
+            next
           </button>
         </section>
       ) : (

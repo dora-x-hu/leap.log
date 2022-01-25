@@ -51,6 +51,7 @@ const Day = (props) => {
     }).then((responsesObj) => {
       setEntries(responsesObj);
     });
+    console.log(props.day);
     //print(entries);
   }, [props.userId, props.day]);
 
