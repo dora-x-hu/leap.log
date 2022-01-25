@@ -14,9 +14,9 @@ const Skeleton = ({ userId, handleLogin, handleLogout }) => {
   return (
     <>
       <div className="Skeleton">
-        <div className="login-button">
+        {/* <div className="login-button">
           <Login userId={userId} handleLogin={handleLogin} handleLogout={handleLogout} />
-        </div>
+        </div> */}
         <h1 className="Skeleton-heading1">
           welcome to leap.log, an easy to use and aesthetic journal{" "}
         </h1>

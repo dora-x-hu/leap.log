@@ -19,3 +19,10 @@
 .Home-button:hover {
   opacity: 0.8;
 }
+
+.login-button {
+}
+
+.Container {
+  display: flex;
+}
