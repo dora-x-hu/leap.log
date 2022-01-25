@@ -59,15 +59,25 @@ const Profile = (props) => {
   useEffect(() => {
     // console.log("hello", props.userId);
     document.title = "Profile Page";
+<<<<<<< HEAD
     submitCategory("emotions");
     submitCategory("habits");
     submitCategory("academic");
     submitCategory("traveling");
+=======
+<<<<<<< HEAD
+    //submitCategory("emotions");
+    //submitCategory("habits");
+    //submitCategory("academic");
+    //submitCategory("travelling");
+=======
+>>>>>>> f3db8353003b1e24c19508775b069e63cde0962d
+>>>>>>> 1cf0e8bee37af009acb29247cca677385267b0b0
     get("/api/prompts", { user_id: props.userId }).then((promptlistObj) => {
       // console.log("sup", promptlistObj);
       setPrompts(promptlistObj);
     });
-    get("/api/categories", { user_id: props.userId }).then((categorylistObj) => {
+    get("/api/categories", { user_id: props.userId, isSelected: true }).then((categorylistObj) => {
       // console.log(categorylistObj);
       setCategories(categories.concat(categorylistObj));
     });
@@ -96,31 +106,35 @@ const Profile = (props) => {
     if (categories.length > 0) {
       // console.log("hello categories", categories);
       for (let cat = 0; cat < categories.length; cat++) {
-        let specific_prompts = [];
-        const category_id = categories[cat].name;
-        // console.log(category_id);
-        for (let p = 0; p < prompts.length; p++) {
-          if (prompts[p].category_id === category_id) {
-            specific_prompts = specific_prompts.concat(prompts[p]);
+        if (categories[cat].isSelected) {
+          let specific_prompts = [];
+
+          const category_id = categories[cat].name;
+          console.log(category_id);
+          console.log(categories[cat].user_id);
+          for (let p = 0; p < prompts.length; p++) {
+            if (prompts[p].category_id === category_id) {
+              specific_prompts = specific_prompts.concat(prompts[p]);
+            }
           }
+          // console.log(specific_prompts);
+          setPromptsList((promptsList) =>
+            promptsList.concat(
+              <div>
+                <SinglePrompt category_id={category_id} prompts={specific_prompts} />{" "}
+                <input type="text" Placeholder="new prompt..." id="newPrompt"></input>
+                <button
+                  className="Prompt-button"
+                  onClick={() => {
+                    submitPrompt(document.getElementById("newPrompt").value, category_id);
+                  }}
+                >
+                  submit
+                </button>
+              </div>
+            )
+          );
         }
-        // console.log(specific_prompts);
-        setPromptsList((promptsList) =>
-          promptsList.concat(
-            <div>
-              <SinglePrompt category_id={category_id} prompts={specific_prompts} />{" "}
-              <input type="text" Placeholder="new prompt..." id="newPrompt"></input>
-              <button
-                className="Prompt-button"
-                onClick={() => {
-                  submitPrompt(document.getElementById("newPrompt").value, category_id);
-                }}
-              >
-                submit
-              </button>
-            </div>
-          )
-        );
       }
     }
   }, [prompts, categories]);
@@ -173,7 +187,7 @@ const Profile = (props) => {
       </div>
 
       <div>
-        <input type="text" Placeholder="new category..." id="newCategory"></input>
+        <input type="text" placeholder="new category..." id="newCategory"></input>
         <button
           className="Prompt-button"
           onClick={() => {

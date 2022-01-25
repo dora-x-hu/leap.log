@@ -17,7 +17,7 @@ const Survey = (props) => {
     });
 
     post("/api/category", {
-      name: "EMOTIONS",
+      name: "epic feels",
       user_id: props.userId,
       isSelected: emotions,
     });
@@ -40,7 +40,7 @@ const Survey = (props) => {
       userId: props.userId,
     });
 
-    //navigate("")
+    navigate(`/profile/${props.userId}`);
   };
 
   useEffect(() => {

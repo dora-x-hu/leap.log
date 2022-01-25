@@ -3,7 +3,7 @@
 .flex {
   display: flex;
   flex-direction: row;
-  width: 100%;
+  max-width: 100%;
   margin: auto;
   flex-grow: 1;
 }
@@ -17,9 +17,14 @@
   background-color: #1bb091;
   text-decoration: none;
   font-size: 40px;
+<<<<<<< HEAD
   padding: 3px 150px;
+=======
+  padding: 8px 33%;
+>>>>>>> 1cf0e8bee37af009acb29247cca677385267b0b0
   text-align: center;
   font-family: "Dongle", sans-serif;
+  /* max-width: 25%; */
 }
 
 .nav-item:hover {
@@ -27,22 +32,30 @@
 }
 
 .navbar-nav {
+<<<<<<< HEAD
   padding-top: 50px;
   padding-bottom: 30px;
+=======
+  padding-top: 10px;
+  padding-bottom: 20px;
+>>>>>>> 1cf0e8bee37af009acb29247cca677385267b0b0
   margin: auto;
   text-align: center;
   display: flex;
   justify-content: center;
+  max-width: 33%;
 }
 
 .nav-left {
   border-top-left-radius: 100px;
   border-bottom-left-radius: 100px;
+  /* max-width: 25%; */
 }
 
 .nav-right {
   border-top-right-radius: 100px;
   border-bottom-right-radius: 100px;
+  /* max-width: 25%; */
 }
 
 /* <div className={props.userId? 

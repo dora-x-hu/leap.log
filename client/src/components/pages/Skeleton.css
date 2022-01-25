@@ -2,6 +2,8 @@
 .Skeleton {
   max-width: 90%;
   max-height: 95%;
+  margin: auto;
+  background-color: #ffede1;
 }
 
 .Skeleton-heading1 {
@@ -9,20 +11,26 @@
   font-family: "Dongle", sans-serif;
   font-size: 100px;
   text-align: center;
+  margin-top: 8px;
+  margin-bottom: 0%;
 }
 
 .Skeleton-paragraph {
-  color: black;
+  color: rgb(3, 73, 114);
   font-family: "Dongle", sans-serif;
-  font-size: 50px;
+  font-size: 70px;
   text-align: center;
+  margin-top: 8px;
+  margin-bottom: 0px;
 }
 
 ul {
-  color: black;
+  color: rgb(3, 73, 114);
   font-family: "Dongle", sans-serif;
   font-size: 50px;
   text-align: center;
+  margin-top: 8px;
+  margin-bottom: 0px;
 }
 
 /* .flex {
