@@ -6,14 +6,14 @@ import { get } from "../../utilities";
 import { Link } from "@reach/router";
 
 const Day = (props) => {
-  console.log(props.year);
-  console.log(props.month);
-  console.log(props.day);
+  //console.log(props.year);
+  //console.log(props.month);
+  //console.log(props.day);
 
   const [entries, setEntries] = useState([]);
   // const [d, setDate] = useState(new Date(props.year, props.month - 1, props.day));
   const [entriesList, setEntriesList] = useState(null);
-  const [promptsList, setPromptsList] = useState([]);
+  const [promptsList, setPromptsList] = useState(null);
   const newcurrent = new Date();
   const current = new Date(newcurrent.getFullYear(), newcurrent.getMonth(), newcurrent.getDate());
 
@@ -63,6 +63,8 @@ const Day = (props) => {
     });
   }, [props.userId]);
 
+  //console.log(promptsList[0].content + "is the first prompt");
+
   //let entriesList = ["here", "there", "everywhere"];
 
   // add useEffect() statement for this
@@ -81,6 +83,7 @@ const Day = (props) => {
             month={responseObj.month + 1}
             year={responseObj.year}
             userId={props.userId}
+            //questionIndex={promptsList.getI}
           />
         ))
       );
@@ -133,7 +136,7 @@ const Day = (props) => {
                   yesterday.getMonth() + 1
                 }/${yesterday.getFullYear()}`}
               >
-                previous day
+                prev day
               </Link>
             </button>
             <button className="Day-button">
@@ -150,7 +153,7 @@ const Day = (props) => {
             {" "}
             <div>not this date yet!</div>
             <img
-              src="https://image.spreadshirtmedia.com/image-server/v1/mp/products/T1459A839PA3861PT28D1039811028FS2105/views/1,width=378,height=378,appearanceId=839,backgroundColor=F2F2F2/kawaii-happy-green-frog-smiling-sticker.jpg"
+              src="https://o.remove.bg/downloads/e434a53c-a298-4c44-8a3b-54335594037c/frog-removebg-preview.png"
               width="300px"
               height="300px"
             ></img>

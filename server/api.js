@@ -110,16 +110,25 @@ router.get("/categories", (req, res) => {
 //day it belongs to,which question prompted it, updated content
 //adds new response then returns it back to client
 router.post("/response", auth.ensureLoggedIn, (req, res) => {
-  const newJournalEntry = new JournalEntry({
-    question: req.body.question,
-    content: req.body.content,
-    user_id: req.user._id,
-    day: req.body.day,
-    month: req.body.month,
-    year: req.body.year,
-  });
+  JournalEntry.findOne({ user_id: req.user._id, question: req.body.question }).then(
+    (existingEntry) => {
+      if (existingEntry) {
+        existingEntry.content = req.body.content;
+        existingEntry.save();
+      } else {
+        const newJournalEntry = new JournalEntry({
+          question: req.body.question,
+          content: req.body.content,
+          user_id: req.user._id,
+          day: req.body.day,
+          month: req.body.month,
+          year: req.body.year,
+        });
 
-  newJournalEntry.save().then((response) => res.send(response));
+        newJournalEntry.save().then((response) => res.send(response));
+      }
+    }
+  );
 });
 
 //creates a new category and returns it
@@ -143,6 +152,13 @@ router.post("/prompt", auth.ensureLoggedIn, (req, res) => {
   });
 
   newQuestion.save().then((question) => res.send(question));
+});
+
+router.post("/survey", auth.ensureLoggedIn, (req, res) => {
+  User.findOne({ _id: req.user._id }).then((existingUser) => {
+    existingUser.hasCompletedSurvey = true;
+    existingUser.save();
+  });
 });
 
 // anything else falls to this "not found" case

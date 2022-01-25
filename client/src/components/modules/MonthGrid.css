@@ -99,6 +99,7 @@ body {
   font-size: 40px;
   color: #777;
   text-decoration: none !important;
+  vertical-align: bottom;
 }
 
 .days li:hover {
