@@ -38,7 +38,7 @@ body {
 /*Previous button inside month header*/
 .month .prev {
   float: left;
-  padding-top: 40px;
+  padding-top: 30px;
   /* border-radius: 50%;
   background-color: transparent; */
 }
@@ -51,7 +51,7 @@ body {
 /* Next button */
 .month .next {
   float: right;
-  padding-top: 40px;
+  padding-top: 30px;
 }
 
 .month .next:hover {
@@ -104,6 +104,7 @@ body {
 
 .days li:hover {
   opacity: 0.8;
+
   /* padding: 6.8%; */
   /* background: #1abc9c; */
 }

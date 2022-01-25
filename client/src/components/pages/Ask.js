@@ -61,9 +61,14 @@ const Ask = (props) => {
         <input type="text" id="askbox" name="inputTextBox"></input>
         <button
           className="Ask-button"
-          onClick={() =>
-            submitStuff(questionList[currentPromptIndex], document.getElementById("askbox").value)
-          }
+          onClick={() => {
+            if (document.getElementById("askbox").value !== "") {
+              submitStuff(
+                questionList[currentPromptIndex],
+                document.getElementById("askbox").value
+              );
+            }
+          }}
         >
           Submit
         </button>
