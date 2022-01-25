@@ -69,7 +69,7 @@ const Day = (props) => {
 
   // add useEffect() statement for this
   useEffect(() => {
-    console.log(entries.length);
+    // console.log(entries.length);
     const hasEntries = entries.length !== 0;
 
     if (hasEntries) {
@@ -119,9 +119,9 @@ const Day = (props) => {
     tomorrow.setDate(selectedDay.getDate() + 1);
     const yesterday = new Date(selectedDay);
     yesterday.setDate(selectedDay.getDate() - 1);
-    console.log(selectedDay);
-    console.log(tomorrow);
-    console.log(yesterday);
+    // console.log(selectedDay);
+    // console.log(tomorrow);
+    // console.log(yesterday);
 
     if (current < new Date(props.year, props.month - 1, props.day)) {
       return (
