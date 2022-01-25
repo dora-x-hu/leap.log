@@ -28,6 +28,7 @@ const Profile = (props) => {
         setCategories(categories.concat(result));
       }
     });
+    document.getElementById(thisCategory).value = "";
   };
 
   const submitPrompt = (thisPrompt, category_id) => {
@@ -121,7 +122,9 @@ const Profile = (props) => {
                   className="Prompt-button"
                   onClick={() => {
                     console.log(document.getElementById(category_id).value);
-                    submitPrompt(document.getElementById(category_id).value, category_id);
+                    if (document.getElementById(category_id).value.replace(/\s+/g, "") !== "") {
+                      submitPrompt(document.getElementById(category_id).value, category_id);
+                    }
                     {
                       // console.log(category_id);
                     }
@@ -189,7 +192,9 @@ const Profile = (props) => {
         <button
           className="Prompt-button"
           onClick={() => {
-            submitCategory(document.getElementById("newCategory").value);
+            if (document.getElementById("newCategory").value.replace(/\s+/g, "") !== "") {
+              submitCategory(document.getElementById("newCategory").value);
+            }
           }}
         >
           submit

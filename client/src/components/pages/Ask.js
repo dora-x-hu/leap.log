@@ -4,11 +4,13 @@ import { Router } from "@reach/router";
 import { get, post } from "../../utilities";
 import "./Ask.css";
 
+import { navigate } from "@reach/router";
+
 const Ask = (props) => {
   useEffect(() => {}, []);
 
   const [promptList, setPromptList] = useState([]);
-  const [currentPromptIndex, setPrompt] = useState(0);
+  const [currentPromptIndex, setPrompt] = useState(props.index);
   //const [currentDate, setDate] =
 
   const submitStuff = (thisQuestion, thisResponse) => {
@@ -25,11 +27,25 @@ const Ask = (props) => {
   };
 
   const moveRight = () => {
-    setPrompt(currentPromptIndex + 1);
+    //setPrompt(currentPromptIndex + 1);
+    //console.log(currentPromptIndex);
+    let newIndex = currentPromptIndex + 1;
+    //console.log("newIndex: " + newIndex);
+    navigate(`/ask/${props.userId}/${props.day}/${props.month}/${props.year}/${newIndex}`);
     document.getElementById("askbox").value = "";
   };
   const moveLeft = () => {
-    setPrompt(currentPromptIndex - 1);
+    //setPrompt(currentPromptIndex - 1);
+    //console.log(currentPromptIndex);
+    //console.log(currentPromptIndex.type);
+    let newIndex = parseInt(currentPromptIndex) - 1;
+    //console.log(parseInt(currentPromptIndex));
+    //console.log(newIndex.type);
+    //console.log(currentPromptIndex - 1);
+    navigate(
+      `/ask/${props.userId}/${props.day}/${props.month}/${props.year}/${currentPromptIndex - 1}`
+    );
+
     document.getElementById("askbox").value = "";
   };
 
@@ -43,6 +59,10 @@ const Ask = (props) => {
       //console.log(promptList[0].content);
     });
   }, [props.userId]);
+
+  useEffect(() => {
+    setPrompt(props.index);
+  }, [props.index]);
 
   //useEffect(() => {
   questionList = promptList.map((promptObj) => {
@@ -58,7 +78,7 @@ const Ask = (props) => {
       </section>
 
       <section className="Ask-paragraph">
-        <input type="text" id="askbox" name="inputTextBox"></input>
+        <input type="text" id="askbox" value="inputTextBox"></input>
         <button
           className="Ask-button"
           onClick={() => {
