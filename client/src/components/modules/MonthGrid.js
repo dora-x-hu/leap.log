@@ -95,15 +95,20 @@ const MonthGrid = (props) => {
     return emptyDays;
   };
 
-  // want to know if a year is a leap year
-  // the first day of every month
+  const remainDay = (x, y) => {
+    const remaining = [];
+    const z = (x + y) % 7;
+    for (let i = 0; i < 7 - z; i++) {
+      remaining.push(<li></li>);
+    }
+    return remaining;
+  };
 
   const getDays = () => {
     const details = getMonthDetails();
     const days = [];
     for (let i = 0; i < details.days; i++) {
       let da = new Date(props.year, props.month, i + 1);
-      console.log(da);
       days.push(
         <li key={i}>
           <Link
@@ -123,7 +128,6 @@ const MonthGrid = (props) => {
         </li>
       );
     }
-    console.log(days);
     return days;
   };
 
@@ -146,6 +150,7 @@ const MonthGrid = (props) => {
 {props.creator_name}
 </Link> */}
         {getDays()}
+        {remainDay(dayofWeek().length, getDays().length)}
       </ul>
     </>
   );
