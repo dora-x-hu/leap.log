@@ -96,8 +96,14 @@ router.get("/prompts", (req, res) => {
 //no params
 //returns array ofcategories
 router.get("/categories", (req, res) => {
+  const list = [];
   Category.find({}).then((categories) => {
-    res.send(categories);
+    for (let i = 0; i < categories.length; i++) {
+      if (!list.map((c) => c.name).includes(categories[i].name)) {
+        list.push(categories[i]);
+      }
+    }
+    res.send(list);
   });
 });
 

@@ -24,7 +24,9 @@ const Profile = (props) => {
       user_id: props.userId,
       isSelected: true,
     }).then((result) => {
-      setCategories(categories.concat(result));
+      if (!categories.map((c) => c.name).includes(result.name)) {
+        setCategories(categories.concat(result));
+      }
     });
   };
 
@@ -62,26 +64,48 @@ const Profile = (props) => {
       setPrompts(promptlistObj);
     });
     get("/api/categories").then((categorylistObj) => {
-      setCategories(categorylistObj);
+      setCategories(categories.concat(categorylistObj));
     });
   }, [props.userId]);
 
+  // useEffect(() => {
+  //   let tempPrompts;
+  //   console.log(prompts);
+  //   if (prompts.length > 0) {
+  //     console.log("hello");
+  //     tempPrompts = prompts.map((responseObj) => {
+  //       // console.log(responseObj);
+  //       return <SinglePrompt content={responseObj.content} category_id={responseObj.category_id} />;
+  //       //promptsList = prompts;
+  //     });
+  //   } else {
+  //     tempPrompts = "No Prompts Yet";
+  //   }
+  //   setPromptsList(tempPrompts);
+  //   console.log(tempPrompts);
+  // }, [prompts]);
+
   useEffect(() => {
-    let tempPrompts;
     console.log(prompts);
-    if (prompts.length > 0) {
-      console.log("hello");
-      tempPrompts = prompts.map((responseObj) => {
-        // console.log(responseObj);
-        return <SinglePrompt content={responseObj.content} category_id={responseObj.category_id} />;
-        //promptsList = prompts;
-      });
-    } else {
-      tempPrompts = "No Prompts Yet";
+    if (categories.length > 0) {
+      console.log("hello categories", categories);
+      for (let cat = 0; cat < categories.length; cat++) {
+        const specific_prompts = [];
+        const category_id = categories[cat].name;
+        console.log(category_id);
+        for (let p = 0; p < prompts.length; p++) {
+          if (prompts[p].category_id === category_id) {
+            specific_prompts.concat(prompts[p]);
+          }
+        }
+        console.log(specific_prompts);
+        setPromptsList(
+          promptsList.concat(<SinglePrompt category_id={category_id} prompts={specific_prompts} />)
+        );
+        console.log(promptsList);
+      }
     }
-    setPromptsList(tempPrompts);
-    console.log(tempPrompts);
-  }, [prompts]);
+  }, [prompts, categories]);
 
   // useEffect(() => {
   //   let tempCateogry;
