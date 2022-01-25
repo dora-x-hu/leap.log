@@ -8,10 +8,10 @@
   background: pink;
   border-top-left-radius: 50px;
   border-top-right-radius: 50px;
-  margin-top: 10px;
-  margin-left: 10%;
-  margin-right: 10%;
-  margin-bottom: 10px;
+  margin-top: 20px;
+  margin-bottom: 0;
+  margin-left: 40px;
+  margin-right: 40px;
 }
 
 .Profile-prompt {
@@ -19,10 +19,11 @@
   font-family: "Dongle", sans-serif;
   font-size: 30px;
   background-color: #ccf3ff;
-  margin: auto;
-  max-width: 80%;
-  border-top-left-radius: 50px;
-  border-top-right-radius: 50px;
+  margin-top: 0;
+  margin-left: 40px;
+  margin-right: 40px;
+  border-bottom-left-radius: 50px;
+  border-bottom-right-radius: 50px;
 }
 
 .categories-prompts {
@@ -40,15 +41,19 @@
   text-decoration: none;
   display: inline-block;
   font-size: 40px;
-  margin: 4px 2px;
+  margin: 4px 20px;
   border-top-left-radius: 16px;
   border-bottom-left-radius: 16px;
   border-top-right-radius: 16px;
   border-bottom-right-radius: 16px;
   position: relative;
-  max-width: 80%;
 }
 
 .Prompt-button:hover {
   opacity: 0.8;
+  cursor: pointer;
+}
+
+.new-prompt {
+  width: 80%;
 }
