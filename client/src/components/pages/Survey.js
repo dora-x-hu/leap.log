@@ -11,25 +11,25 @@ const Survey = (props) => {
     console.log(daily + " " + emotions + " " + food + " " + habits);
 
     post("/api/category", {
-      name: "daily",
+      name: "DAILY",
       user_id: props.userId,
       isSelected: daily,
     });
 
     post("/api/category", {
-      name: "emotions",
+      name: "EMOTIONS",
       user_id: props.userId,
       isSelected: emotions,
     });
 
     post("/api/category", {
-      name: "habits",
+      name: "HABITS",
       user_id: props.userId,
       isSelected: habits,
     });
 
     post("/api/category", {
-      name: "food",
+      name: "FOOD",
       user_id: props.userId,
       isSelected: food,
     });
