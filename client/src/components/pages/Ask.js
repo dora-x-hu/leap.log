@@ -70,7 +70,7 @@ const Ask = (props) => {
             }
           }}
         >
-          Submit
+          submit
         </button>
       </section>
 

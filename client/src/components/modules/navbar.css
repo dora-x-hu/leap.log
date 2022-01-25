@@ -17,11 +17,7 @@
   background-color: #1bb091;
   text-decoration: none;
   font-size: 40px;
-<<<<<<< HEAD
-  padding: 3px 150px;
-=======
   padding: 8px 33%;
->>>>>>> 1cf0e8bee37af009acb29247cca677385267b0b0
   text-align: center;
   font-family: "Dongle", sans-serif;
   /* max-width: 25%; */
@@ -32,13 +28,8 @@
 }
 
 .navbar-nav {
-<<<<<<< HEAD
-  padding-top: 50px;
-  padding-bottom: 30px;
-=======
   padding-top: 10px;
   padding-bottom: 20px;
->>>>>>> 1cf0e8bee37af009acb29247cca677385267b0b0
   margin: auto;
   text-align: center;
   display: flex;
