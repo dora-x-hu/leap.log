@@ -3,7 +3,7 @@ import { Link } from "@reach/router";
 import GoogleLogin, { GoogleLogout } from "react-google-login";
 import "../modules/HomeButton.css";
 import Login from "../modules/Login.js";
-import Image from "client/src/components/modules/leaplog logo.png";
+import Image from "../modules/leaplog logo.png";
 
 const HomeButton = ({ userId, handleLogin, handleLogout }) => {
   return (

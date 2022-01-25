@@ -5,7 +5,7 @@ import "../../utilities.css";
 import "./Skeleton.css";
 import Week from "./Week.js";
 //import NavBar from "../modules/navbar.js";
-import Image from "/Users/michellechan/Downloads/lilypad.png";
+import Image from "../modules/lilypad.png";
 
 //TODO: REPLACE WITH YOUR OWN CLIENT_ID
 const GOOGLE_CLIENT_ID = "379531489685-7mgu977nsn7s5ei091hilu992i1vnch8.apps.googleusercontent.com";
