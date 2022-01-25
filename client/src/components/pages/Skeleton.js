@@ -5,7 +5,7 @@ import "../../utilities.css";
 import "./Skeleton.css";
 import Week from "./Week.js";
 //import NavBar from "../modules/navbar.js";
-import Image from "/Users/michellechan/Downloads/lilypad.png";
+import Image from "../modules/lilypad.png";
 
 //TODO: REPLACE WITH YOUR OWN CLIENT_ID
 const GOOGLE_CLIENT_ID = "379531489685-7mgu977nsn7s5ei091hilu992i1vnch8.apps.googleusercontent.com";
@@ -17,10 +17,18 @@ const Skeleton = (props) => {
         <h1 className="Skeleton-heading1">leap.log: your customizable journal </h1>
         {!props.userId && <h2 className="Skeleton-paragraph"> login to get started</h2>}
         <ul>
-          {/* <img src={Image}></img> */}
-          <li>❀ choose which prompts to journal about</li>
-          <li>❀ reflect on past journals</li>
-          <li>❀ customize your prompts</li>
+          <li><img src={Image} 
+          height="30px"
+          width="30px"
+          ></img> choose which prompts to journal about</li>
+          <li><img src={Image} 
+          height="30px"
+          width="30px"
+          ></img> reflect on past journals</li>
+          <li><img src={Image} 
+          height="30px"
+          width="30px"
+          ></img> customize your prompts</li>
         </ul>
       </div>
     </>

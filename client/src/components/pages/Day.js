@@ -4,7 +4,7 @@ import SingleEntry from "../modules/SingleEntry.js";
 import "./Day.css";
 import { get } from "../../utilities";
 import { Link } from "@reach/router";
-import Image from "/Users/michellechan/Downloads/sad frog.png";
+import Image from "../modules/sad frog.png";
 
 const Day = (props) => {
   //console.log(props.year);
