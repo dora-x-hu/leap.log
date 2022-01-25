@@ -17,10 +17,18 @@ const Skeleton = (props) => {
         <h1 className="Skeleton-heading1">leap.log: your customizable journal </h1>
         {!props.userId && <h2 className="Skeleton-paragraph"> login to get started</h2>}
         <ul>
-          <img src={Image}></img>
-          <li>❀ choose which prompts to journal about</li>
-          <li>❀ reflect on past journals</li>
-          <li>❀ customize your prompts</li>
+          <li><img src={Image} 
+          height="30px"
+          width="30px"
+          ></img> choose which prompts to journal about</li>
+          <li><img src={Image} 
+          height="30px"
+          width="30px"
+          ></img> reflect on past journals</li>
+          <li><img src={Image} 
+          height="30px"
+          width="30px"
+          ></img> customize your prompts</li>
         </ul>
       </div>
     </>
