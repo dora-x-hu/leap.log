@@ -102,7 +102,7 @@ const App = () => {
         <Profile path="/profile/:userId" userId={userId} />
         <Survey
           path="/survey"
-          userid={userId}
+          userId={userId}
           setCompletionStatus={setCompletionStatus}
           completionStatus={completedSurvey}
         />
