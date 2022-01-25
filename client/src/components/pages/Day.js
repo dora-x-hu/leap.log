@@ -83,6 +83,7 @@ const Day = (props) => {
             month={responseObj.month + 1}
             year={responseObj.year}
             userId={props.userId}
+            index={entries.indexOf(responseObj)}
             //questionIndex={promptsList.getI}
           />
         ))
@@ -191,7 +192,7 @@ const Day = (props) => {
           <div className="Day-paragraph">
             {" "}
             <button>
-              <Link to={`/ask/${props.userId}/${props.day}/${props.month}/${props.year}`}>
+              <Link to={`/ask/${props.userId}/${props.day}/${props.month}/${props.year}/0`}>
                 {/* <a href={`/ask/${props.userId}/${props.day}/${props.month}/${props.year}`} /> */}
                 start journaling!
               </Link>
