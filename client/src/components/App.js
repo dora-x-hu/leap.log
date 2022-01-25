@@ -8,6 +8,7 @@ import Week from "./pages/Week.js";
 import Month from "./pages/Month.js";
 import Ask from "./pages/Ask.js";
 import Profile from "./pages/Profile.js";
+import Survey from "./pages/Survey.js";
 
 import "../utilities.css";
 
@@ -34,10 +35,16 @@ const App = () => {
   const [currentMonth, setMonth] = useState(thisDate.getMonth());
   const [currentYear, setYear] = useState(thisDate.getFullYear());
 
+  const [completedSurvey, setCompletionStatus] = useState(false);
+
   const changeDate = (date, month, year) => {
     setDate(date);
     setMonth(month);
     setYear(year);
+  };
+
+  const completeSurvey = () => {
+    completedSurvey = true;
   };
 
   // categories as a state
@@ -93,6 +100,12 @@ const App = () => {
         />
         <Ask path="/ask/:userId/:day/:month/:year" userId={userId} />
         <Profile path="/profile/:userId" userId={userId} />
+        <Survey
+          path="/survey"
+          userid={userId}
+          setCompletionStatus={setCompletionStatus}
+          completionStatus={completedSurvey}
+        />
         <NotFound default />
         {/* {props.userId && (
             <Link to={`/day/${props.userId}`} className="nav-item nav-link item">
