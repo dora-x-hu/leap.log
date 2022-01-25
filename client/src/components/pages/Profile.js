@@ -59,14 +59,10 @@ const Profile = (props) => {
   useEffect(() => {
     // console.log("hello", props.userId);
     document.title = "Profile Page";
-<<<<<<< HEAD
     //submitCategory("emotions");
     //submitCategory("habits");
     //submitCategory("academic");
     //submitCategory("travelling");
-=======
-
->>>>>>> 3048840cd5ba0d90fd42211986fe29d633fbede5
     get("/api/prompts", { user_id: props.userId }).then((promptlistObj) => {
       // console.log("sup", promptlistObj);
       setPrompts(promptlistObj);
