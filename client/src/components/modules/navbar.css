@@ -17,7 +17,7 @@
   background-color: #1bb091;
   text-decoration: none;
   font-size: 40px;
-  padding: 3px 200px;
+  padding: 3px 150px;
   text-align: center;
   font-family: "Dongle", sans-serif;
 }
@@ -44,3 +44,11 @@
   border-top-right-radius: 100px;
   border-bottom-right-radius: 100px;
 }
+
+.nav-monthly {
+}
+
+/* <div className={props.userId? 
+  “classWhenLoggedIn” : 
+  “classWhenLoggedOut”}>
+  </div>  */
