@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "@reach/router";
-// import GoogleLogin, { GoogleLogout } from "react-google-login";
+import GoogleLogin, { GoogleLogout } from "react-google-login";
 import "../modules/HomeButton.css";
 import Login from "../modules/Login.js";
 
@@ -12,8 +12,8 @@ const HomeButton = ({ userId, handleLogin, handleLogout }) => {
       </button>
 
       <div className="login-button">
-          <Login userId={userId} handleLogin={handleLogin} handleLogout={handleLogout} />
-        </div>
+        <Login userId={userId} handleLogin={handleLogin} handleLogout={handleLogout} />
+      </div>
     </div>
   );
 };

@@ -78,7 +78,7 @@ const App = () => {
 
   return (
     <>
-      <HomeButton />
+      <HomeButton handleLogin={handleLogin} handleLogout={handleLogout} userId={userId} />
       <NavBar userId={userId} />
 
       <Router>
