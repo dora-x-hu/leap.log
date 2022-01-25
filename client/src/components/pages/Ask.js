@@ -26,11 +26,11 @@ const Ask = (props) => {
 
   const moveRight = () => {
     setPrompt(currentPromptIndex + 1);
-    // document.getElementById("askbox").value = "";
+    document.getElementById("askbox").value = "";
   };
   const moveLeft = () => {
     setPrompt(currentPromptIndex - 1);
-    // document.getElementById("askbox").value = "";
+    document.getElementById("askbox").value = "";
   };
 
   let questionList = [];
@@ -70,7 +70,7 @@ const Ask = (props) => {
             }
           }}
         >
-          Submit
+          submit
         </button>
       </section>
 
