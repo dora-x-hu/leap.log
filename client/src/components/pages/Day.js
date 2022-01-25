@@ -4,6 +4,7 @@ import SingleEntry from "../modules/SingleEntry.js";
 import "./Day.css";
 import { get } from "../../utilities";
 import { Link } from "@reach/router";
+import Image from "/Users/michellechan/Downloads/sad frog.png";
 
 const Day = (props) => {
   //console.log(props.year);
@@ -152,10 +153,9 @@ const Day = (props) => {
           <div className="Day-heading1">
             {" "}
             <div>not this date yet!</div>
-            <img
-              src="https://o.remove.bg/downloads/e434a53c-a298-4c44-8a3b-54335594037c/frog-removebg-preview.png"
-              width="300px"
-              height="300px"
+            <img src={Image}
+              // width="300px"
+              // height="300px"
             ></img>
           </div>
         </div>
