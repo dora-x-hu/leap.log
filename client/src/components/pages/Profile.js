@@ -30,10 +30,10 @@ const Profile = (props) => {
     });
   };
 
-  const submitPrompt = (thisPrompt) => {
+  const submitPrompt = (thisPrompt, category_id) => {
     console.log(thisPrompt);
     post("/api/prompt", {
-      category_id: "dummy category",
+      category_id: category_id,
       content: thisPrompt,
       user_id: props.userId,
       isSelected: true,
@@ -63,7 +63,8 @@ const Profile = (props) => {
       console.log("sup", promptlistObj);
       setPrompts(promptlistObj);
     });
-    get("/api/categories").then((categorylistObj) => {
+    get("/api/categories", { user_id: props.userId }).then((categorylistObj) => {
+      console.log(categorylistObj);
       setCategories(categories.concat(categorylistObj));
     });
   }, [props.userId]);
@@ -87,22 +88,35 @@ const Profile = (props) => {
 
   useEffect(() => {
     console.log(prompts);
+    setPromptsList([]);
     if (categories.length > 0) {
       console.log("hello categories", categories);
       for (let cat = 0; cat < categories.length; cat++) {
-        const specific_prompts = [];
+        let specific_prompts = [];
         const category_id = categories[cat].name;
         console.log(category_id);
         for (let p = 0; p < prompts.length; p++) {
           if (prompts[p].category_id === category_id) {
-            specific_prompts.concat(prompts[p]);
+            specific_prompts = specific_prompts.concat(prompts[p]);
           }
         }
         console.log(specific_prompts);
-        setPromptsList(
-          promptsList.concat(<SinglePrompt category_id={category_id} prompts={specific_prompts} />)
+        setPromptsList((promptsList) =>
+          promptsList.concat(
+            <div>
+              <SinglePrompt category_id={category_id} prompts={specific_prompts} />{" "}
+              <input type="text" Placeholder="new prompt..." id="newPrompt"></input>
+              <button
+                className="Prompt-button"
+                onClick={() => {
+                  submitPrompt(document.getElementById("newPrompt").value, category_id);
+                }}
+              >
+                submit
+              </button>
+            </div>
+          )
         );
-        console.log(promptsList);
       }
     }
   }, [prompts, categories]);
@@ -162,18 +176,18 @@ const Profile = (props) => {
             submitCategory(document.getElementById("newCategory").value);
           }}
         >
-          Submit
+          submit
         </button>
 
-        <input type="text" Placeholder="new prompt..." id="newPrompt"></input>
+        {/* <input type="text" Placeholder="new prompt..." id="newPrompt"></input>
         <button
           className="Prompt-button"
           onClick={() => {
             submitPrompt(document.getElementById("newPrompt").value);
           }}
         >
-          Submit
-        </button>
+          submit
+        </button> */}
       </div>
     </>
   );

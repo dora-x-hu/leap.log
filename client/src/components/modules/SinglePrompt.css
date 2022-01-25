@@ -3,7 +3,7 @@
   color: rgb(11, 11, 54);
   text-align: left;
   font-family: "Dongle", sans-serif;
-  font-size: 100px;
+  font-size: 50px;
   max-width: 80%;
   margin: auto;
 }
@@ -11,8 +11,27 @@
 .SinglePrompt-paragraph {
   color: black;
   font-family: "Dongle", sans-serif;
-  font-size: 50px;
+  font-size: 30px;
   text-align: left;
   max-width: 80%;
   margin: auto;
+}
+
+.SinglePrompt-button {
+  background-color: rgb(13, 13, 168);
+  border: 8px;
+  color: #fff7f7;
+  font-family: "Dongle", sans-serif;
+  padding: 8px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 40px;
+  margin: 4px 2px;
+  border-top-left-radius: 16px;
+  border-bottom-left-radius: 16px;
+  border-top-right-radius: 16px;
+  border-bottom-right-radius: 16px;
+  position: relative;
+  cursor: pointer;
 }
