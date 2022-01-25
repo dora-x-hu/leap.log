@@ -129,26 +129,6 @@ const Profile = (props) => {
             )
           );
         }
-<<<<<<< HEAD
-        // console.log(specific_prompts);
-        setPromptsList((promptsList) =>
-          promptsList.concat(
-            <div>
-              <SinglePrompt category_id={category_id} prompts={specific_prompts} />{" "}
-              <input type="text" placeholder="new prompt..." id="newPrompt"></input>
-              <button
-                className="Prompt-button"
-                onClick={() => {
-                  submitPrompt(document.getElementById("newPrompt").value, category_id);
-                }}
-              >
-                submit
-              </button>
-            </div>
-          )
-        );
-=======
->>>>>>> 3048840cd5ba0d90fd42211986fe29d633fbede5
       }
     }
   }, [prompts, categories]);
