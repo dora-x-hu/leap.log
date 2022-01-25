@@ -28,6 +28,7 @@ const Profile = (props) => {
         setCategories(categories.concat(result));
       }
     });
+    document.getElementById(thisCategory).value = "";
   };
 
   const submitPrompt = (thisPrompt, category_id) => {
