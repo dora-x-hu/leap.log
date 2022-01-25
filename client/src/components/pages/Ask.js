@@ -26,9 +26,11 @@ const Ask = (props) => {
 
   const moveRight = () => {
     setPrompt(currentPromptIndex + 1);
+    document.getElementById("askbox").value = "";
   };
   const moveLeft = () => {
     setPrompt(currentPromptIndex - 1);
+    document.getElementById("askbox").value = "";
   };
 
   let questionList = [];
@@ -56,7 +58,7 @@ const Ask = (props) => {
       </section>
 
       <section className="Ask-paragraph">
-        <input type="text" id="askbox"></input>
+        <input type="text" id="askbox" name="inputTextBox"></input>
         <button
           className="Ask-button"
           onClick={() => {
