@@ -23,7 +23,6 @@ const Week = (props) => {
   };
 
   const getMonthDetails = () => {
-    console.log(d);
     switch (d.getMonth()) {
       case 0:
         return {
@@ -119,11 +118,7 @@ const Week = (props) => {
             </li>
           </ul>
         </div>
-        {/* <div className="flex">
-          <button onClick={moveLeft}>Last Week {console.log(d)}</button>
 
-          <button onClick={moveRight}>Next Week{console.log(d)}</button>
-        </div> */}
         <div>
           {" "}
           <WeekGrid

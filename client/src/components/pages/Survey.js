@@ -1,8 +1,10 @@
 import React, { Component, useEffect, useState } from "react";
 import { Router } from "@reach/router";
 import { get, post } from "../../utilities";
+import { navigate } from "@reach/router";
 
 const Survey = (props) => {
+  const [completed, setCompleted] = useState(false);
   const submitSurvey = (daily, emotions, food, habits) => {
     // TODO
 
@@ -37,56 +39,74 @@ const Survey = (props) => {
     post("/api/survey", {
       userId: props.userId,
     });
+
+    //navigate("")
   };
 
-  if (!props.completedSurvey) {
-    return (
-      <>
-        <h1>What Topics Would You Like To Journal About?</h1>
+  useEffect(() => {
+    // let completed;
+    // get request
+    console.log("calling get");
 
-        <div>
-          <input type="checkbox" id="daily"></input>
-          The day's events
-        </div>
+    get("/api/user").then((thisuser) => {
+      setCompleted(thisuser.hasCompletedSurvey);
+      console.log(`has completed: ${thisuser.hasCompletedSurvey}`);
+    });
+    console.log("completed: " + completed);
+  }, [props.userId]);
 
-        <div>
-          <input type="checkbox" id="emotions"></input>
-          Emotions + Feelings
-        </div>
+  const renderSurvey = () => {
+    if (!completed) {
+      return (
+        <>
+          <h1>What Topics Would You Like To Journal About?</h1>
 
-        <div>
-          <input type="checkbox" id="food"></input>
-          Food
-        </div>
+          <div>
+            <input type="checkbox" id="daily"></input>
+            The day's events
+          </div>
 
-        <div>
-          <input type="checkbox" id="habits"></input>
-          Habits
-        </div>
+          <div>
+            <input type="checkbox" id="emotions"></input>
+            Emotions + Feelings
+          </div>
 
-        <div>
-          <button
-            onClick={() => {
-              submitSurvey(
-                document.getElementById("daily").checked,
-                document.getElementById("emotions").checked,
-                document.getElementById("food").checked,
-                document.getElementById("habits").checked
-              );
-            }}
-          >
-            Submit
-          </button>
-        </div>
-      </>
-    );
-  } else {
-    return (
-      <>
-        <h1>You already completed your preferences! Sorry!</h1>
-      </>
-    );
-  }
+          <div>
+            <input type="checkbox" id="food"></input>
+            Food
+          </div>
+
+          <div>
+            <input type="checkbox" id="habits"></input>
+            Habits
+          </div>
+
+          <div>
+            <button
+              onClick={() => {
+                submitSurvey(
+                  document.getElementById("daily").checked,
+                  document.getElementById("emotions").checked,
+                  document.getElementById("food").checked,
+                  document.getElementById("habits").checked
+                );
+              }}
+            >
+              Submit
+            </button>
+          </div>
+        </>
+      );
+    } else {
+      return (
+        <>
+          <h1>You already completed your preferences! Sorry!</h1>
+        </>
+      );
+    }
+  };
+
+  return <>{renderSurvey()}</>;
 };
 
 export default Survey;
