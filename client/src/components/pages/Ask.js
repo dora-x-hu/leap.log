@@ -5,10 +5,12 @@ import { get, post } from "../../utilities";
 import "./Ask.css";
 
 import { navigate } from "@reach/router";
+import { Link } from "@reach/router";
 
 const Ask = (props) => {
   useEffect(() => {}, []);
 
+  console.log("Hi");
   const [promptList, setPromptList] = useState([]);
   const [currentPromptIndex, setPrompt] = useState(props.index);
   //const [currentDate, setDate] =
@@ -71,52 +73,66 @@ const Ask = (props) => {
   //console.log(questionList[0] + "teehee");
   //}, [props.userId, promptList]);
 
-  return (
-    <>
-      <section className="Ask-paragraph">
-        <label>{String(questionList[currentPromptIndex])}</label>
-      </section>
-
-      <section className="Ask-paragraph">
-        <input type="text" id="askbox" value="inputTextBox"></input>
-        <button
-          className="Ask-button"
-          onClick={() => {
-            if (document.getElementById("askbox").value !== "") {
-              submitStuff(
-                questionList[currentPromptIndex],
-                document.getElementById("askbox").value
-              );
-            }
-          }}
-        >
-          submit
-        </button>
-      </section>
-
-      {currentPromptIndex > 0 ? (
+  if (questionList.length !== 0) {
+    return (
+      <>
         <section className="Ask-paragraph">
-          <button className="Ask-button" onClick={() => moveLeft()}>
-            Previous
+          <label>{String(questionList[currentPromptIndex])}</label>
+        </section>
+
+        {console.log(questionList.length)}
+        <section className="Ask-paragraph">
+          <input type="text" id="askbox"></input>
+          <button
+            className="Ask-button"
+            onClick={() => {
+              if (document.getElementById("askbox").value !== "") {
+                submitStuff(
+                  questionList[currentPromptIndex],
+                  document.getElementById("askbox").value
+                );
+              }
+            }}
+          >
+            submit
           </button>
         </section>
-      ) : (
-        // nothing
-        <section></section>
-      )}
 
-      {currentPromptIndex < promptList.length - 1 ? (
-        <section className="Ask-paragraph">
-          <button className="Ask-button" onClick={() => moveRight()}>
-            Next
+        {currentPromptIndex > 0 ? (
+          <section className="Ask-paragraph">
+            <button className="Ask-button" onClick={() => moveLeft()}>
+              Previous
+            </button>
+          </section>
+        ) : (
+          // nothing
+          <section></section>
+        )}
+
+        {currentPromptIndex < promptList.length - 1 ? (
+          <section className="Ask-paragraph">
+            <button className="Ask-button" onClick={() => moveRight()}>
+              Next
+            </button>
+          </section>
+        ) : (
+          // nothing
+          <section></section>
+        )}
+      </>
+    );
+  } else {
+    return (
+      <>
+        <div className="Ask-paragraph">
+          <p>no prompts yet! add prompts in profile</p>
+          <button className="Ask-button">
+            <Link to={`/profile/${props.userId}`}>profile</Link>
           </button>
-        </section>
-      ) : (
-        // nothing
-        <section></section>
-      )}
-    </>
-  );
+        </div>
+      </>
+    );
+  }
 
   if (currentPromptIndex === 0) {
     return (
