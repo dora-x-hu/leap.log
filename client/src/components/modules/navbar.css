@@ -27,8 +27,8 @@
 }
 
 .navbar-nav {
-  padding-top: 20px;
-  padding-bottom: 20px;
+  padding-top: 50px;
+  padding-bottom: 30px;
   margin: auto;
   text-align: center;
   display: flex;
@@ -43,9 +43,6 @@
 .nav-right {
   border-top-right-radius: 100px;
   border-bottom-right-radius: 100px;
-}
-
-.nav-monthly {
 }
 
 /* <div className={props.userId? 

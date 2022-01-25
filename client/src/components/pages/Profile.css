@@ -22,6 +22,8 @@
   margin-top: 0;
   margin-left: 40px;
   margin-right: 40px;
+  border-bottom-left-radius: 50px;
+  border-bottom-right-radius: 50px;
 }
 
 .categories-prompts {
@@ -39,7 +41,7 @@
   text-decoration: none;
   display: inline-block;
   font-size: 40px;
-  margin: 4px 2px;
+  margin: 4px 20px;
   border-top-left-radius: 16px;
   border-bottom-left-radius: 16px;
   border-top-right-radius: 16px;
@@ -49,4 +51,8 @@
 
 .Prompt-button:hover {
   opacity: 0.8;
+}
+
+.new-prompt {
+  width: 80%;
 }
