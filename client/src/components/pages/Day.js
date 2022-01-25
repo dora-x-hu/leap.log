@@ -6,14 +6,14 @@ import { get } from "../../utilities";
 import { Link } from "@reach/router";
 
 const Day = (props) => {
-  console.log(props.year);
-  console.log(props.month);
-  console.log(props.day);
+  //console.log(props.year);
+  //console.log(props.month);
+  //console.log(props.day);
 
   const [entries, setEntries] = useState([]);
   // const [d, setDate] = useState(new Date(props.year, props.month - 1, props.day));
   const [entriesList, setEntriesList] = useState(null);
-  const [promptsList, setPromptsList] = useState([]);
+  const [promptsList, setPromptsList] = useState(null);
   const newcurrent = new Date();
   const current = new Date(newcurrent.getFullYear(), newcurrent.getMonth(), newcurrent.getDate());
 
@@ -63,6 +63,8 @@ const Day = (props) => {
     });
   }, [props.userId]);
 
+  //console.log(promptsList[0].content + "is the first prompt");
+
   //let entriesList = ["here", "there", "everywhere"];
 
   // add useEffect() statement for this
@@ -81,6 +83,7 @@ const Day = (props) => {
             month={responseObj.month + 1}
             year={responseObj.year}
             userId={props.userId}
+            //questionIndex={promptsList.getI}
           />
         ))
       );

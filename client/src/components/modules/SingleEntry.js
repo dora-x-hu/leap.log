@@ -11,11 +11,7 @@ const SingleEntry = (props) => {
     <>
       <div className="SingleEntry-question">{props.question}</div>
 
-      <div className="SingleEntry-response">
-        <Link to={`/ask/${props.user_id}/${props.day}/${props.month}/${props.year}`}>
-          {props.content}
-        </Link>
-      </div>
+      <div className="SingleEntry-response">{props.content}</div>
     </>
   );
 };
