@@ -59,10 +59,10 @@ const Profile = (props) => {
   useEffect(() => {
     // console.log("hello", props.userId);
     document.title = "Profile Page";
-    submitCategory("emotions");
-    submitCategory("habits");
-    submitCategory("academic");
-    submitCategory("travelling");
+    //submitCategory("emotions");
+    //submitCategory("habits");
+    //submitCategory("academic");
+    //submitCategory("travelling");
     get("/api/prompts", { user_id: props.userId }).then((promptlistObj) => {
       // console.log("sup", promptlistObj);
       setPrompts(promptlistObj);
@@ -109,7 +109,7 @@ const Profile = (props) => {
           promptsList.concat(
             <div>
               <SinglePrompt category_id={category_id} prompts={specific_prompts} />{" "}
-              <input type="text" Placeholder="new prompt..." id="newPrompt"></input>
+              <input type="text" placeholder="new prompt..." id="newPrompt"></input>
               <button
                 className="Prompt-button"
                 onClick={() => {
@@ -173,7 +173,7 @@ const Profile = (props) => {
       </div>
 
       <div>
-        <input type="text" Placeholder="new category..." id="newCategory"></input>
+        <input type="text" placeholder="new category..." id="newCategory"></input>
         <button
           className="Prompt-button"
           onClick={() => {
