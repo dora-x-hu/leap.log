@@ -1,0 +1,10 @@
+.Survey-title {
+  color: black;
+  font-family: "Dongle", sans-serif;
+  font-size: 50px;
+  background-color: #ccf3ff;
+  margin: auto;
+  max-width: 80%;
+  border-top-left-radius: 50px;
+  border-top-right-radius: 50px;
+}

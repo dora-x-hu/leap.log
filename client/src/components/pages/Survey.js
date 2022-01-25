@@ -11,25 +11,25 @@ const Survey = (props) => {
     console.log(daily + " " + emotions + " " + food + " " + habits);
 
     post("/api/category", {
-      name: "DAILY",
+      name: "daily",
       user_id: props.userId,
       isSelected: daily,
     });
 
     post("/api/category", {
-      name: "epic feels",
+      name: "feels",
       user_id: props.userId,
       isSelected: emotions,
     });
 
     post("/api/category", {
-      name: "HABITS",
+      name: "habits",
       user_id: props.userId,
       isSelected: habits,
     });
 
     post("/api/category", {
-      name: "FOOD",
+      name: "food",
       user_id: props.userId,
       isSelected: food,
     });
@@ -59,30 +59,31 @@ const Survey = (props) => {
     if (!completed) {
       return (
         <>
-          <h1>What Topics Would You Like To Journal About?</h1>
+          <h1 className="Survey-title">what topics would you like to journal about?</h1>
 
-          <div>
+          <div className="SinglePrompt-heading1">
+            the day's events
             <input type="checkbox" id="daily"></input>
-            The day's events
           </div>
 
-          <div>
+          <div className="SinglePrompt-heading1">
+            emotions + feelings
             <input type="checkbox" id="emotions"></input>
-            Emotions + Feelings
           </div>
 
-          <div>
+          <div className="SinglePrompt-heading1">
+            food
             <input type="checkbox" id="food"></input>
-            Food
           </div>
 
-          <div>
+          <div className="SinglePrompt-heading1">
+            habits
             <input type="checkbox" id="habits"></input>
-            Habits
           </div>
 
           <div>
             <button
+              className="Prompt-button"
               onClick={() => {
                 submitSurvey(
                   document.getElementById("daily").checked,
@@ -92,7 +93,7 @@ const Survey = (props) => {
                 );
               }}
             >
-              Submit
+              submit
             </button>
           </div>
         </>
@@ -100,7 +101,7 @@ const Survey = (props) => {
     } else {
       return (
         <>
-          <h1>You already completed your preferences! Sorry!</h1>
+          <h1 className="Profile-heading1">You already completed your preferences! Sorry!</h1>
         </>
       );
     }
