@@ -16,6 +16,8 @@
   border-bottom-right-radius: 16px;
   position: relative;
   text-decoration: none;
+  margin-left: auto;
+  display: flex;
 }
 
 .Login-button:hover {
@@ -24,7 +26,8 @@
 
 .imgContainer {
   position: relative;
-  top: 7px;
+  top: 10px;
+  right: 3px;
 }
 
 /* .google-logo { */

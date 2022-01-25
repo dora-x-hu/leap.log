@@ -133,7 +133,7 @@ const Day = (props) => {
                   yesterday.getMonth() + 1
                 }/${yesterday.getFullYear()}`}
               >
-                previous day
+                prev day
               </Link>
             </button>
             <button className="Day-button">
@@ -150,7 +150,7 @@ const Day = (props) => {
             {" "}
             <div>not this date yet!</div>
             <img
-              src="https://image.spreadshirtmedia.com/image-server/v1/mp/products/T1459A839PA3861PT28D1039811028FS2105/views/1,width=378,height=378,appearanceId=839,backgroundColor=F2F2F2/kawaii-happy-green-frog-smiling-sticker.jpg"
+              src="https://o.remove.bg/downloads/e434a53c-a298-4c44-8a3b-54335594037c/frog-removebg-preview.png"
               width="300px"
               height="300px"
             ></img>
