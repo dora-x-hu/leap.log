@@ -126,7 +126,7 @@ const Ask = (props) => {
         {currentPromptIndex > 0 ? (
           <section className="Ask-paragraph">
             <button className="Ask-button" onClick={() => moveLeft()}>
-              Previous
+              previous
             </button>
           </section>
         ) : (
@@ -137,13 +137,21 @@ const Ask = (props) => {
         {currentPromptIndex < promptList.length - 1 ? (
           <section className="Ask-paragraph">
             <button className="Ask-button" onClick={() => moveRight()}>
-              Next
+              next
             </button>
           </section>
         ) : (
           // nothing
           <section></section>
         )}
+
+        <section className="Ask-paragraph">
+          <button className="Ask-button">
+            <Link to={`/day/${props.userId}/${props.day}/${props.month}/${props.year}`}>
+              back to daily
+            </Link>
+          </button>
+        </section>
       </>
     );
   } else {
