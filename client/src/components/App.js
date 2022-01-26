@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Router } from "@reach/router";
+import { navigate, Router } from "@reach/router";
 import NotFound from "./pages/NotFound.js";
 import Skeleton from "./pages/Skeleton.js";
 
@@ -68,6 +68,10 @@ const App = () => {
     post("/api/login", { token: userToken }).then((user) => {
       setUserId(user._id);
       post("/api/initsocket", { socketid: socket.id });
+
+      // if(!completedSurvey) {
+      //   navigate();
+      // }
     });
   };
 

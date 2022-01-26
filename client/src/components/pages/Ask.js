@@ -12,10 +12,14 @@ const Ask = (props) => {
 
   console.log("Hi");
   const [promptList, setPromptList] = useState([]);
-  const [currentPromptIndex, setPrompt] = useState(props.index);
+  const [currentPromptIndex, setPrompt] = useState(0);
   //const [currentDate, setDate] =
 
-  const [inputText, setInputText] = useState("Default text");
+  const [entriesList, setEntriesList] = useState([]);
+
+  //const [inputText, setInputText] = useState(entriesList[currentPromptIndex].content);
+  const [inputText, setInputText] = useState("default");
+
   const handleChange = (event) => {
     setInputText(event.target.value);
   };
@@ -33,11 +37,28 @@ const Ask = (props) => {
     });
   };
 
+  useEffect(() => {
+    //document.title = "Daily";
+    get("/api/responses", {
+      day: props.day,
+      month: props.month - 1,
+      year: props.year,
+      user_id: props.userId,
+    }).then((responsesObj) => {
+      setEntriesList(responsesObj);
+      setInputText(responsesObj[currentPromptIndex].content);
+    });
+    //print(entries);
+  }, [props.userId, props.day, currentPromptIndex]);
+
   const moveRight = () => {
     //setPrompt(currentPromptIndex + 1);
-    //console.log(currentPromptIndex);
-    let newIndex = currentPromptIndex + 1;
-    //console.log("newIndex: " + newIndex);
+    console.log(currentPromptIndex);
+    console.log(typeof currentPromptIndex);
+    let newIndex = parseInt(currentPromptIndex) + 1;
+    console.log("newIndex: " + newIndex);
+
+    setPrompt(newIndex);
     navigate(`/ask/${props.userId}/${props.day}/${props.month}/${props.year}/${newIndex}`);
     document.getElementById("askbox").value = "";
   };
@@ -45,13 +66,12 @@ const Ask = (props) => {
     //setPrompt(currentPromptIndex - 1);
     //console.log(currentPromptIndex);
     //console.log(currentPromptIndex.type);
-    let newIndex = parseInt(currentPromptIndex) - 1;
+    let newIndex = currentPromptIndex - 1;
     //console.log(parseInt(currentPromptIndex));
     //console.log(newIndex.type);
     //console.log(currentPromptIndex - 1);
-    navigate(
-      `/ask/${props.userId}/${props.day}/${props.month}/${props.year}/${currentPromptIndex - 1}`
-    );
+    setPrompt(currentPromptIndex - 1);
+    navigate(`/ask/${props.userId}/${props.day}/${props.month}/${props.year}/${newIndex}`);
 
     document.getElementById("askbox").value = "";
   };
