@@ -184,6 +184,7 @@ const Profile = (props) => {
         <h1 className="Profile-heading1">my profile</h1>
         <ul className="Profile-prompt">
           {promptsList}
+          <section className="SinglePrompt-heading1">add new category</section>{" "}
           <input type="text" placeholder="new category..." id="newCategory"></input>
           <button
             className="Prompt-button"
