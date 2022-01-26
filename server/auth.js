@@ -64,29 +64,26 @@ function getOrCreateUser(user) {
     });*/
 
     newUser.save().then((newUser) => {
-      const newPrompt = new Question({
-        category_id: "default",
-        content: "default prompt",
-        user_id: newUser._id,
-        isSelected: false,
-      });
-      newPrompt.save();
+      // const newPrompt = new Question({
+      //   category_id: "default",
+      //   content: "default prompt",
+      //   user_id: newUser._id,
+      //   isSelected: false,
+      // });
+      // newPrompt.save();
       //defaultPrompts(newUser);
-
       // const newCategory = new category({
       //   name: "emotions",
       //   user_id: newUser._id,
       //   isSelected: false,
       // });
       // newCategory.save();
-
       // const newCat = new category({
       //   name: "food",
       //   user_id: newUser._id,
       //   isSelected: false,
       // });
       // newCat.save();
-
       // const neCategory = new category({
       //   name: "sleep",
       //   user_id: newUser._id,
