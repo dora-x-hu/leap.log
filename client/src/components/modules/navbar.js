@@ -26,14 +26,19 @@ const NavBar = (props) => {
           <Link to="/week/" className="nav-item nav-link item">
             weekly
           </Link>
-          {props.userId && (
+          {/* {props.userId && (
             <Link to={`/profile/${props.userId}`} className="nav-item nav-link item">
               profile
             </Link>
-          )}
-          <Link to="/month/" className="nav-item nav-link item nav-right">
+          )} */}
+          <Link to="/month/" className={props.userId ? "monthLoggedIn" : "monthLoggedOut"}>
             monthly
           </Link>
+          {props.userId && (
+            <Link to={`/profile/${props.userId}`} className={props.userId ? "profileLoggedIn" : "profileLoggedOut"}>
+              profile
+            </Link>
+          )}
         </div>
       </div>
     </nav>
