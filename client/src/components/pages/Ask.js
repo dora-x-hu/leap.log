@@ -115,7 +115,9 @@ const Ask = (props) => {
                   document.getElementById("askbox").value
                 );
               }
-              moveRight();
+              if (currentPromptIndex < promptList.length - 1) {
+                moveRight();
+              }
             }}
           >
             submit
