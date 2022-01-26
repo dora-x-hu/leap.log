@@ -10,9 +10,7 @@ const HomeButton = ({ userId, handleLogin, handleLogout, completionStatus }) => 
     <div className="Container">
       <button className="Home-button">
         <Link to="/">
-        <img src={Image}
-        width="75%">
-        </img>
+          <img src={Image} width="50%"></img>
         </Link>
       </button>
 
