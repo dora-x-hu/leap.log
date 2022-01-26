@@ -20,7 +20,7 @@ const Profile = (props) => {
   const submitCategory = (thisCategory) => {
     // console.log(thisCategory);
     post("/api/category", {
-      name: thisCategory,
+      name: thisCategory.replace(/\s+/g, ""),
       user_id: props.userId,
       isSelected: true,
     }).then((result) => {
@@ -182,12 +182,37 @@ const Profile = (props) => {
     <>
       <div className="Profile-section">
         <h1 className="Profile-heading1">my profile</h1>
-        <ul className="Profile-prompt">{promptsList}</ul>
+        <ul className="Profile-prompt">
+          {promptsList}
+          <input type="text" placeholder="new category..." id="newCategory"></input>
+          <button
+            className="Prompt-button"
+            onClick={() => {
+              if (document.getElementById("newCategory").value.replace(/\s+/g, "") !== "") {
+                submitCategory(document.getElementById("newCategory").value);
+              }
+            }}
+          >
+            submit
+          </button>
+        </ul>
+
         {/* <ul className="categories-prompts">{categoriesList}</ul> */}
         {/* {console.log("hi", categoriesList)} */}
+        {/* <input type="text" placeholder="new category..." id="newCategory"></input>
+        <button
+          className="Prompt-button"
+          onClick={() => {
+            if (document.getElementById("newCategory").value.replace(/\s+/g, "") !== "") {
+              submitCategory(document.getElementById("newCategory").value);
+            }
+          }}
+        >
+          submit
+        </button> */}
       </div>
 
-      <div>
+      {/* <div>
         <input type="text" placeholder="new category..." id="newCategory"></input>
         <button
           className="Prompt-button"
@@ -198,9 +223,9 @@ const Profile = (props) => {
           }}
         >
           submit
-        </button>
+        </button> */}
 
-        {/* <input type="text" Placeholder="new prompt..." id="newPrompt"></input>
+      {/* <input type="text" Placeholder="new prompt..." id="newPrompt"></input>
         <button
           className="Prompt-button"
           onClick={() => {
@@ -209,7 +234,6 @@ const Profile = (props) => {
         >
           submit
         </button> */}
-      </div>
     </>
   );
 
