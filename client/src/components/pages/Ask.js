@@ -18,7 +18,7 @@ const Ask = (props) => {
   const [entriesList, setEntriesList] = useState([]);
 
   //const [inputText, setInputText] = useState(entriesList[currentPromptIndex].content);
-  const [inputText, setInputText] = useState("default");
+  const [inputText, setInputText] = useState("");
 
   const handleChange = (event) => {
     setInputText(event.target.value);
@@ -99,7 +99,13 @@ const Ask = (props) => {
 
         {/* {console.log(questionList.length)} */}
         <section className="Ask-paragraph">
-          <input type="text" id="askbox" onChange={handleChange} value={inputText}></input>
+          <input
+            type="text"
+            id="askbox"
+            placeholder="new journal entry here..."
+            onChange={handleChange}
+            value={inputText}
+          ></input>
           <button
             className="Ask-button"
             onClick={() => {
