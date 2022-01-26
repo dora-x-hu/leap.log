@@ -36,3 +36,21 @@
 .checkbox {
   margin-right: 20px;
 }
+
+.Profile-preferences {
+  color: rgb(71, 69, 69);
+  text-align: center;
+  font-family: "Dongle", sans-serif;
+  font-size: 100px;
+  padding: 50px 50px;
+  width: auto;
+  background: pink;
+  border-top-left-radius: 50px;
+  border-top-right-radius: 50px;
+  border-bottom-left-radius: 50px;
+  border-bottom-right-radius: 50px;
+  margin-top: 20px;
+  margin-bottom: 0;
+  margin-left: 40px;
+  margin-right: 40px;
+}
