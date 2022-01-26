@@ -11,7 +11,7 @@ const HomeButton = ({ userId, handleLogin, handleLogout, completionStatus }) => 
       <button className="Home-button">
         <Link to="/">
         <img src={Image}
-        width="75%">
+        width="50%">
         </img>
         </Link>
       </button>
