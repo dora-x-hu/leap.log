@@ -59,24 +59,24 @@ const Survey = (props) => {
     if (!completed) {
       return (
         <>
-          <h1 className="Survey-title">what topics would you like to journal about?</h1>
+          <h1 className="SinglePrompt-heading1">what topics would you like to journal about?</h1>
 
-          <div className="SinglePrompt-heading1">
+          <div className="SinglePrompt-paragraph">
             the day's events
             <input type="checkbox" id="daily"></input>
           </div>
 
-          <div className="SinglePrompt-heading1">
+          <div className="SinglePrompt-paragraph">
             emotions + feelings
             <input type="checkbox" id="emotions"></input>
           </div>
 
-          <div className="SinglePrompt-heading1">
+          <div className="SinglePrompt-paragraph">
             food
             <input type="checkbox" id="food"></input>
           </div>
 
-          <div className="SinglePrompt-heading1">
+          <div className="SinglePrompt-paragraph">
             habits
             <input type="checkbox" id="habits"></input>
           </div>

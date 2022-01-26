@@ -119,7 +119,7 @@ const Ask = (props) => {
         {currentPromptIndex > 0 ? (
           <section className="Ask-paragraph">
             <button className="Ask-button" onClick={() => moveLeft()}>
-              previous
+              prev question
             </button>
           </section>
         ) : (
@@ -130,7 +130,7 @@ const Ask = (props) => {
         {currentPromptIndex < promptList.length - 1 ? (
           <section className="Ask-paragraph">
             <button className="Ask-button" onClick={() => moveRight()}>
-              next
+              next question
             </button>
           </section>
         ) : (
