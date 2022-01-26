@@ -7,10 +7,6 @@ import { Link } from "@reach/router";
 import Image from "../modules/sad frog.png";
 
 const Day = (props) => {
-  //console.log(props.year);
-  //console.log(props.month);
-  //console.log(props.day);
-
   const [entries, setEntries] = useState([]);
   // const [d, setDate] = useState(new Date(props.year, props.month - 1, props.day));
   const [entriesList, setEntriesList] = useState(null);
@@ -64,13 +60,8 @@ const Day = (props) => {
     });
   }, [props.userId]);
 
-  //console.log(promptsList[0].content + "is the first prompt");
-
-  //let entriesList = ["here", "there", "everywhere"];
-
   // add useEffect() statement for this
   useEffect(() => {
-    // console.log(entries.length);
     const hasEntries = entries.length !== 0;
 
     if (hasEntries) {

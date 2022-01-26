@@ -88,7 +88,7 @@ const MonthGrid = (props) => {
     const firstDay = new Date(props.year, props.month, 1);
     const emptyDays = [];
     let weekday = firstDay.getDay();
-    console.log(weekday);
+
     for (let i = 0; i < weekday; i++) {
       emptyDays.push(<li></li>);
     }

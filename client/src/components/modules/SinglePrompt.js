@@ -3,13 +3,6 @@ import "./SinglePrompt.css";
 
 //props category and its prompts list
 const SinglePrompt = (props) => {
-  // const [content, setContent] = useState();
-  // const [prompts, setPrompts] = useState([]);
-
-  // for (let i = 0; i < props.prompts.length(); i++) {
-  //   setPrompts(prompts.concat(props.prompts[i]));
-  //   console.log(setPrompts);
-  // }
   const content = () => {
     const prompts = [];
     if (props.prompts.length === 0) {

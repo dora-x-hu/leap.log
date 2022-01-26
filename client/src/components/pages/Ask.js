@@ -10,7 +10,6 @@ import { Link } from "@reach/router";
 const Ask = (props) => {
   useEffect(() => {}, []);
 
-  console.log("Hi");
   const [promptList, setPromptList] = useState([]);
   const [currentPromptIndex, setPrompt] = useState(0);
   //const [currentDate, setDate] =
@@ -53,23 +52,16 @@ const Ask = (props) => {
 
   const moveRight = () => {
     //setPrompt(currentPromptIndex + 1);
-    console.log(currentPromptIndex);
-    console.log(typeof currentPromptIndex);
+
     let newIndex = parseInt(currentPromptIndex) + 1;
-    console.log("newIndex: " + newIndex);
 
     setPrompt(newIndex);
     navigate(`/ask/${props.userId}/${props.day}/${props.month}/${props.year}/${newIndex}`);
     document.getElementById("askbox").value = "";
   };
   const moveLeft = () => {
-    //setPrompt(currentPromptIndex - 1);
-    //console.log(currentPromptIndex);
-    //console.log(currentPromptIndex.type);
     let newIndex = currentPromptIndex - 1;
-    //console.log(parseInt(currentPromptIndex));
-    //console.log(newIndex.type);
-    //console.log(currentPromptIndex - 1);
+
     setPrompt(currentPromptIndex - 1);
     navigate(`/ask/${props.userId}/${props.day}/${props.month}/${props.year}/${newIndex}`);
 
@@ -83,7 +75,6 @@ const Ask = (props) => {
       user_id: props.userId,
     }).then((promptlistObj) => {
       setPromptList(promptlistObj);
-      //console.log(promptList[0].content);
     });
   }, [props.userId]);
 
@@ -95,8 +86,6 @@ const Ask = (props) => {
   questionList = promptList.map((promptObj) => {
     return promptObj.content;
   });
-  //console.log(questionList[0] + "teehee");
-  //}, [props.userId, promptList]);
 
   if (questionList.length !== 0) {
     return (
@@ -105,7 +94,6 @@ const Ask = (props) => {
           <label>{String(questionList[currentPromptIndex])}</label>
         </section>
 
-        {console.log(questionList.length)}
         <section className="Ask-paragraph">
           <input type="text" id="askbox" onChange={handleChange} value={inputText}></input>
           <button

@@ -61,11 +61,6 @@ const Profile = (props) => {
     // console.log("hello", props.userId);
     document.title = "Profile Page";
 
-    submitCategory("emotions");
-    submitCategory("habits");
-    submitCategory("academic");
-    submitCategory("traveling");
-
     get("/api/prompts", { user_id: props.userId }).then((promptlistObj) => {
       // console.log("sup", promptlistObj);
       setPrompts(promptlistObj);

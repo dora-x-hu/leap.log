@@ -57,7 +57,6 @@ const App = () => {
   useEffect(() => {
     get("/api/whoami").then((user) => {
       if (user._id) {
-        console.log(user._id);
         // they are registed in the database, and currently logged in.
         setUserId(user._id);
       }
@@ -65,7 +64,6 @@ const App = () => {
   }, []);
 
   const handleLogin = (res) => {
-    console.log(`Logged in as ${res.profileObj.name}`);
     const userToken = res.tokenObj.id_token;
     post("/api/login", { token: userToken }).then((user) => {
       setUserId(user._id);
@@ -73,6 +71,9 @@ const App = () => {
 
       if (!completedSurvey) {
         navigate("/survey");
+        //setCompletionStatus(true);
+      } else {
+        navigate("/");
       }
     });
   };
