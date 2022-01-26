@@ -73,7 +73,7 @@ const Month = (props) => {
   };
 
   const getMonthDetails = () => {
-    console.log(d);
+    // console.log(d);
     switch (d.getMonth()) {
       case 0:
         return {

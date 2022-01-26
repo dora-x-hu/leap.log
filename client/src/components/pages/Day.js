@@ -96,11 +96,11 @@ const Day = (props) => {
       //   }
 
       const getCat = (content) => {
-        console.log(" in getCat");
-        console.log("is 0??", promptsList.length);
-        for (let i = 0; i < promptsList.length; i++) {
-          console.log(promptsList[i]);
-        }
+        // console.log(" in getCat");
+        // console.log("is 0??", promptsList.length);
+        // for (let i = 0; i < promptsList.length; i++) {
+        //   console.log(promptsList[i]);
+        // }
         const prompt = promptsList.find((question) => question.content === content);
         if (prompt) {
           return prompt.category_id;
@@ -109,8 +109,8 @@ const Day = (props) => {
         }
       };
 
-      console.log("promptslist", promptsList);
-      console.log("entries", entries);
+      // console.log("promptslist", promptsList);
+      // console.log("entries", entries);
       setEntriesList(
         entries.map((responseObj) => (
           <SingleEntry

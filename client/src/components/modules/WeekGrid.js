@@ -22,7 +22,7 @@ const WeekGrid = (props) => {
       su = new Date(props.year, props.month, props.day - 1);
     } else if (day === 2) {
       su = new Date(props.year, props.month, props.day - 2);
-      console.log("here?");
+      // console.log("here?");
     } else if (day === 3) {
       su = new Date(props.year, props.month, props.day - 3);
     } else if (day === 4) {
@@ -122,7 +122,7 @@ const WeekGrid = (props) => {
 
     for (let i = 0; i < 7; i++) {
       let d = new Date(ans.date.getFullYear(), ans.date.getMonth(), ans.date.getDate() + i);
-      console.log(d.getFullYear() + "/" + d.getMonth() + "/" + d.getDate());
+      // console.log(d.getFullYear() + "/" + d.getMonth() + "/" + d.getDate());
       let maxDays = getMonthDetails(d).days;
       //console.log("max days: " + String(maxDays));
       //console.log(String(ans.date.getDate() + i) + "/");
