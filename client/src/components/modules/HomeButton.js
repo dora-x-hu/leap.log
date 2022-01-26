@@ -16,6 +16,12 @@ const HomeButton = ({ userId, handleLogin, handleLogout, completionStatus }) => 
         </button>
       </div>
 
+      <div>
+        <button className="Prof-button">
+          <Link to={`/profile/${userId}`}>profile</Link>
+        </button>
+      </div>
+
       <div className="login-button">
         <Login
           userId={userId}

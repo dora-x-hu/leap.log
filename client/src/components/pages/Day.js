@@ -14,7 +14,7 @@ const Day = (props) => {
   const [entries, setEntries] = useState([]);
   // const [d, setDate] = useState(new Date(props.year, props.month - 1, props.day));
   const [entriesList, setEntriesList] = useState(null);
-  const [promptsList, setPromptsList] = useState(null);
+  const [promptsList, setPromptsList] = useState([]);
   const newcurrent = new Date();
   const current = new Date(newcurrent.getFullYear(), newcurrent.getMonth(), newcurrent.getDate());
 
@@ -57,12 +57,28 @@ const Day = (props) => {
 
   //
   useEffect(() => {
+    // console.log("hi");
     get("/api/prompts", {
       user_id: props.userId,
-    }).then((promptlistObj) => {
-      setPromptsList(promptlistObj);
+    }).then((promptObj) => {
+      // console.log("promptObj", promptObj);
+
+      setPromptsList(promptObj);
+      // console.log("Right after get prompts", promptsList);
     });
   }, [props.userId]);
+
+  // console.log("Right after get prompts", promptsList);
+  // console.log(props.userId);
+
+  // useEffect(() => {
+  //   console.log("promptslist", promptsList);
+  //   const hasNoPrompts = promptsList.length === 0;
+  //   console.log("intiial length", hasNoPrompts);
+  //   if (hasNoPrompts) {
+  //     setPromptsList([]);
+  //   }
+  // }, [props.userId]);
 
   //console.log(promptsList[0].content + "is the first prompt");
 
@@ -74,6 +90,21 @@ const Day = (props) => {
     const hasEntries = entries.length !== 0;
 
     if (hasEntries) {
+      // (result) => {
+      //   if (!categories.map((c) => c.name).includes(result.name)) {
+      //     setCategories(categories.concat(result));
+      //   }
+
+      // const getCat = (content) => {
+      //   console.log(" in getCat");
+      //   console.log("is 0??", promptsList.length);
+      //   for (let i = 0; i < promptsList.length; i++) {
+      //     console.log(promptsList[i]);
+      //   }
+      //   const prompt = promptsList.find((question) => question.content === content);
+      //   return prompt.category_id;
+      // };
+
       setEntriesList(
         entries.map((responseObj) => (
           <SingleEntry
@@ -85,6 +116,7 @@ const Day = (props) => {
             year={responseObj.year}
             userId={props.userId}
             index={entries.indexOf(responseObj)}
+            // category_id={getCat(responseObj.content)}
             //questionIndex={promptsList.getI}
           />
         ))
@@ -154,7 +186,8 @@ const Day = (props) => {
           <div className="Day-heading1">
             {" "}
             <div>not this date yet!</div>
-            <img src={Image}
+            <img
+              src={Image}
               // width="300px"
               // height="300px"
             ></img>
