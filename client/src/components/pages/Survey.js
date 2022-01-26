@@ -103,7 +103,7 @@ const Survey = (props) => {
     } else {
       return (
         <>
-          <h1 className="Profile-heading1">You already completed your preferences! Sorry!</h1>
+          <h1 className="Profile-preferences">You already completed your preferences! Sorry!</h1>
         </>
       );
     }
