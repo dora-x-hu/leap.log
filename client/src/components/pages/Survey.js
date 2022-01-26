@@ -3,6 +3,8 @@ import { Router } from "@reach/router";
 import { get, post } from "../../utilities";
 import { navigate } from "@reach/router";
 
+import "./Survey.css";
+
 const Survey = (props) => {
   const [completed, setCompleted] = useState(false);
   const submitSurvey = (daily, emotions, food, habits) => {
@@ -62,28 +64,28 @@ const Survey = (props) => {
           <h1 className="SinglePrompt-heading1">what topics would you like to journal about?</h1>
 
           <div className="SinglePrompt-paragraph">
+            <input type="checkbox" id="daily" className="checkbox"></input>
             the day's events
-            <input type="checkbox" id="daily"></input>
           </div>
 
           <div className="SinglePrompt-paragraph">
+            <input type="checkbox" id="daily" className="checkbox"></input>
             emotions + feelings
-            <input type="checkbox" id="emotions"></input>
           </div>
 
           <div className="SinglePrompt-paragraph">
+            <input type="checkbox" id="daily" className="checkbox"></input>
             food
-            <input type="checkbox" id="food"></input>
           </div>
 
           <div className="SinglePrompt-paragraph">
+            <input type="checkbox" id="daily" className="checkbox"></input>
             habits
-            <input type="checkbox" id="habits"></input>
           </div>
 
-          <div>
+          <div className="SinglePrompt-paragraph">
             <button
-              className="Prompt-button"
+              className="Survey-button"
               onClick={() => {
                 submitSurvey(
                   document.getElementById("daily").checked,
