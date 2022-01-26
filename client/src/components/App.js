@@ -69,20 +69,11 @@ const App = () => {
       setUserId(user._id);
       post("/api/initsocket", { socketid: socket.id });
 
-<<<<<<< HEAD
-      if (!completedSurvey) {
-        navigate("/survey");
-        //setCompletionStatus(true);
-      } else {
-        navigate("/");
-      }
-=======
       get("/api/user").then((user) => {
         if (!user.hasCompletedSurvey) {
           navigate("/survey");
         }
       });
->>>>>>> 57a755a6646ce48efa7fdc60d03edf9bb95e16cd
     });
   };
 
