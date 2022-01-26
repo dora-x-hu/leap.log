@@ -20,7 +20,7 @@ const Profile = (props) => {
   const submitCategory = (thisCategory) => {
     // console.log(thisCategory);
     post("/api/category", {
-      name: thisCategory,
+      name: thisCategory.replace(/\s+/g, ""),
       user_id: props.userId,
       isSelected: true,
     }).then((result) => {
