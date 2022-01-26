@@ -1,6 +1,6 @@
 /* fill me in */
 .SinglePrompt-heading1 {
-  color: rgb(11, 11, 54);
+  color: rgb(71, 69, 69);
   text-align: left;
   font-family: "Dongle", sans-serif;
   font-size: 50px;
@@ -9,7 +9,7 @@
 }
 
 .SinglePrompt-paragraph {
-  color: black;
+  color: rgb(71, 69, 69);
   font-family: "Dongle", sans-serif;
   font-size: 30px;
   text-align: left;
