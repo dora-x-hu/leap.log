@@ -35,7 +35,10 @@ const NavBar = (props) => {
             monthly
           </Link>
           {props.userId && (
-            <Link to={`/profile/${props.userId}`} className={props.userId ? "profileLoggedIn" : "profileLoggedOut"}>
+            <Link
+              to={`/profile/${props.userId}`}
+              className={props.userId ? "profileLoggedIn" : "profileLoggedOut"}
+            >
               profile
             </Link>
           )}

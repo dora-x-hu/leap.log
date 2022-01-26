@@ -10,6 +10,7 @@ import { Link } from "@reach/router";
 const Ask = (props) => {
   useEffect(() => {}, []);
 
+  // console.log("Hi");
   const [promptList, setPromptList] = useState([]);
   const [currentPromptIndex, setPrompt] = useState(0);
   //const [currentDate, setDate] =
@@ -52,8 +53,10 @@ const Ask = (props) => {
 
   const moveRight = () => {
     //setPrompt(currentPromptIndex + 1);
-
+    // console.log(currentPromptIndex);
+    // console.log(typeof currentPromptIndex);
     let newIndex = parseInt(currentPromptIndex) + 1;
+    // console.log("newIndex: " + newIndex);
 
     setPrompt(newIndex);
     navigate(`/ask/${props.userId}/${props.day}/${props.month}/${props.year}/${newIndex}`);
@@ -94,6 +97,7 @@ const Ask = (props) => {
           <label>{String(questionList[currentPromptIndex])}</label>
         </section>
 
+        {/* {console.log(questionList.length)} */}
         <section className="Ask-paragraph">
           <input type="text" id="askbox" onChange={handleChange} value={inputText}></input>
           <button

@@ -18,7 +18,7 @@ const Profile = (props) => {
   //const [user, setUser] = useState();
 
   const submitCategory = (thisCategory) => {
-    console.log(thisCategory);
+    // console.log(thisCategory);
     post("/api/category", {
       name: thisCategory,
       user_id: props.userId,
@@ -32,7 +32,7 @@ const Profile = (props) => {
   };
 
   const submitPrompt = (thisPrompt, category_id) => {
-    console.log(thisPrompt);
+    // console.log(thisPrompt);
     post("/api/prompt", {
       category_id: category_id,
       content: thisPrompt,
@@ -121,7 +121,7 @@ const Profile = (props) => {
                   // id={category_id}
                   className="Prompt-button"
                   onClick={() => {
-                    console.log(document.getElementById(category_id).value);
+                    // console.log(document.getElementById(category_id).value);
                     if (document.getElementById(category_id).value.replace(/\s+/g, "") !== "") {
                       submitPrompt(document.getElementById(category_id).value, category_id);
                     }

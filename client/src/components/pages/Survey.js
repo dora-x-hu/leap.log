@@ -8,7 +8,7 @@ const Survey = (props) => {
   const submitSurvey = (daily, emotions, food, habits) => {
     // TODO
 
-    console.log(daily + " " + emotions + " " + food + " " + habits);
+    // console.log(daily + " " + emotions + " " + food + " " + habits);
 
     post("/api/category", {
       name: "daily",
@@ -46,13 +46,13 @@ const Survey = (props) => {
   useEffect(() => {
     // let completed;
     // get request
-    console.log("calling get");
+    // console.log("calling get");
 
     get("/api/user").then((thisuser) => {
       setCompleted(thisuser.hasCompletedSurvey);
-      console.log(`has completed: ${thisuser.hasCompletedSurvey}`);
+      // console.log(`has completed: ${thisuser.hasCompletedSurvey}`);
     });
-    console.log("completed: " + completed);
+    // console.log("completed: " + completed);
   }, [props.userId]);
 
   const renderSurvey = () => {

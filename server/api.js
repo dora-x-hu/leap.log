@@ -44,8 +44,8 @@ router.post("/initsocket", (req, res) => {
 });
 
 router.get("/user", (req, res) => {
-  console.log(req.query);
-  console.log(`user: ${JSON.stringify(req.user)}`);
+  // console.log(req.query);
+  // console.log(`user: ${JSON.stringify(req.user)}`);
   if (req.user) {
     User.findById(req.user._id).then((user) => {
       res.send(user);
@@ -66,8 +66,8 @@ router.get("/responses", auth.ensureLoggedIn, (req, res) => {
     year: req.query.year,
     user_id: req.query.user_id,
   }).then((responses) => {
-    console.log(req.query);
-    console.log(responses);
+    // console.log(req.query);
+    // console.log(responses);
     res.send(responses);
   });
 });
@@ -90,9 +90,9 @@ router.get("/response", auth.ensureLoggedIn, (req, res) => {
 //returns all questions
 //returns array of questions
 router.get("/prompts", (req, res) => {
-  console.log(req.query.user_id);
+  // console.log(req.query.user_id);
   Question.find({ user_id: req.query.user_id }).then((questions) => {
-    console.log(questions);
+    // console.log(questions);
     res.send(questions);
   });
 });
@@ -141,7 +141,7 @@ router.post("/response", auth.ensureLoggedIn, (req, res) => {
 
 //creates a new category and returns it
 router.post("/category", auth.ensureLoggedIn, (req, res) => {
-  console.log(req.body);
+  // console.log(req.body);
   const newCategory = new Category({
     name: req.body.name,
     user_id: req.body.user_id,
