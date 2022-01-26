@@ -18,6 +18,8 @@ import { get, post } from "../utilities";
 import NavBar from "./modules/navbar.js";
 import HomeButton from "./modules/HomeButton.js";
 
+//import { navigate } from "@reach/router";
+
 /**
  * Define the "App" component
  */
@@ -69,9 +71,9 @@ const App = () => {
       setUserId(user._id);
       post("/api/initsocket", { socketid: socket.id });
 
-      // if(!completedSurvey) {
-      //   navigate();
-      // }
+      if (!completedSurvey) {
+        navigate("/survey");
+      }
     });
   };
 
