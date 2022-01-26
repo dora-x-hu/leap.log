@@ -5,10 +5,9 @@ import "../modules/HomeButton.css";
 import Login from "../modules/Login.js";
 import Image from "../modules/leaplog logo.png";
 
-const HomeButton = ({ userId, handleLogin, handleLogout }) => {
+const HomeButton = ({ userId, handleLogin, handleLogout, completionStatus }) => {
   return (
     <div className="Container">
-      <div className="home">
       <button className="Home-button">
         <Link to="/">
         <img src={Image}
@@ -16,10 +15,14 @@ const HomeButton = ({ userId, handleLogin, handleLogout }) => {
         </img>
         </Link>
       </button>
-      </div>
 
       <div className="login-button">
-        <Login userId={userId} handleLogin={handleLogin} handleLogout={handleLogout} />
+        <Login
+          userId={userId}
+          handleLogin={handleLogin}
+          handleLogout={handleLogout}
+          completionStatus={completionStatus}
+        />
       </div>
     </div>
   );
