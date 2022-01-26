@@ -10,7 +10,7 @@ const Survey = (props) => {
   const submitSurvey = (daily, emotions, food, habits) => {
     // TODO
 
-    // console.log(daily + " " + emotions + " " + food + " " + habits);
+    console.log(daily + " " + emotions + " " + food + " " + habits);
 
     post("/api/category", {
       name: "daily",
@@ -62,25 +62,24 @@ const Survey = (props) => {
       return (
         <>
           <h1 className="SinglePrompt-heading1">what topics would you like to journal about?</h1>
-
           <div className="SinglePrompt-paragraph">
-            <input type="checkbox" id="daily" className="checkbox"></input>
-            the day's events
+            <input type="checkbox" id="daily"></input>
+            {} the day's events{}
           </div>
 
           <div className="SinglePrompt-paragraph">
-            <input type="checkbox" id="daily" className="checkbox"></input>
-            emotions + feelings
+            <input type="checkbox" id="emotions"></input>
+            {} emotions + feelings{}
           </div>
 
           <div className="SinglePrompt-paragraph">
-            <input type="checkbox" id="daily" className="checkbox"></input>
-            food
+            <input type="checkbox" id="food"></input>
+            {} food{}
           </div>
 
           <div className="SinglePrompt-paragraph">
-            <input type="checkbox" id="daily" className="checkbox"></input>
-            habits
+            <input type="checkbox" id="habits"></input>
+            {} habits{}
           </div>
 
           <div className="SinglePrompt-paragraph">
