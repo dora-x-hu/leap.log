@@ -137,9 +137,54 @@ const Day = (props) => {
     }
   }, [entries]);
 
+  /////////////////////////////
   // useEffect(() => {
-  //   console.log(entriesList);
-  // }, [entriesList]);
+  //   // console.log(prompts);
+  //   setPromptsList([]);
+  //   if (categories.length > 0) {
+  //     // console.log("hello categories", categories);
+  //     for (let cat = 0; cat < categories.length; cat++) {
+  //       if (categories[cat].isSelected) {
+  //         let specific_prompts = [];
+
+  //         const category_id = categories[cat].name;
+  //         // console.log(category_id);
+  //         // console.log(categories[cat].user_id);
+  //         for (let p = 0; p < prompts.length; p++) {
+  //           if (prompts[p].category_id === category_id) {
+  //             specific_prompts = specific_prompts.concat(prompts[p]);
+  //             // console.log(category_id, prompts[p].content);
+  //           }
+  //         }
+  //         // console.log(specific_prompts);
+  //         setPromptsList((promptsList) =>
+  //           promptsList.concat(
+  //             <div>
+  //               <SinglePrompt category_id={category_id} prompts={specific_prompts} />{" "}
+  //               <input type="text" placeholder="new prompt..." id={category_id}></input>
+  //               <button
+  //                 // id={category_id}
+  //                 className="Prompt-button"
+  //                 onClick={() => {
+  //                   console.log(document.getElementById(category_id).value);
+  //                   if (document.getElementById(category_id).value.replace(/\s+/g, "") !== "") {
+  //                     submitPrompt(document.getElementById(category_id).value, category_id);
+  //                   }
+  //                   {
+  //                     // console.log(category_id);
+  //                   }
+  //                 }}
+  //               >
+  //                 submit
+  //               </button>
+  //             </div>
+  //           )
+  //         );
+  //       }
+  //     }
+  //   }
+  // }, [prompts, categories]);
+  /////////////////////////////
 
   if (props.userId === "undefined") {
     return (

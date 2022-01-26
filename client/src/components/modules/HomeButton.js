@@ -8,13 +8,13 @@ import Image from "../modules/leaplog logo.png";
 const HomeButton = ({ userId, handleLogin, handleLogout, completionStatus }) => {
   return (
     <div className="Container">
-      <div className="home">
-        <button className="Home-button">
-          <Link to="/">
-            <img src={Image} width="60%"></img>
-          </Link>
-        </button>
-      </div>
+      <button className="Home-button">
+        <Link to="/">
+        <img src={Image}
+        width="75%">
+        </img>
+        </Link>
+      </button>
 
       <div>
         <button className="Prof-button">

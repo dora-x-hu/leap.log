@@ -52,9 +52,10 @@
 .Container {
   display: flex;
   flex-direction: row;
-  justify-content: flex-start;
+  justify-content: center;
   max-width: 90%;
   margin: auto;
+  align-content: center;
 }
 
 .login-button {

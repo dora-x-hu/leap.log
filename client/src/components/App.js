@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Router } from "@reach/router";
+import { navigate, Router } from "@reach/router";
 import NotFound from "./pages/NotFound.js";
 import Skeleton from "./pages/Skeleton.js";
 
@@ -17,6 +17,8 @@ import { socket } from "../client-socket.js";
 import { get, post } from "../utilities";
 import NavBar from "./modules/navbar.js";
 import HomeButton from "./modules/HomeButton.js";
+
+//import { navigate } from "@reach/router";
 
 /**
  * Define the "App" component
@@ -68,6 +70,10 @@ const App = () => {
     post("/api/login", { token: userToken }).then((user) => {
       setUserId(user._id);
       post("/api/initsocket", { socketid: socket.id });
+
+      if (!completedSurvey) {
+        navigate("/survey");
+      }
     });
   };
 
