@@ -95,16 +95,18 @@ const Day = (props) => {
       //     setCategories(categories.concat(result));
       //   }
 
-      // const getCat = (content) => {
-      //   console.log(" in getCat");
-      //   console.log("is 0??", promptsList.length);
-      //   for (let i = 0; i < promptsList.length; i++) {
-      //     console.log(promptsList[i]);
-      //   }
-      //   const prompt = promptsList.find((question) => question.content === content);
-      //   return prompt.category_id;
-      // };
+      const getCat = (content) => {
+        console.log(" in getCat");
+        console.log("is 0??", promptsList.length);
+        for (let i = 0; i < promptsList.length; i++) {
+          console.log(promptsList[i]);
+        }
+        const prompt = promptsList.find((question) => question.content === content);
+        return prompt.category_id;
+      };
 
+      console.log("promptslist", promptsList);
+      console.log("entries", entries);
       setEntriesList(
         entries.map((responseObj) => (
           <SingleEntry
@@ -116,7 +118,7 @@ const Day = (props) => {
             year={responseObj.year}
             userId={props.userId}
             index={entries.indexOf(responseObj)}
-            // category_id={getCat(responseObj.content)}
+            // category_id={getCat(responseObj.question)}
             //questionIndex={promptsList.getI}
           />
         ))
