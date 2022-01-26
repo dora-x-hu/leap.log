@@ -117,6 +117,7 @@ const Ask = (props) => {
                   document.getElementById("askbox").value
                 );
               }
+              moveRight();
             }}
           >
             submit
