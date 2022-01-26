@@ -4,12 +4,16 @@
   padding: 8px;
   text-align: center;
   text-decoration: none !important;
-  margin: 0px;
+  margin: auto;
   align-items: center;
   object-fit: contain;
-  max-width: 100%;
+  /* max-width: 100%; */
   display: flex;
   justify-content: center;
+  /* margin-left: 50vw; */
+  position: relative;
+  /* top: 50%; */
+  /* left: 0vw; */
 }
 
 .Home-button:hover {
@@ -50,16 +54,22 @@
 }
 
 .Container {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
+  /* display: flex; */
+  /* flex-direction: row;
+  justify-content: center; 
   max-width: 90%;
-  margin: auto;
-  align-content: center;
+  /* margin: auto; */
+  /* align-content: center; */
+  position: relative;
+  height: 5%;
+  top: 5%;
 }
 
 .login-button {
-  margin: 30px;
+  /* margin: 30px; */
+  position: absolute;
+  top: 8%;
+  right: 5%;
 }
 
 img {
