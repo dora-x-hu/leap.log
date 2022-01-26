@@ -15,6 +15,11 @@ const Ask = (props) => {
   const [currentPromptIndex, setPrompt] = useState(props.index);
   //const [currentDate, setDate] =
 
+  const [inputText, setInputText] = useState("Default text");
+  const handleChange = (event) => {
+    setInputText(event.target.value);
+  };
+
   const submitStuff = (thisQuestion, thisResponse) => {
     let d = new Date(); //this works with mongo
 
@@ -82,7 +87,7 @@ const Ask = (props) => {
 
         {console.log(questionList.length)}
         <section className="Ask-paragraph">
-          <input type="text" id="askbox"></input>
+          <input type="text" id="askbox" onChange={handleChange} value={inputText}></input>
           <button
             className="Ask-button"
             onClick={() => {
