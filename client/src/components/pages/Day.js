@@ -102,7 +102,11 @@ const Day = (props) => {
           console.log(promptsList[i]);
         }
         const prompt = promptsList.find((question) => question.content === content);
-        return prompt.category_id;
+        if (prompt) {
+          return prompt.category_id;
+        } else {
+          return "";
+        }
       };
 
       console.log("promptslist", promptsList);
@@ -118,7 +122,7 @@ const Day = (props) => {
             year={responseObj.year}
             userId={props.userId}
             index={entries.indexOf(responseObj)}
-            // category_id={getCat(responseObj.question)}
+            category_id={getCat(responseObj.question)}
             //questionIndex={promptsList.getI}
           />
         ))
