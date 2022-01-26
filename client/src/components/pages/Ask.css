@@ -41,4 +41,10 @@ input[type="text"] {
   padding: 12px 20px;
   margin: auto;
   box-sizing: border-box;
+  border-top-left-radius: 16px;
+  border-bottom-left-radius: 16px;
+  border-top-right-radius: 16px;
+  border-bottom-right-radius: 16px;
+  border-color: rgb(11, 11, 54);
+  outline: none;
 }
